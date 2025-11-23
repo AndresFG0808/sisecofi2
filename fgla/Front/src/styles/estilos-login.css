@@ -1,0 +1,114 @@
+/* Centrado del loader spinner en el login */
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 120px;
+  width: 100%;
+}
+.loader-fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255,255,255,0.7); /* Opcional: fondo semitransparente */
+  z-index: 9999;
+}
+.login-style .input-group-prepend span,
+.login-style .form-control,
+.login-style .input-group-text {
+    border: 0px;
+}
+
+.login-style .input-group {
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.login-style .input-group:focus-within {
+    border-color: transparent;
+}
+
+.inputGroup-login span {
+    background-color: transparent !important;
+}
+
+.login-style .input-icon {
+    padding: 0rem 0.75rem !important;
+    border-right: 0px !important;
+}
+
+.input-user {
+    box-shadow: none !important;
+    font-size: 14px;
+}
+
+.input-password {
+    box-shadow: none !important;
+    font-size: 14px;
+}
+
+.fa-eye-slash,
+.fa-eye {
+    cursor: pointer;
+}
+
+.inputGroup-login:focus-within {
+    box-shadow: 0px 0px 0px 0.25rem rgb(176 196 222 / 25%);
+    border-radius: 0.25rem;
+
+    /* border: 0px !important; */
+}
+
+.inputGroup-login:focus-within.is-invalid {
+    box-shadow: 0px 0px 0px 0.25rem rgba(229, 159, 159, 0.498)
+}
+
+.login-style .input-group.is-invalid {
+    border-color: #dc3545;
+}
+
+.btn-login {
+    width: 100%;
+}
+
+.login-container {
+    height: calc(100vh - 115px);
+}
+
+.login-container .card {
+    width: 100% !important;
+    border: 0PX;
+    height: 100%;
+    max-height: 600px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.login-card {
+    background-color: #FFF !important;
+}
+
+@media (max-width: 991px) {
+    .login-container .card {
+        height: unset;
+        max-height: unset;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .login-container {
+        height: calc(100vh - 169px);
+    }
+
+    .login-container .card {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+}

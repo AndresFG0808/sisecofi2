@@ -1,0 +1,80 @@
+.myMenuTop,
+.myMenuTop .dropdown-menu,
+.myMenuTop .dropdown-item,
+.myMenuTop .dropdown-toggle {
+    background: #BC955C !important;
+    color: #FFF;
+}
+
+.myMenuTop a,
+.myMenuTop a:hover,
+.navbar .nav-item .nav-link,
+.navbar .nav-item .nav-link:hover,
+.navbar .dropdown-menu a {
+    color: #000 !important;
+    font-weight: 500;
+    font-size: 14px !important;
+    padding: 10px 10px !important;
+}
+
+.myMenuTop .nav-item .dropdown-item:hover {
+    background-color: #691C32 !important;
+    color: #FFF !important;
+}
+
+.myMenuTop .nav-item .dropdown-item.active {
+    background-color: #691C32 !important;
+    color: #FFF !important;
+    cursor: default;
+}
+
+.navbar .dropdown-menu a:hover {
+    background: #691C32 !important;
+    color: #FFF !important;
+}
+
+.navbar .dropdown-menu a {
+    padding: 3px 10px;
+    font-size: 14px;
+}
+
+.navbar .nav-item .nav-link,
+.navbar .nav-item .nav-link:hover,
+.navbar .dropdown-menu a {
+    color: #FFF;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    padding: 10px;
+    margin-bottom: 0px !important;
+}
+
+.navbar .dropdown-menu a:hover {
+    background: #691C32;
+    color: #000;
+}
+
+.navbar .dropdown-menu a {
+    padding: 3px 10px;
+    font-size: 14px;
+}
+
+.navbar-toggler-icon {
+    background-image: url(../img/menu-icon.svg);
+    cursor: pointer;
+}
+
+#navbarScrollingDropdown, .myMenuTop .nav-link {
+    color: ivory !important;
+}
+
+.menu-button {
+    font-size: 1.8em;
+    cursor: pointer;
+    padding: 7px;
+    border-radius: 0.25rem;
+}
+
+.menu-button:hover {
+    background: rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,14 @@
+.feedback {
+  background-color : rgb(255, 255, 255);
+  color: rgb(10, 10, 10);
+  padding: 12px 40px;
+  border-radius: 2px;
+  border-color: white;
+  text-align: justify;
+}
+
+#mybutton {
+  position: static;
+  bottom: 50px;
+  right: 50px;
+}

@@ -1,0 +1,229 @@
+table {
+  border-collapse: collapse;
+  border-spacing: 0px;
+  border: none;
+}
+
+table th {
+  color: #fff;
+}
+
+.cell-total {
+  background-color: #6986ac !important;
+  color: #fff;
+  border-top: 3px solid #6986ac !important;
+}
+
+.cell-total-gral-text {
+  border-top: 4px solid #ced4da !important;
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  text-align: left !important;
+}
+
+.cell-total-gral {
+  border-top: 4px solid #ced4da !important;
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+table tbody tr td,
+table tbody tr th,
+table tfoot tr th {
+  padding-top: 0.6rem !important;
+  padding-bottom: 0.6rem !important;
+}
+
+.cell-table-total {
+  border-top: 4px solid #6986ac !important;
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+/* table thead tr th {
+  vertical-align: top;
+} */
+
+table tbody tr td,
+table thead tr th,
+table tbody tr th {
+  border: 0px !important;
+}
+
+table thead tr .column-group {
+  background-color: #fff;
+  padding-top: 0.2rem !important;
+  padding-bottom: 0.2rem !important;
+}
+
+table tfoot tr td {
+  border-top: 4px solid #ced4da !important;
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+.card-table {
+  border: 0px;
+}
+
+.card-table .bg-primary {
+  background-color: DarkGray !important;
+}
+
+.card-table .table-header {
+  background: #727372;
+  color: #fff;
+  font-weight: bolder;
+  border-bottom: 0px;
+}
+
+.servicios-table thead tr th {
+  vertical-align: bottom;
+  min-width: 180px !important;
+}
+
+@media (max-width: 576px) {
+
+  .table-data-colaborador th,
+  .table-data-colaborador td {
+    display: block;
+  }
+
+  .table-data-colaborador th {
+    padding-bottom: 0px !important;
+  }
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {}
+
+/* reportes */
+
+.cell-group-0 {
+  background-color: #fff !important;
+  pointer-events: none;
+}
+
+.cell-group-1 {
+  background-color: #fff !important;
+  pointer-events: none;
+}
+
+.boder-bottom,
+.boder-bottom td {
+  border-bottom: 4px solid #ced4da !important;
+}
+
+table tbody tr:hover td.cell-group-1 {
+  background-color: #fff !important;
+}
+
+table tr td.cell-group-0:hover {
+  background-color: #fff !important;
+}
+
+.cell-subGroup {
+  background-color: #fff !important;
+  pointer-events: none;
+}
+
+table tbody tr.boder-bottom :only-child {
+  border-bottom: 0px !important;
+}
+
+table.tr6 tbody .boder-bottom .cell-group-0,
+table.tr6 tbody .boder-bottom .cell-group-1,
+table.tr6 tbody tr.boder-bottom:last-child,
+table.tr6 tbody tr:only-child td {
+  border-bottom: 0px !important;
+}
+
+.colorCheck {
+  filter: invert(99%) sepia(9%) saturate(5773%) hue-rotate(47deg) brightness(86%) contrast(88%);
+  width: 26px;
+}
+
+.colorCheckClose {
+  width: 15px;
+  filter: invert(38%) sepia(23%) saturate(2252%) hue-rotate(318deg) brightness(95%) contrast(79%);
+}
+
+.colorCheck-cm {
+  width: 26px;
+  cursor: pointer;
+  color: red;
+}
+
+.colorCheckClose-cm {
+  width: 15px;
+  filter: invert(38%) sepia(23%) saturate(2252%) hue-rotate(318deg) brightness(95%) contrast(79%);
+  cursor: pointer;
+}
+
+.fa-exclamation {
+  color: #f59d0e;
+}
+
+.page-link {
+  border: 0px !important;
+  padding: 0.2rem 0.75rem !important;
+  color: "#000" !important;
+  font-size: 14px;
+}
+
+.bg-editable-table {
+  background: DarkGray !important;
+}
+
+.editable-table {
+  font-size: 12px;
+}
+
+.paginationTop {
+  background: #d8d8d8;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+.paginationTop-header {
+  background: #d8d8d8;
+  border-top-left-radius: 0rem;
+  border-top-right-radius: 0rem;
+}
+
+.paginationBottom {
+  background: #d8d8d8;
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+
+.active>.page-link {
+  background-color: #d8d8d8 !important;
+}
+
+.col-provider {
+  width: 165px !important;
+}
+
+.empty-table {
+  text-align: center !important;
+}
+
+.sorting-button svg {
+  color: #ffffff;
+  transition: color 0.3s;
+}
+
+.inactive>svg {
+  color: #ffff;
+}
+
+.desc>svg {
+  color: rgb(111, 111, 111);
+  transform: rotate(0);
+}
+
+.asc>svg {
+  color: rgb(111, 111, 111);
+  transform: rotate(180deg);
+}
+
+.group-columns th {
+  border: #fff solid 1px !important;
+}

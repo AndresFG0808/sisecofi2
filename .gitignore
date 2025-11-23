@@ -1,0 +1,79 @@
+﻿# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# Package Files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Eclipse
+.metadata/
+.recommenders/
+RemoteSystemsTempFiles/
+.settings/
+.classpath
+.project
+.factorypath
+bin/
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# VS Code
+.vscode/
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*.swp
+*.swo
+*~
+.tmp/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Spring Boot
+.springBeans
+
+# Large installers and downloads
+docs_sisecofi/downloadsProyect/*.exe
+docs_sisecofi/downloadsProyect/openjdk*/
+docs_sisecofi/downloadsProyect/postgresql*/
+
+# Excluir carpetas de proyectos no relacionados con SISECOFI
+fgla+/
+ecommerce_back/

@@ -1,0 +1,303 @@
+# 📊 ESPECIFICACIÓN ESTÁNDAR PARA REPORTES JSON SISECOFI
+
+## 🎯 DESCRIPCIÓN GENERAL
+
+Este documento define el formato estándar obligatorio para todos los reportes de solución de hallazgos en formato JSON. TODOS los asistentes de IA deben seguir estas especificaciones exactas para mantener consistencia y calidad en los informes generados.
+
+---
+
+## 📋 ESTRUCTURA JSON OBLIGATORIA
+
+```json
+{
+  "nombreReporte": "string",
+  "descripcion_corta": "string",
+  "descripcion_detallada": "string", 
+  "descripcion_problema_solucion_input": ["array de strings"],
+  "microservicio_input": ["array de strings"],
+  "puerto_input": ["array de strings"],
+  "ruta_input": ["array de strings"],
+  "base_datos": "string",
+  "tablas_input": ["array de strings"],
+  "columnas_input": ["array de strings"],
+  "estado": "string",
+  "cantidad_archivos": number,
+  "cantidad_pruebas": number,
+  "pruebas_realizadas": [
+    {
+      "numero": number,
+      "descripcion": "string",
+      "detalles": [
+        {"texto": "string"}
+      ],
+      "tabla_datos": [
+        {
+          "key": "string",
+          "type": "Text|Number|Boolean|File",
+          "value": "string"
+        }
+      ]
+    }
+  ],
+  "modificaciones": [
+    {
+      "numero": number,
+      "titulo": "string",
+      "lineas": [
+        {
+          "numero": "number|string",
+          "texto": "string"
+        }
+      ]
+    }
+  ]
+}
+```
+
+---
+
+## 🔧 REGLAS ESPECÍFICAS POR CAMPO
+
+### 1. **nombreReporte**
+- **Formato**: `Solucion_[Hallazgo#]_[ModuloFuncionalidad]`
+- **Ejemplo**: `"Solucion_Hallazgo4_AsignarProyectos"`
+- **Obligatorio**: Sí
+
+### 2. **descripcion_corta**
+- **Longitud**: Máximo 100 caracteres
+- **Formato**: Descripción directa del problema/solución
+- **Ejemplo**: `"Campo Id proyecto mantiene funcionalidad editable según especificación EIU"`
+- **Obligatorio**: Sí
+
+### 3. **descripcion_detallada**
+- **Contenido**: Análisis completo con referencias a documentación
+- **Incluir**: ECU/EIU/CRN, RNA aplicables, cambios técnicos
+- **Formato**: Párrafo coherente y técnico
+- **Obligatorio**: Sí
+
+### 4. **descripcion_problema_solucion_input**
+- **Tipo**: Array de strings
+- **Contenido**: 3-5 puntos clave del problema y solución
+- **Formato**: Cada string es un punto específico
+- **Obligatorio**: Sí
+
+### 5. **microservicio_input**
+- **Valores válidos**: 
+  - `"AdminContratos"`, `"AdminDevengados"`, `"AdminGeneral"`, `"Catalogos"`, `"Proveedores"`, `"Proyectos"`, `"ReporteDocumental"`, `"WebSerCfdi"`, `"WebSerDirectorioActivo"`
+  - `["N/A"]` para cambios solo de frontend
+- **Formato**: Array de strings entre comillas
+- **Obligatorio**: Sí
+
+### 6. **puerto_input**
+- **Fuente**: `src/main/resources/application.properties` → `server.port=[NUMERO]`
+- **Formato**: Array de strings `["9191"]`
+- **Valor N/A**: `["N/A"]` para frontend únicamente
+- **Obligatorio**: Sí
+
+### 7. **ruta_input**
+- **Estructura**: `["http://localhost:[PUERTO][PATH_BASE][endpoint]"]`
+- **Ejemplo**: `["http://localhost:9191/asignar-proyecto/buscar"]`
+- **Valor N/A**: `["N/A"]` para frontend únicamente
+- **Obligatorio**: Sí
+
+### 8. **base_datos**
+- **Valor típico**: `"sisecofi"`
+- **Valor N/A**: `"N/A"` si no hay cambios de BD
+- **Obligatorio**: Sí
+
+### 9. **tablas_input** / **columnas_input**
+- **Formato**: Array de strings con nombres exactos
+- **Ejemplo**: `["proyecto", "usuario_proyecto"]`
+- **Valor N/A**: `["N/A"]` si no hay cambios de BD
+- **Obligatorio**: Sí
+
+### 10. **estado**
+- **Valores válidos**:
+  - `"PENDIENTE"` - Requiere implementación
+  - `"SOLUCIONADO"` - Cambios implementados
+  - `"ANALIZADO"` - Solo análisis, no requiere cambios
+  - `"FALSO_POSITIVO"` - Hallazgo sin fundamento
+- **Obligatorio**: Sí
+
+### 11. **cantidad_archivos** / **cantidad_pruebas**
+- **Tipo**: Números enteros
+- **Valor**: Debe coincidir con arrays `modificaciones` y `pruebas_realizadas`
+- **Obligatorio**: Sí
+
+### 12. **pruebas_realizadas**
+- **Estructura**: Array de objetos con numero, descripcion, detalles, tabla_datos
+- **tabla_datos**: Puede ser array vacío `[]` para frontend únicamente
+- **Obligatorio**: Sí, mínimo 1 prueba
+
+### 13. **modificaciones**
+- **CRÍTICO**: Incluir TODOS los archivos analizados (modificados o no)
+- **Tipos de archivos**: Frontend, Backend, BD, Documentación, Configuración, Informes
+- **lineas.numero**: Número real de línea o rango `"477-482"`
+- **lineas.texto**: Descripción del análisis/cambio realizado
+- **Obligatorio**: Sí, mínimo 1 archivo
+
+---
+
+## 🎨 REGLAS POR TIPO DE CAMBIO
+
+### **📱 CAMBIOS SOLO FRONTEND**
+```json
+{
+  "microservicio_input": ["N/A"],
+  "puerto_input": ["N/A"],
+  "ruta_input": ["N/A"],
+  "base_datos": "N/A",
+  "tablas_input": ["N/A"],
+  "columnas_input": ["N/A"],
+  "modificaciones": [
+    {
+      "titulo": "ComponenteReact.jsx",
+      "lineas": [
+        {"numero": 45, "texto": "Análisis/cambio realizado"}
+      ]
+    }
+  ]
+}
+```
+
+### **⚙️ CAMBIOS BACKEND + FRONTEND**
+```json
+{
+  "microservicio_input": ["NombreMicroservicio"],
+  "puerto_input": ["9191"],
+  "ruta_input": ["http://localhost:9191/endpoint"],
+  "base_datos": "sisecofi",
+  "tablas_input": ["tabla1"],
+  "columnas_input": ["campo1"]
+}
+```
+
+### **📄 SOLO ANÁLISIS DE DOCUMENTACIÓN**
+```json
+{
+  "microservicio_input": ["N/A"],
+  "puerto_input": ["N/A"],
+  "ruta_input": ["N/A"],
+  "base_datos": "N/A",
+  "tablas_input": ["N/A"],
+  "columnas_input": ["N/A"],
+  "estado": "ANALIZADO",
+  "modificaciones": [
+    {
+      "titulo": "17_3083_ECU_ModuloX.md",
+      "lineas": [
+        {"numero": 89, "texto": "Análisis de especificación - Comportamiento actual correcto"}
+      ]
+    }
+  ]
+}
+```
+
+---
+
+## ✅ CHECKLIST DE VALIDACIÓN
+
+Antes de entregar cualquier JSON, verificar:
+
+### **📋 CONTENIDO**
+- [ ] Todos los campos obligatorios presentes
+- [ ] Formato de nombreReporte correcto
+- [ ] descripcion_corta ≤ 100 caracteres
+- [ ] Referencias exactas a ECU/EIU/CRN en descripcion_detallada
+- [ ] Array descripcion_problema_solucion_input completo
+
+### **🏗️ ARQUITECTURA**
+- [ ] microservicio_input: Valor válido o N/A
+- [ ] puerto_input: Número real de application.properties o N/A
+- [ ] ruta_input: URL completa válida o N/A
+- [ ] base_datos: Nombre real o N/A
+
+### **📁 ARCHIVOS**
+- [ ] TODOS los archivos analizados incluidos en modificaciones
+- [ ] Archivos frontend (.jsx, .vue, .ts)
+- [ ] Archivos backend (.java, .cs, .py)
+- [ ] Documentación revisada (.md, .pdf)
+- [ ] Configuración analizada (.properties, .yml)
+- [ ] Informes JSON creados/modificados
+
+### **🧪 PRUEBAS**
+- [ ] cantidad_pruebas = length(pruebas_realizadas)
+- [ ] Cada prueba con numero, descripcion, detalles
+- [ ] tabla_datos apropiada para tipo de cambio
+- [ ] Pruebas demuestran problema y/o solución
+
+### **🔧 MODIFICACIONES**
+- [ ] cantidad_archivos = length(modificaciones)
+- [ ] Números de línea reales y específicos
+- [ ] Descripción clara del análisis/cambio
+- [ ] Archivos con rutas/nombres exactos
+
+### **📊 CONSISTENCIA**
+- [ ] Estado alineado con tipo de hallazgo
+- [ ] Campos N/A aplicados correctamente
+- [ ] Arrays sin elementos vacíos innecesarios
+- [ ] Formato JSON válido
+
+---
+
+## 🚨 ERRORES COMUNES A EVITAR
+
+### **❌ NO HACER:**
+- Omitir archivos analizados en `modificaciones`
+- Usar números de línea genéricos (`"Línea 1"`)
+- Dejar campos obligatorios como `null` o `""`
+- Mezclar español/inglés en nombres de campos
+- Crear arrays con elementos vacíos innecesarios
+- Usar microservicio real cuando es solo frontend
+
+### **✅ SÍ HACER:**
+- Incluir TODOS los archivos tocados durante investigación
+- Usar números de línea específicos del código real
+- Aplicar N/A consistentemente según tipo de cambio
+- Mantener descripción_corta concisa y clara
+- Referenciar documentación con páginas/coordenadas exactas
+
+---
+
+## 📚 ARCHIVOS DE REFERENCIA
+
+- **Plantilla base**: `c:\sisecofi\assistants\assistant_dbsisecofi\funciones\plantillas\datos-ejemplo.json`
+- **Prompt específico**: `c:\sisecofi\docs_sisecofi\promts_\InformeSolucion.txt`
+- **Documentación fuente**: `c:\sisecofi\docs_sisecofi\docMD_Sisecofi\`
+
+## 🏗️ ESTRUCTURA AUTOMÁTICA DE CARPETAS
+
+**NUEVO**: Al ejecutar `npm run sync:json-to-excel`, se crean automáticamente carpetas de reporte:
+
+```
+C:\Users\Luis Flores\Desktop\AreaDeTrabajo\Reportes\
+└── YYYY-MM-DD\
+    └── Solucion_Hallazgo#_ModuloFuncionalidad\
+        ├── README.md                     # Información general
+        ├── Informe_Solucion.md          # Template para Word  
+        ├── docs\
+        │   └── checklist_validacion.md  # Lista de validaciones
+        ├── evidencias\                  # Capturas de pantalla
+        ├── codigo\                      # Archivos modificados
+        └── pruebas\                     # Casos de prueba
+```
+
+**Configuración**: Usar variable de entorno `CARPETA_REPORTES` para personalizar ubicación base.
+
+---
+
+## 🔄 PROCESO DE ACTUALIZACIÓN
+
+1. **Analizar hallazgo** según documentación ECU/EIU/CRN
+2. **Identificar archivos** involucrados (código + documentación)
+3. **Determinar tipo** de cambio (frontend/backend/solo análisis)
+4. **Aplicar reglas N/A** según tipo identificado
+5. **Completar estructura** JSON siguiendo esta especificación
+6. **Validar contra checklist** antes de entregar
+7. **Verificar consistencia** técnica y gramatical
+
+---
+
+**Versión**: 1.0  
+**Fecha**: 12/11/2025  
+**Última actualización**: Adición de reglas N/A y registro obligatorio de archivos analizados

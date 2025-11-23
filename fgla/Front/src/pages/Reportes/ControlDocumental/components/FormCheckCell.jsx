@@ -1,0 +1,46 @@
+import React from "react";
+import { FormCheck } from "react-bootstrap";
+
+export function FormCheckCell({
+  getValue,
+  row,
+  table,
+  column,
+  callback,
+  editable,
+}) {
+  const onChange = (e) => {
+    if (row.parentId) {
+      const parentIndex = row.parentId
+        ? parseInt(row.parentId.split("")[0])
+        : undefined;
+      const newRow = { ...row.original, [column.id]: !getValue() };
+      const final = updateRowFromSubRow(row, newRow);
+      table.options.meta?.updateSubRows(parentIndex, final);
+    } else {
+      table.options.meta?.updateData(row.index, column.id, !getValue());
+    }
+    if (callback) callback();
+  };
+  return (
+    <>
+      {getValue() !== undefined ? (
+        <div className="check-box-black">
+          <FormCheck
+            disabled={!editable}
+            checked={getValue()}
+            onChange={onChange}
+          />
+        </div>
+      ) : null}
+    </>
+  );
+}
+
+function updateRowFromSubRow(bottomRow, newRow) {
+  if (!bottomRow.parentId) return newRow;
+  const newBottomRow = bottomRow.getParentRow();
+  const updatedRow = structuredClone(bottomRow.getParentRow().original);
+  updatedRow.subRows[bottomRow.index] = newRow;
+  return updateRowFromSubRow(newBottomRow, updatedRow);
+}

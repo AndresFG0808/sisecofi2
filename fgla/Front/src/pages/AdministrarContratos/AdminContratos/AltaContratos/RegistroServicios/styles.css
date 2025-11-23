@@ -1,0 +1,55 @@
+.check-box-black .form-check-input:checked[type="checkbox"] {
+  background-image: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 20 20%27%3e%3cpath fill=%27none%27 stroke=%27%23fff%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%273%27 d=%27m6 10 3 3 6-6%27/%3e%3c/svg%3e") !important;
+}
+.check-box-black .form-check-input:checked {
+  background: black !important ;
+  border-color: black !important ;
+}
+
+.registro-servicios tr td,
+.registro-servicios tr th {
+  width: 110px;
+}
+.registro-servicios tr td:first-child,
+.registro-servicios tr th:first-child {
+  width: 40px !important;
+}
+.registro-servicios tr td:nth-child(13),
+.registro-servicios tr th:nth-child(13) {
+  width: 40px !important;
+}
+.registro-servicios tr td:nth-child(2),
+.registro-servicios tr th:nth-child(2) {
+  width: 40px !important;
+}
+.registro-servicios tr td:nth-child(3),
+.registro-servicios tr th:nth-child(3),
+.registro-servicios tr td:nth-child(6),
+.registro-servicios tr th:nth-child(6),
+.registro-servicios tr td:nth-child(7),
+.registro-servicios tr th:nth-child(7) {
+  min-width: 200px !important;
+}
+
+.registro-servicios tr td:nth-child(5),
+.registro-servicios tr th:nth-child(5),
+.registro-servicios tr td:nth-child(8),
+.registro-servicios tr th:nth-child(8),
+.registro-servicios tr td:nth-child(9),
+.registro-servicios tr th:nth-child(9),
+.registro-servicios tr td:nth-child(10),
+.registro-servicios tr th:nth-child(10),
+.registro-servicios tr td:nth-child(11),
+.registro-servicios tr th:nth-child(11),
+.registro-servicios tr td:nth-child(12),
+.registro-servicios tr th:nth-child(12) {
+  min-width: 160px !important;
+}
+.rounded-form-check .form-check-input:checked[type="radio"] {
+  background-color: black !important;
+  border-color: black !important;
+}
+.drag-button {
+  border: none;
+  background: transparent;
+}

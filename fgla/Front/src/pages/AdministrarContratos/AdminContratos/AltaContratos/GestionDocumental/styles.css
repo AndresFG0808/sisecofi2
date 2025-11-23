@@ -1,0 +1,27 @@
+.check-box-black .form-check-input:checked[type="checkbox"] {
+  background-image: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 20 20%27%3e%3cpath fill=%27none%27 stroke=%27%23fff%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%273%27 d=%27m6 10 3 3 6-6%27/%3e%3c/svg%3e") !important;
+}
+.check-box-black .form-check-input:checked {
+  background: black !important ;
+  border-color: black !important ;
+}
+
+.gestion-documental tr td:first-child,
+.gestion-documental tr th:first-child {
+  text-align: start;
+  min-width: 280px;
+}
+.gestion-documental tr td:nth-child(7) {
+  width: 120px;
+}
+.rounded-form-check .form-check-input:checked[type="radio"] {
+  background-color: black !important;
+  border-color: black !important;
+}
+.rounded-form-check input[type="radio"] {
+  width: 14px;
+  height: 14px;
+}
+.cargado svg {
+  color: #10312b !important;
+}

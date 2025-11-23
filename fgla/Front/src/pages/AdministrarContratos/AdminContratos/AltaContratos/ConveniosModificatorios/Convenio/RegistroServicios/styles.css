@@ -1,0 +1,24 @@
+.registro-servicios-convenios tr td:not(:first-child),
+.registro-servicios-convenios tr th:not(:first-child) {
+  min-width: 150px;
+}
+.registro-servicios-convenios tr td:nth-child(1),
+.registro-servicios-convenios tr th:nth-child(1) {
+  max-width: 70px;
+}
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 37%, #f0f0f0 63%);
+  border-radius: 4px;
+  min-height: 24px;
+  margin-bottom: 8px;
+  animation: skeleton-loading 1.2s infinite linear;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}

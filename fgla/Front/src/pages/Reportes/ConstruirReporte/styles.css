@@ -1,0 +1,16 @@
+.tree-structure > div {
+  max-height: 105vh;
+}
+.tree-structure > div > .card-body {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.tree-structure-chevron-open svg {
+  transform: rotate(90deg);
+}
+.tree-structure-chevron-closed svg {
+  transform: rotate(0deg);
+}
+.tree-structure-chevron:hover {
+  cursor: pointer;
+}

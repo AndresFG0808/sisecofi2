@@ -1,0 +1,7 @@
+.asociar-fases tr td,
+.asociar-fases tr th {
+  max-width: 100px !important;
+}
+.asociar-fases tr td:nth-child(4) {
+  width: 80px;
+}

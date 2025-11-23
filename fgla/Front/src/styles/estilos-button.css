@@ -1,0 +1,81 @@
+.btn {
+    text-transform: none !important;
+    border-radius: 0.25rem !important;
+    margin-bottom: 0.5rem;
+}
+
+.btn.btn-sm {
+    padding: 0.4rem 1.63rem;
+    font-size: 12px;
+}
+
+.btn-green {
+    color: #10312B;
+    border: 2px solid #10312B !important;
+}
+
+.btn-green:hover:enabled {
+    background-color: #10312B;
+    color: #FFF;
+}
+
+.btn-green:active:enabled {
+    background-color: #10312B;
+    color: #FFF;
+    border: 2px solid #fff !important;
+}
+
+.btn-red {
+    color: #691C32;
+    border: 2px solid #691C32 !important;
+}
+
+.btn-red:hover:enabled {
+    background-color: #691C32;
+    color: #FFF;
+}
+
+.btn-red:active:enabled {
+    background-color: #691C32;
+    color: #FFF;
+    border: 2px solid #fff !important;
+}
+
+.btn-gray {
+    color: #727372;
+    border: 2px solid #d8d8d8 !important;
+}
+
+.btn-gray:hover:enabled {
+    background-color: #d8d8d8;
+    color: #727372;
+}
+
+.btn-gray:active:enabled {
+    background-color: #d8d8d8;
+    color: #727372;
+    border: 2px solid #fff !important;
+}
+
+.icon-button,
+.icon-button-disabled,
+.icon-button-cancel {
+    margin-left: 0.5rem !important;
+}
+
+.icon-button,
+.icon-button-cancel {
+    cursor: pointer
+}
+
+.icon-button-disabled {
+    color: gray;
+}
+
+.icon-button-cancel {
+    color: #691C32;
+}
+
+.status-plan input[type='checkbox'] {
+    cursor: default;
+}

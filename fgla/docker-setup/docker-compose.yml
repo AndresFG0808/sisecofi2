@@ -1,0 +1,71 @@
+version: '3.8'
+
+services:
+  # Gateway Nginx - Enruta todas las peticiones
+  nginx-gateway:
+    image: nginx:alpine
+    container_name: sisecofi-gateway
+    ports:
+      - "9080:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - wildfly
+    networks:
+      - sisecofi-network
+    restart: unless-stopped
+
+  # WildFly 31 Application Server
+  wildfly:
+    image: quay.io/wildfly/wildfly:31.0.0.Final-jdk17
+    container_name: sisecofi-wildfly
+    ports:
+      - "8080:8080"
+      - "9990:9990"
+    environment:
+      - WILDFLY_USER=admin
+      - WILDFLY_PASS=admin123
+    command: >
+      /opt/jboss/wildfly/bin/standalone.sh 
+      -b 0.0.0.0 
+      -bmanagement 0.0.0.0
+    networks:
+      - sisecofi-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    depends_on:
+      - postgres
+
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: sisecofi-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=postgres5
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=admin1
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-scripts:/docker-entrypoint-initdb.d
+    networks:
+      - sisecofi-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  sisecofi-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    driver: local

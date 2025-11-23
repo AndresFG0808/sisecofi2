@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: authorization-server
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  datasource:
+    url: jdbc:postgresql://localhost:5433/sisecofi_auth
+    username: postgres
+    password: admin1
+    driver-class-name: org.postgresql.Driver
+
+server:
+  port: 9000

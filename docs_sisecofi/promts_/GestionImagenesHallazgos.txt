@@ -1,0 +1,203 @@
+# 🚨 PROTOCOLO CRÍTICO - GESTIÓN DE IMÁGENES EN HALLAZGOS 🚨
+
+⚠️ **IMPORTANTE**: Este proceso debe generar reportes JSON siguiendo:  
+📋 **`EspecificacionReporteJSON.txt`** - Formato estándar para todos los reportes
+
+## ⚠️ ADVERTENCIA FUNDAMENTAL ⚠️
+
+**TODAS las imágenes que proporcione el usuario durante cualquier proceso de reporte de hallazgos DEBEN ser procesadas, analizadas y agregadas obligatoriamente al hallazgo correspondiente.**
+
+**NO ES OPCIONAL - ES OBLIGATORIO**
+
+## PROTOCOLO PASO A PASO
+
+### 1. DETECCIÓN DE IMÁGENES
+**AL INICIO DE CADA CONVERSACIÓN:**
+- Verificar si el usuario ha adjuntado o referenciado imágenes
+- Listar todas las imágenes disponibles (nombres, rutas, formatos)
+- Crear inventario completo de material visual proporcionado
+
+### 2. ANÁLISIS VISUAL OBLIGATORIO
+**PARA CADA IMAGEN:**
+- **EXAMINAR:** ¿Qué muestra la imagen? (pantalla, formulario, tabla, error, etc.)
+- **IDENTIFICAR:** ¿Qué módulo/funcionalidad se visualiza?
+- **DETECTAR:** ¿Qué problema o discrepancia muestra la imagen?
+- **CLASIFICAR:** ¿Corresponde a ECU, EIU o ambos?
+  - **ECU:** Muestra lógica de negocio, flujos, pasos, mensajes de error, reglas de negocio, cálculos, validaciones
+  - **EIU:** Muestra interfaz de usuario, campos, etiquetas, botones, diseño visual, elementos gráficos
+  - **Compartida:** Aplica a ambos SOLO si evidencia problemas tanto de lógica como de interfaz
+- **CORRELACIONAR:** ¿A qué hallazgo específico corresponde esta evidencia?
+
+**IMPORTANTE:** NO duplicar automáticamente en ECU y EIU. Analizar cada imagen y asignar solo donde corresponda.
+
+### 3. CATALOGACIÓN TÉCNICA
+**INFORMACIÓN A EXTRAER:**
+- Nombre del archivo de imagen
+- Ruta completa en el sistema
+- Contenido visual (descripción técnica)
+- Relación con hallazgo específico (ECU o EIU)
+- Elementos clave visibles (campos, botones, mensajes, datos)
+
+### 4. INTEGRACIÓN AL HALLAZGO
+**EN EL JSON - CAMPO `imagenReferencia`:**
+```json
+"imagenReferencia": {
+  "cantidad": [NÚMERO_REAL_DE_IMÁGENES],
+  "rutas": [
+    "C:\\ruta\\completa\\imagen1.png",
+    "C:\\ruta\\completa\\imagen2.png"
+  ]
+}
+```
+
+### 5. VALIDACIÓN FINAL
+**CHECKPOINTS OBLIGATORIOS:**
+- ✅ Cantidad de imágenes = número de rutas en el array
+- ✅ Todas las rutas son completas y correctas
+- ✅ Cada imagen está asignada al hallazgo correcto
+- ✅ No hay imágenes sin procesar
+- ✅ No hay hallazgos con imágenes faltantes
+
+## CASOS ESPECÍFICOS
+
+### IMÁGENES MÚLTIPLES PARA UN HALLAZGO
+Si un hallazgo tiene varias imágenes de evidencia:
+```json
+"imagenReferencia": {
+  "cantidad": 3,
+  "rutas": [
+    "C:\\sisecofi\\docs_sisecofi\\img\\evidencia1.png",
+    "C:\\sisecofi\\docs_sisecofi\\img\\evidencia2.png", 
+    "C:\\sisecofi\\docs_sisecofi\\img\\evidencia3.png"
+  ]
+}
+```
+
+### IMÁGENES DISTRIBUIDAS ENTRE ECU Y EIU
+**ANÁLISIS ESPECÍFICO POR CONTENIDO:**
+- **Asignar a ECU:** Imágenes que muestran lógica/flujo/reglas de negocio/cálculos/errores de sistema
+- **Asignar a EIU:** Imágenes que muestran interfaz/campos/formularios/diseño visual/elementos gráficos
+- **Compartir SOLO cuando necesario:** Si una imagen evidencia problemas tanto de lógica como de interfaz
+
+**EJEMPLO DE DISTRIBUCIÓN:**
+- Imagen de código/respuesta JSON → ECU
+- Imagen de pantalla con campos → EIU  
+- Imagen de documentación técnica → ECU
+- Imagen mostrando error en pantalla → Puede ser ambos (analizar contexto)
+
+### SIN IMÁGENES DISPONIBLES
+Solo cuando NO hay imágenes proporcionadas:
+```json
+"imagenReferencia": {
+  "cantidad": 0,
+  "rutas": []
+}
+```
+
+## ERRORES CRÍTICOS A EVITAR
+
+### ❌ ERROR GRAVE: Ignorar imágenes proporcionadas
+- **NUNCA** dejar `cantidad: 0` cuando hay imágenes disponibles
+- **SIEMPRE** procesar todas las imágenes del usuario
+
+### ❌ ERROR GRAVE: Rutas incorrectas  
+- Verificar que las rutas sean completas y válidas
+- Usar el formato correcto de Windows: `C:\\ruta\\archivo.png`
+
+### ❌ ERROR GRAVE: Asignación incorrecta
+- No asumir a qué hallazgo corresponde una imagen
+- Analizar el contenido visual para determinar la correlación correcta
+
+### ❌ ERROR GRAVE: Números inconsistentes
+- `cantidad` debe coincidir EXACTAMENTE con número de elementos en `rutas`
+
+## FORMATO DE RUTAS
+
+### ESTRUCTURA ESTÁNDAR:
+```
+C:\sisecofi\docs_sisecofi\img\[nombre_archivo]
+```
+
+### EJEMPLOS VÁLIDOS:
+- `C:\\sisecofi\\docs_sisecofi\\img\\capture_251111_131421.png`
+- `C:\\sisecofi\\docs_sisecofi\\img\\hallazgo_1_pantalla_principal.png`
+- `C:\\sisecofi\\docs_sisecofi\\img\\error_validacion_campos.jpg`
+
+## INTEGRACIÓN CON EXCEL
+
+**IMPORTANTE:** Al sincronizar con Excel, las imágenes se insertan automáticamente como objetos reales en las celdas correspondientes.
+
+**El sistema:**
+- Lee las rutas del JSON
+- Procesa cada imagen como buffer
+- Inserta la imagen real en la celda de Excel
+- Mantiene proporción y calidad visual
+
+## ANÁLISIS DE IMÁGENES PROPORCIONADAS
+
+### IMÁGENES RECIBIDAS EN ESTA CONVERSACIÓN:
+1. **Primera imagen**: Documentación ECU mostrando "Cantidad de servicios dictaminados acumulados" 
+2. **Segunda imagen**: Código JSON mostrando campos con diferentes precisiones decimales
+
+### ANÁLISIS VISUAL:
+1. **Primera imagen (ECU)**:
+   - Muestra documentación oficial del paso de cálculo automático
+   - Evidencia la regla RNA121 para cálculos de servicios
+   - Corresponde a hallazgo ECU (lógica de negocio)
+
+2. **Segunda imagen (JSON)**:
+   - Muestra datos con cantidadServiciosSat y cantidadServiciosCc con 6 decimales
+   - Muestra cantidadTotalServicios con diferente precisión
+   - Evidencia la inconsistencia en la presentación de datos
+   - Corresponde tanto a ECU (cálculo) como a EIU (visualización)
+
+## RESPONSABILIDADES
+
+### DEL ASISTENTE (OBLIGATORIO):
+1. Detectar todas las imágenes proporcionadas
+2. Analizar contenido visual de cada imagen  
+3. Correlacionar imágenes con hallazgos específicos
+4. Agregar rutas completas al JSON
+5. Validar consistencia cantidad vs rutas
+6. Verificar que no se pierdan evidencias visuales
+
+### DEL USUARIO:
+1. Proporcionar imágenes claras y relevantes
+2. Indicar si las imágenes corresponden a hallazgos específicos
+3. Confirmar que las rutas de archivos son correctas
+
+## MENSAJE DE CONFIRMACIÓN
+
+Al finalizar el procesamiento de imágenes, SIEMPRE incluir:
+
+```
+✅ IMÁGENES PROCESADAS:
+- Total de imágenes recibidas: [X]
+- Imágenes asignadas a ECU: [X] 
+- Imágenes asignadas a EIU: [X]
+- Todas las evidencias visuales han sido integradas correctamente al hallazgo correspondiente.
+```
+
+## RECORDATORIO FINAL
+
+**Las imágenes son EVIDENCIA CRÍTICA del hallazgo reportado.**  
+**Omitirlas equivale a perder la prueba visual del problema.**  
+**Su procesamiento NO ES OPCIONAL - ES OBLIGATORIO.**
+
+## APLICACIÓN A ESTE HALLAZGO
+
+### ✅ CONFIRMACIÓN DE PROCESAMIENTO:
+
+**Total de imágenes recibidas: 2**
+- Imágenes asignadas a hallazgo ECU: 2 
+- Imágenes asignadas a hallazgo EIU: 2
+- Todas las evidencias visuales han sido integradas correctamente al hallazgo #1
+
+**Rutas asignadas:**
+1. `C:\\sisecofi\\docs_sisecofi\\img\\capture_251111_131421.png`
+2. `C:\\sisecofi\\docs_sisecofi\\img\\capture_251111_133024.png`
+
+**Evidencia documentada:**
+- ✅ Documentación ECU del RNA121
+- ✅ Código JSON mostrando inconsistencia decimal
+- ✅ Ambas imágenes integradas en hallazgo ECU y EIU

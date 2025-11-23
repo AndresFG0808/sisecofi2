@@ -1,0 +1,522 @@
+PROMPT PARA ANÁLISIS DE HALLAZGOS/ERRORES EN SISECOFI
+
+⚠️ **IMPORTANTE**: Este análisis debe generar un reporte JSON siguiendo EXACTAMENTE las especificaciones definidas en:
+📋 **`EspecificacionReporteJSON.txt`** - CONSULTAR OBLIGATORIO antes de generar cualquier JSON
+
+Soy un desarrollador Java que brinda soporte al sistema SISECOFI del SAT a través de la consultora SYE. Mi rol es ÚNICAMENTE corregir errores técnicos y fallas del sistema ya existente, NO realizar nuevas funcionalidades o modificaciones que no estén previamente documentadas en los ECU/EIU.
+
+CONTEXTO DEL PROYECTO:
+- Sistema: SISECOFI (Seguimiento Financiero y Control Documental)
+- Cliente: SAT (Servicio de Administración Tributaria)
+- Proveedor: SYE
+- Mi rol: Desarrollador de soporte (NO puedo hacer cambios fuera de lo documentado)
+- Arquitectura: Microservicios Java (Spring Boot)
+- Documentación base: carpeta docs_sisecofi/
+
+CUANDO REPORTE UN HALLAZGO/ERROR/AJUSTE, DEBES SEGUIR ESTE FLUJO OBLIGATORIO:
+
+═══════════════════════════════════════════════════════════════════
+FASE 1: ANÁLISIS DOCUMENTAL (SIEMPRE PRIMERO)
+═══════════════════════════════════════════════════════════════════
+
+🚨 RECORDATORIO CRÍTICO SOBRE DOCUMENTACIÓN:
+Los archivos .md en docs_sisecofi/ fueron generados a partir de documentos PDF oficiales.
+Por lo tanto, SIEMPRE debes proporcionar:
+✅ El número de PÁGINA EXACTA del PDF original (basado en coordenadas Aspose)
+✅ El texto LITERAL tal cual aparece (respetando formato, negritas, saltos de línea, tablas)
+✅ Las coordenadas Aspose (_pageX_xY) que indican la ubicación exacta en la página
+✅ El nombre del documento PDF de origen (para que el usuario pueda verificar)
+
+1. BÚSQUEDA EN DOCUMENTACIÓN:
+   - Buscar en docs_sisecofi/docMD_Sisecofi/ TODOS los documentos relacionados
+   
+   📋 DOCUMENTOS OBLIGATORIOS A BUSCAR (si existen):
+   ✅ **ECU** (Especificación de Caso de Uso) - OBLIGATORIO
+   ✅ **EIU** (Especificación Interfaz de Usuario) - OBLIGATORIO  
+   ✅ **CRN** (Catálogo de Reglas de Negocio) - OBLIGATORIO
+   ✅ **MCU** (Modelo de Casos de Uso) - SI APLICA
+   ✅ **EZS** (Especificación de Zonas de Seguridad) - SI APLICA
+   ✅ Otros documentos mencionados en la sección 8 (Referencias cruzadas) de los ECU
+   
+   - Prioridad de búsqueda por carpetas:
+     a) Iter3/ (más reciente)
+     b) Iter2/
+     c) Iter1/
+     d) ECU_Faltantes/
+   
+2. IDENTIFICAR DOCUMENTOS RELEVANTES:
+   Para CADA tipo de documento, reportar:
+   - **ECU** (Especificación de Caso de Uso) - Lógica de negocio, flujos principales y alternos
+   - **EIU** (Especificación Interfaz de Usuario) - Pantallas, campos, validaciones, estilos UI
+   - **CRN** (Catálogo de Reglas de Negocio) - Definiciones de todas las RNA### mencionadas
+   - **MCU** (Modelo de Casos de Uso) - Si aplica, contexto general del módulo
+   - **EZS** (Especificación de Zonas de Seguridad) - Si aplica, validaciones de seguridad/roles
+   - Revisar TODAS las referencias cruzadas en la sección 8 de cada ECU encontrado
+
+3. EXTRAER INFORMACIÓN ESPECÍFICA:
+   Para cada documento encontrado, proporcionar:
+   
+   a) UBICACIÓN EXACTA EN EL PDF ORIGINAL:
+      **Documento PDF de origen:** [Nombre del PDF, ej: "17_3083_ECU_GenerarDictamen.pdf"]
+      **Página del PDF:** [Número de página real, ej: "Página 12 del PDF original"]
+      **Coordenadas Aspose:** [ej: "_page11_x102.00_y518.92"] ← Estas coordenadas indican ubicación exacta
+      **Sección del documento:** [ej: "6. Flujo primario", "7. Flujos alternos FA03", "9. Reglas de Negocio"]
+      **Paso/Número:** [si aplica, ej: "Paso 15 del Flujo primario", "RNA255"]
+   
+   b) TEXTO COMPLETO TAL CUAL APARECE EN EL PDF:
+      🚨 IMPORTANTE: Copiar el texto EXACTAMENTE como aparece en el archivo .md
+      - ✅ Respetar TODO el formato original: **negritas**, *cursivas*, saltos de línea, bullets (-)
+      - ✅ Si hay tablas, copiarlas en formato markdown TAL CUAL
+      - ✅ NO parafrasear, NO resumir, NO modificar el texto
+      - ✅ NO omitir información, copiar el bloque completo relevante
+      - ✅ Incluir las referencias a otras reglas (ej: "Aplica la (RNA255)")
+      
+      Ejemplo de cómo copiar:
+      ```
+      [Del documento original]
+      15. Valida la estructura de los datos ingresados en los campos. 
+          Aplica la **(RNA255)**.
+          - En caso de que la estructura de los datos ingresados sea 
+            incorrecta, continúa en el **(FA14)**.
+      ```
+   
+   c) REGLAS DE NEGOCIO (RNA):
+      - Si menciona RNA### (ej: RNA192, RNA203), buscar su definición
+      - Las RNA pueden estar en:
+        * Mismo documento (sección "Requerimientos No Funcionales")
+        * Documentos relacionados (revisar referencias cruzadas)
+        * Archivo separado de reglas (si existe)
+
+═══════════════════════════════════════════════════════════════════
+FASE 2: ANÁLISIS DE CÓDIGO
+═══════════════════════════════════════════════════════════════════
+
+4. IDENTIFICAR MICROSERVICIO:
+   Basándose en la documentación, determinar cuál microservicio está involucrado:
+   - AdminContratos/
+   - AdminDevengados/
+   - AdminGeneral/
+   - Catalogos/
+   - Proveedores/
+   - Proyectos/
+   - ReporteDocumental/
+   - WebSerCfdi/
+   - WebSerDirectorioActivo/
+
+5. ANALIZAR ESTRUCTURA DEL MICROSERVICIO:
+   
+   a) CONFIGURACIÓN:
+      - Leer: [microservicio]/src/main/resources/application.properties
+      - Extraer: server.port (puerto REAL del servicio)
+      - Leer: [microservicio]/src/main/java/com/sisecofi/[módulo]/util/Constantes.java
+      - Extraer: PATH_BASE y todas las constantes de rutas
+   
+   b) MODELO (si aplica):
+      - Ubicación: src/main/java/com/sisecofi/[módulo]/entity/
+      - Identificar la(s) entidad(es) involucrada(s)
+      - Mostrar campos relevantes al error
+   
+   c) CONTROLLER:
+      - Ubicación: src/main/java/com/sisecofi/[módulo]/controller/
+      - Identificar el controller específico
+      - Mostrar el método completo relacionado con el error
+      - Indicar número de línea exacto
+   
+   d) SERVICE (si existe):
+      - Ubicación: src/main/java/com/sisecofi/[módulo]/service/
+      - Mostrar lógica de negocio involucrada
+
+6. CONSTRUCCIÓN DE RUTA CORRECTA PARA POSTMAN (AMBIENTE LOCAL):
+   
+   ⚠️ IMPORTANTE: Las pruebas se realizan en AMBIENTE LOCAL (localhost)
+   
+   FORMATO OBLIGATORIO PARA LOCALHOST:
+   http://localhost:[PUERTO_REAL][PATH_BASE][RUTA_ENDPOINT]
+   
+   🚨 REGLA CRÍTICA PARA LOCALHOST:
+   - En ambiente LOCAL, las rutas NO incluyen el prefijo "/sisecofi/api/[nombre-microservicio]"
+   - Ese prefijo (/sisecofi/api/) SOLO existe en ambientes desplegados (DEV, QA, PROD) a través del Gateway/Nginx
+   
+   Ejemplos de construcción CORRECTA vs INCORRECTA:
+   
+   ❌ INCORRECTO (esto es para ambientes desplegados, NO para local):
+   http://localhost:9393/sisecofi/api/admin-devengados/guardar-servicio-dictaminado
+   
+   ✅ CORRECTO (para localhost):
+   http://localhost:9393/guardar-servicio-dictaminado
+   
+   ✅ CORRECTO (si PATH_BASE no está vacío):
+   http://localhost:9393/admin-devengados/guardar-servicio-dictaminado
+   
+   PASOS PARA CONSTRUIR LA URL EN LOCAL:
+   
+   1. Obtener PUERTO de application.properties:
+      Buscar: server.port=[NUMERO]
+      Ejemplo: server.port=9393
+   
+   2. Obtener PATH_BASE de Constantes.java:
+      Buscar: public static final String PATH_BASE = "[VALOR]";
+      - Si es "" (vacío) → No agregar nada
+      - Si tiene valor (ej: "/admin-devengados") → Agregarlo
+   
+   3. Obtener RUTA del Controller:
+      - RequestMapping de clase (si existe)
+      - Anotación del método (@GetMapping, @PostMapping, etc.)
+   
+   4. CONSTRUCCIÓN FINAL:
+      http://localhost:[PUERTO][PATH_BASE si no está vacío][RUTA_CONTROLLER]
+   
+   EJEMPLO REAL DEL MICROSERVICIO AdminDevengados:
+   - Puerto: 9393 (de application.properties)
+   - PATH_BASE: "" (vacío en Constantes.java)
+   - Controller: @PostMapping("/guardar-servicio-dictaminado")
+   - URL FINAL: http://localhost:9393/guardar-servicio-dictaminado
+   
+   PROPORCIONAR EN EL ANÁLISIS:
+   - ✅ URL completa para LOCALHOST construida correctamente
+   - ✅ Método HTTP (GET, POST, PUT, DELETE)
+   - ✅ Headers necesarios (Content-Type, Authorization si aplica)
+   - ✅ Body de ejemplo (si es POST/PUT) en formato JSON válido
+   - ✅ Parámetros de query o path (si aplican)
+   - ✅ Nota aclaratoria: "Esta URL es para pruebas en LOCALHOST. En ambientes desplegados, la ruta incluye el prefijo del Gateway."
+
+═══════════════════════════════════════════════════════════════════
+FASE 3: ANÁLISIS DE BASE DE DATOS (SI APLICA)
+═══════════════════════════════════════════════════════════════════
+
+7. REVISAR RESPALDO SQL:
+   - Ubicación: docs_sisecofi/BD_RespaldosPlains/
+   - Usar SIEMPRE el archivo más reciente (verificar fecha en nombre)
+   - A menos que yo indique específicamente otro archivo
+   
+   Si el hallazgo involucra datos:
+   - Identificar tabla(s) afectada(s)
+   - Mostrar estructura relevante (CREATE TABLE)
+   - Mostrar datos de ejemplo si es necesario
+   - Verificar relaciones (FOREIGN KEYS)
+   - Validar constraints y triggers
+
+═══════════════════════════════════════════════════════════════════
+FASE 4: VALIDACIÓN DE CAMBIOS PERMITIDOS
+═══════════════════════════════════════════════════════════════════
+
+8. DETERMINAR SI EL CAMBIO ES VÁLIDO:
+   
+   CAMBIO PERMITIDO (puedo realizarlo):
+   ✓ Error de implementación vs documentación ECU/EIU
+   ✓ Bug técnico (NullPointer, validación faltante, etc.)
+   ✓ Fallo en lógica ya documentada
+   ✓ Corrección de reglas de negocio (RNA) mal implementadas
+   ✓ Ajuste de mensajes (MSG) definidos en documentación
+   
+   CAMBIO NO PERMITIDO (rechazar o escalar):
+   ✗ Nueva funcionalidad no documentada en ECU/EIU
+   ✗ Cambio de flujo de negocio no especificado
+   ✗ Modificación de reglas (RNA) sin respaldo documental
+   ✗ Nuevos campos o entidades no contemplados
+   ✗ Cambios en la arquitectura del sistema
+
+═══════════════════════════════════════════════════════════════════
+FORMATO DE RESPUESTA REQUERIDO
+═══════════════════════════════════════════════════════════════════
+
+Tu respuesta DEBE seguir esta estructura:
+
+## 📋 ANÁLISIS DEL HALLAZGO: [Descripción breve]
+
+### 1️⃣ DOCUMENTACIÓN RELACIONADA
+
+🚨 IMPORTANTE: Los archivos .md provienen de PDFs oficiales. Proporciona:
+- Número de página del PDF original
+- Texto LITERAL con formato original
+- Coordenadas Aspose para ubicación exacta
+- TODOS los documentos: ECU, EIU, CRN, MCU, EZS (si aplican)
+
+---
+
+**📄 ECU (Especificación de Caso de Uso) - OBLIGATORIO:**
+
+- **Archivo PDF de origen:** `[Nombre del PDF, ej: 17_3083_ECU_GenerarDictamen.pdf]`
+- **Archivo .md:** `[ruta completa del .md, ej: docs_sisecofi/docMD_Sisecofi/ECU_Faltantes/17_3083_ECU_GenerarDictamen/17_3083_ECU_GenerarDictamen.md]`
+- **Página del PDF:** `[Número de página real, ej: Página 5 del PDF original]`
+- **Coordenadas Aspose:** `[ej: _page4_x102.00_y524.92]`
+- **Sección:** `[ej: 6. Flujo primario - Paso 15]`
+- **Texto literal del documento:**
+  ```
+  [Copiar el texto EXACTAMENTE como aparece en el .md, respetando formato:
+   - **Negritas**
+   - Bullets (-)
+   - Saltos de línea
+   - Referencias a RNA, MSG, FA
+   - Tablas si las hay]
+  ```
+
+---
+
+**🖥️ EIU (Especificación Interfaz de Usuario) - OBLIGATORIO:**
+
+- **Archivo PDF de origen:** `[Nombre del PDF]`
+- **Archivo .md:** `[ruta completa del .md]`
+- **Página del PDF:** `[Número de página, ej: Página 8]`
+- **Coordenadas Aspose:** `[ej: _page7_x112.00_y234.56]`
+- **Pantalla:** `[Nombre de la interfaz, ej: "Consumo de Servicios - Registro de servicios dictaminados"]`
+- **Sección/Estilo:** `[ej: Estilos 01 - Campos de formulario]`
+- **Elementos UI involucrados:**
+  - Campo: `[nombre del campo]`
+  - Tipo: `[texto, numérico, fecha, etc.]`
+  - Longitud: `[caracteres permitidos]`
+  - Precisión: `[decimales si aplica]`
+  - Obligatorio: `[Sí/No]`
+- **Texto literal del documento:**
+  ```
+  [Copiar descripción del campo/pantalla tal cual aparece]
+  ```
+
+---
+
+**📋 CRN (Catálogo de Reglas de Negocio) - OBLIGATORIO:**
+
+- **Archivo PDF de origen:** `[Nombre del PDF, ej: 17_3083_CRN_SeguimientoFinancieroYControl.pdf]`
+- **Archivo .md:** `[ruta completa]`
+- **Página del PDF:** `[Número de página]`
+
+**Reglas de Negocio Aplicables:**
+
+**RNA### - [Nombre de la regla]:**
+- **ID Funcionalidad:** `[ej: RN07, RN08]`
+- **Versión:** `[número de versión]`
+- **Coordenadas:** `[si están disponibles]`
+- **Descripción completa (texto literal):**
+  ```
+  [Copiar la definición COMPLETA de la RNA tal cual aparece en el CRN,
+   incluyendo:
+   - Toda la descripción
+   - Ejemplos si los hay
+   - Notas o aclaraciones
+   - Referencias a otras RNAs]
+  ```
+
+---
+
+**📐 MCU (Modelo de Casos de Uso) - SI APLICA:**
+
+- **Archivo PDF de origen:** `[Nombre del PDF]`
+- **Archivo .md:** `[ruta completa]`
+- **Página del PDF:** `[Número de página]`
+- **Sección relevante:**
+  ```
+  [Texto literal del contexto del modelo]
+  ```
+
+---
+
+**🔒 EZS (Especificación de Zonas de Seguridad) - SI APLICA:**
+
+- **Archivo PDF de origen:** `[Nombre del PDF]`
+- **Archivo .md:** `[ruta completa]`
+- **Página del PDF:** `[Número de página]`
+- **Reglas de seguridad aplicables:**
+  ```
+  [Texto literal de las especificaciones de seguridad]
+  ```
+
+---
+
+**🔗 Referencias Cruzadas (de sección 8 de los ECU):**
+
+Lista de documentos relacionados mencionados en las referencias cruzadas:
+- `[17_3083_XXX_NombreDocumento]` - [Breve descripción de relevancia]
+- `[Otro documento]` - [Descripción]
+
+---
+
+**💬 Mensajes del Sistema (MSG):**
+
+**MSG### - [Descripción]:**
+- **Documento:** `[ECU/EIU donde se define]`
+- **Página:** `[Número de página]`
+- **Texto del mensaje:**
+  ```
+  [Texto exacto del mensaje como aparece en el documento]
+  ```
+
+---
+
+### 2️⃣ ANÁLISIS DE CÓDIGO
+
+**Microservicio:** `[nombre del microservicio]`
+**Puerto:** `[número de puerto real de application.properties]`
+**PATH_BASE:** `[valor de Constantes.java]`
+
+**Modelo Involucrado:**
+- Clase: `[NombreEntidad.java]`
+- Ubicación: `[ruta completa]`
+- Campos relevantes:
+```java
+[Código del modelo]
+
+Controller:
+
+Clase: [NombreController.java]
+Método: [nombreMetodo]
+Línea(s): [número de líneas exactas]
+
+[Código del método completo]
+
+Service/Repository (si aplica):
+
+[Código relevante]
+
+---
+
+### 3️⃣ PRUEBAS EN POSTMAN (AMBIENTE LOCAL)
+
+⚠️ **IMPORTANTE:** Esta URL es para pruebas en **LOCALHOST**. En ambientes desplegados (DEV/QA/PROD), 
+la ruta incluye el prefijo del Gateway: `/sisecofi/api/[microservicio]`
+
+**Construcción de URL:**
+```
+Puerto (application.properties): [número]
+PATH_BASE (Constantes.java): "[valor]" o "" (vacío)
+Endpoint (Controller): [ruta del método]
+```
+
+**URL Completa para LOCALHOST:**
+```
+http://localhost:[PUERTO][PATH_BASE si no está vacío][endpoint]
+```
+
+**Comparación Local vs Desplegado:**
+- ✅ **Local:** `http://localhost:[PUERTO][endpoint]`
+- 🌐 **Desplegado:** `http://servidor:puerto/sisecofi/api/[microservicio][endpoint]`
+
+**Método:** `[GET/POST/PUT/DELETE]`
+
+**Headers:**
+```json
+{
+  "Content-Type": "application/json",
+  "Authorization": "Bearer [token si aplica]"
+}
+```
+
+**Body (si aplica):**
+```json
+{
+  [JSON de ejemplo con datos reales del contexto]
+}
+```
+
+**Respuesta Esperada:**
+```json
+{
+  [JSON de respuesta esperada según documentación]
+}
+```
+
+---
+
+### 4️⃣ BASE DE DATOS (si aplica)
+Tablas Involucradas:
+
+[nombre_tabla]
+Estructura:
+
+[CREATE TABLE relevante]
+
+Datos de Ejemplo:
+
+[SELECT de ejemplo]
+
+5️⃣ DIAGNÓSTICO Y SOLUCIÓN
+Tipo de Hallazgo:
+
+ Error técnico (permitido corregir)
+ Funcionalidad no documentada (RECHAZAR - escalar a SAT)
+ Discrepancia código vs documentación (permitido corregir)
+ Ajuste fuera de alcance (RECHAZAR - requiere aprobación SAT)
+Causa Raíz:
+[Explicación técnica del problema]
+
+Solución Propuesta:
+[Cambios específicos a realizar]
+
+Código Corregido:
+
+[Código con la corrección aplicada]
+
+Archivos a Modificar:
+
+[ruta/archivo1.java] - Línea X
+[ruta/archivo2.java] - Línea Y
+Validación:
+
+ Cambio respaldado por documentación ECU/EIU
+ Cumple reglas de negocio (RNA)
+ No afecta otros módulos
+ Probado en ambiente local
+═══════════════════════════════════════════════════════════════════
+RECORDATORIOS CRÍTICOS
+═══════════════════════════════════════════════════════════════════
+
+📄 SOBRE DOCUMENTACIÓN (CRÍTICO):
+⚠️ Los archivos .md fueron generados desde PDFs - SIEMPRE proporcionar número de página
+⚠️ Copiar texto LITERAL del .md - NO parafrasear, NO resumir, RESPETAR formato
+⚠️ Usar coordenadas Aspose (_pageX_xY) para ubicación exacta en la página
+⚠️ BUSCAR Y REPORTAR TODOS: ECU (obligatorio), EIU (obligatorio), CRN (obligatorio), MCU (si aplica), EZS (si aplica)
+⚠️ Verificar TODAS las referencias cruzadas en sección 8 de cada ECU
+⚠️ Para cada RNA mencionada, buscar definición COMPLETA en el CRN
+⚠️ SIEMPRE analizar documentación ANTES que código
+
+🔧 SOBRE CÓDIGO Y PRUEBAS:
+⚠️ NUNCA asumir rutas de Postman sin verificar properties + Constantes
+⚠️ 🚨 EN LOCALHOST: Las rutas NO incluyen /sisecofi/api/[microservicio]
+⚠️ 🚨 CONSTRUCCIÓN URL LOCAL: http://localhost:[PUERTO][PATH_BASE][endpoint]
+⚠️ El prefijo /sisecofi/api/ SOLO existe en ambientes desplegados (Gateway/Nginx)
+
+📊 SOBRE BASE DE DATOS:
+⚠️ SIEMPRE usar el respaldo SQL más reciente por fecha (docs_sisecofi/BD_RespaldosPlains/)
+
+✅ SOBRE CAMBIOS PERMITIDOS:
+⚠️ NUNCA proponer cambios sin respaldo documental (ECU/EIU/RNA)
+⚠️ SIEMPRE validar si el cambio está dentro del alcance permitido
+⚠️ Solo corregir errores técnicos, NO agregar funcionalidades nuevas
+
+
+---
+
+## Instrucciones de Uso
+
+**Para reportar un hallazgo, usa este formato:**
+
+HALLAZGO: [Descripción breve del error/ajuste]
+
+MÓDULO: [ej: Administración de Contratos]
+FUNCIONALIDAD: [ej: Generar Dictamen]
+ERROR OBSERVADO: [Descripción detallada]
+COMPORTAMIENTO ESPERADO: [Según lo que debería hacer]
+
+[Si tienes logs, stack trace, o screenshots, inclúyelos aquí]
+
+═══════════════════════════════════════════════════════════════════
+FASE FINAL: GENERACIÓN DE REPORTE JSON
+═══════════════════════════════════════════════════════════════════
+
+🚨 **OBLIGATORIO**: Generar reporte JSON siguiendo EXACTAMENTE:
+📋 **`EspecificacionReporteJSON.txt`** - Contiene formato, campos, validaciones y ejemplos
+
+**PUNTOS CRÍTICOS A VALIDAR:**
+✅ Estructura JSON idéntica a la especificación
+✅ Aplicar reglas N/A para frontend únicamente  
+✅ Incluir TODOS los archivos analizados en `modificaciones`
+✅ Números de línea específicos, NO genéricos
+✅ Estado correcto: SOLUCIONADO/ANALIZADO/FALSO_POSITIVO/PENDIENTE
+✅ Referencias exactas a documentación con páginas/coordenadas
+
+**RECORDATORIO FINAL:**
+- NO EJECUTAR NI MODIFICAR NADA, a menos que se indique expresamente
+- MENCIONAR SIEMPRE la página exacta donde se encuentran los casos en los documentos
+- Los archivos .md contienen coordenadas Aspose que indican la página del PDF original
+- MENCIONAR todos los archivos relacionados: ECU, EIU, CRN, MCU, EZS, etc.
+
+(Después de leer esto, analiza el hallazgo reportado siguiendo todas las fases y genera el JSON según EspecificacionReporteJSON.txt) 

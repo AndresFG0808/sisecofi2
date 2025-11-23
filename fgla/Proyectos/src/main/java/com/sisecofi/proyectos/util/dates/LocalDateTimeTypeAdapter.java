@@ -1,0 +1,35 @@
+package com.sisecofi.proyectos.util.dates;
+
+import java.lang.reflect.Type;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonPrimitive;
+import com.google.gson.JsonSerializationContext;
+import com.google.gson.JsonSerializer;
+
+/**
+ * 
+ * @author ayuso2104@gmail.com
+ *
+ */
+
+public class LocalDateTimeTypeAdapter implements JsonSerializer<LocalDateTime>, JsonDeserializer<LocalDateTime> {
+
+	private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d::MMM::uuuu HH::mm::ss");
+
+	@Override
+	public JsonElement serialize(LocalDateTime localDateTime, Type srcType, JsonSerializationContext context) {
+
+		return new JsonPrimitive(formatter.format(localDateTime));
+	}
+
+	@Override
+	public LocalDateTime deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) {
+
+		return LocalDateTime.parse(json.getAsString(), formatter);
+	}
+}

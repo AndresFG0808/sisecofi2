@@ -1,0 +1,31 @@
+.mayusculas {
+  text-transform: uppercase;
+}
+
+.parrafo-error {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  width: 450px;
+  height: 100px;
+  overflow: scroll;
+}
+
+.picklist-header {
+  cursor: pointer;
+  background-color: DarkGray;
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+}
+.root-reportes ul {
+  list-style-type: none;
+}
+div.select-multiple-field div ul li input:checked[type="checkbox"] {
+  background-image: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 20 20%27%3e%3cpath fill=%27none%27 stroke=%27%23fff%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%273%27 d=%27m6 10 3 3 6-6%27/%3e%3c/svg%3e") !important;
+  accent-color: black;
+}
+div.select-multiple-field div ul li input:checked {
+  background: black !important ;
+  border-color: black !important ;
+  accent-color: black;
+}

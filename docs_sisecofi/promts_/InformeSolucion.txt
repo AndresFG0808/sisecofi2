@@ -1,0 +1,505 @@
+# PROMPT PARA ANÁLISIS Y CREACIÓN DE INFORME DE SOLUCIÓN - SISTEMA SISECOFI
+
+⚠️ **IMPORTANTE**: Este prompt se enfoca en análisis y resumen de soluciones.
+Los informes JSON se generan manualmente por el usuario, NO automáticamente por el asistente.
+
+## ⚠️ CONTEXTO CRÍTICO - FLUJO DE SOLUCIÓN ⚠️
+
+**Este prompt está diseñado para analizar hallazgos y proporcionar resúmenes de solución técnica.**
+
+**FLUJO OBLIGATORIO:**
+1. **ANALIZAR** la documentación ECU/EIU/CRN para entender el comportamiento esperado
+2. **IDENTIFICAR** el microservicio, archivos y código involucrado
+3. **PROPONER** la solución técnica específica
+4. **GENERAR** resumen técnico detallado con datos para JSON (NO crear JSON automáticamente)
+5. **PROPORCIONAR** los campos específicos para que el usuario llene manualmente el JSON
+
+**IMPORTANTE:** Los datos se proporcionan como resumen estructurado para llenado manual del JSON.
+Usar "N/A" para campos que no aplican según el tipo de cambio (frontend-only, backend-only, etc.).
+
+---
+
+## ESTRUCTURA DE TRABAJO
+
+### FASE 1: ANÁLISIS DOCUMENTAL (OBLIGATORIO)
+Antes de proponer cualquier solución, debes:
+
+1. **BUSCAR DOCUMENTACIÓN:**
+   - ECU (Especificación de Caso de Uso) - Lógica de negocio
+   - EIU (Especificación Interfaz de Usuario) - Campos y validaciones
+   - CRN (Catálogo de Reglas de Negocio) - RNA específicas
+   
+2. **EXTRAER INFORMACIÓN ESPECÍFICA:**
+   - Ubicación exacta en PDF (página + coordenadas Aspose)
+   - Texto LITERAL tal cual aparece
+   - Reglas de negocio aplicables (RNA)
+   - Flujos principales y alternos
+   - Mensajes definidos (MSG)
+
+### FASE 2: ANÁLISIS DE CÓDIGO
+1. **IDENTIFICAR MICROSERVICIO:**
+   - Determinar cuál microservicio maneja la funcionalidad
+   - Puerto real del servicio (application.properties)
+   - PATH_BASE (Constantes.java)
+
+2. **UBICAR ARCHIVOS ESPECÍFICOS:**
+   - Controllers (endpoint específico)
+   - Services (lógica de negocio)
+   - Entities (modelo de datos)
+   - Repositories (acceso a datos)
+
+3. **ANALIZAR COMPORTAMIENTO ACTUAL:**
+   - Código que causa el hallazgo
+   - Líneas específicas a modificar
+   - Dependencias involucradas
+
+### FASE 3: PROPUESTA DE SOLUCIÓN
+1. **DEFINIR CAMBIOS ESPECÍFICOS:**
+   - Archivos exactos a modificar
+   - Métodos o líneas específicas
+   - Nuevas validaciones a implementar
+   - Cambios en lógica de negocio
+
+2. **VALIDAR CONTRA DOCUMENTACIÓN:**
+   - Asegurar que los cambios cumplan ECU/EIU
+   - Verificar cumplimiento de RNA
+   - Confirmar mensajes correctos
+
+### FASE 4: GENERACIÓN DEL INFORME
+Generar un JSON siguiendo EXACTAMENTE la estructura de `datos-ejemplo.json`
+
+---
+
+## FORMATO DE RESPUESTA REQUERIDO
+
+El asistente debe proporcionar los datos estructurados para que el usuario complete manualmente el JSON, siguiendo esta estructura:
+
+### 📋 DATOS PARA EL INFORME JSON
+
+**INFORMACIÓN GENERAL:**
+- Fecha de implementación: [fecha]
+- Descripción corta: [máximo 100 caracteres]
+- Descripción detallada: [análisis completo con referencias ECU/EIU/CRN]
+
+**ARQUITECTURA:**
+- Microservicio(s): [nombre] o "N/A" si es solo frontend
+- Puerto(s): [número] o "N/A" si es solo frontend  
+- Rutas de prueba: [URLs completas] o "N/A" si es solo frontend
+
+**BASE DE DATOS:**
+- Base de datos: [nombre] o "N/A" si no aplica
+- Tablas involucradas: [lista] o "N/A" si no aplica
+- Columnas modificadas: [lista] o "N/A" si no aplica
+
+**ESTADO DEL CAMBIO:** [PENDIENTE/SOLUCIONADO/ANALIZADO/FALSO_POSITIVO]
+
+**ARCHIVOS MODIFICADOS:**
+Cantidad total: [número]
+1. [nombre_archivo] - Línea X: [descripción del cambio]
+
+**PRUEBAS REALIZADAS:**
+Cantidad: [número]
+1. [descripción de la prueba]
+
+**DESCRIPCIÓN DEL PROBLEMA Y LA SOLUCIÓN:**
+[Resumen técnico de problema, causa, solución e impacto]
+
+---
+
+## FORMATO DEL INFORME DE SOLUCIÓN (REFERENCIA PARA EL USUARIO)
+
+```json
+{
+  "nombreReporte": "Solucion_[Modulo]_[Funcionalidad]",
+  "descripcion_corta": "[Resumen del problema solucionado en 1 línea]",
+  "descripcion_detallada": "[Explicación técnica completa de qué se modificó y por qué]",
+  "descripcion_problema_solucion_input": [
+    "[Descripción del problema específico encontrado]",
+    "[Explicación de la solución implementada]",
+    "[Beneficios o mejoras obtenidas]"
+  ],
+  "microservicio_input": ["[NombreMicroservicio]"],
+  "puerto_input": ["[PuertoReal]"],
+  "ruta_input": ["[RutaEndpointCompleta]"],
+  "base_datos": "[NombreBaseDatos]",
+  "tablas_input": ["[tabla1]", "[tabla2]"],
+  "columnas_input": ["[campo1]", "[campo2]"],
+  "estado": "SOLICIONADO",
+  "cantidad_archivos": "[NumeroArchivosModificados]",
+  "cantidad_pruebas": "[NumeroPruebasRealizadas]",
+  "pruebas_realizadas": [
+    {
+      "numero": 1,
+      "descripcion": "[Descripción de la prueba realizada]",
+      "detalles": [
+        {"texto": "[Detalle específico de la prueba]"}
+      ],
+      "tabla_datos": [
+        {
+          "key": "[nombreCampo]",
+          "type": "Text",
+          "value": "[valorPrueba]"
+        }
+      ]
+    }
+  ],
+  "modificaciones": [
+    {
+      "numero": 1,
+      "titulo": "[NombreArchivoModificado.java]",
+      "lineas": [
+        {"texto": "[Descripción específica del cambio realizado]"},
+        {"texto": "[Otra modificación en el mismo archivo]"}
+      ]
+    }
+  ]
+}
+```
+
+---
+
+## REGLAS ESPECÍFICAS PARA EL INFORME
+
+### 🚨 **REGLA GENERAL DE CAMPOS OPCIONALES**
+**IMPORTANTE:** Cuando una solución NO requiere ciertos campos, usar `"N/A"` o `["N/A"]` según el tipo de campo.
+
+**Casos comunes para usar N/A:**
+- **Cambios solo de frontend** → `microservicio_input: ["N/A"]`, `puerto_input: ["N/A"]`, `ruta_input: ["N/A"]`
+- **Sin tablas de BD involucradas** → `base_datos: "N/A"`, `tablas_input: ["N/A"]`, `columnas_input: ["N/A"]`
+- **Sin pruebas de microservicio** → `tabla_datos: []` (array vacío)
+
+### 1. CAMPO "nombreReporte"
+**Formato:** `Solucion_[Hallazgo#]_[ModuloFuncionalidad]`
+**Ejemplo:** `Solucion_Hallazgo4_AsignarProyectos`
+
+### 2. CAMPO "descripcion_corta"
+**Máximo:** 100 caracteres
+**Formato:** Descripción directa del problema solucionado
+**Ejemplo:** `Se corrigió el campo 'Id proyecto' para que sea solo informativo según especificación EIU`
+
+### 3. CAMPO "descripcion_detallada"
+**Incluir:**
+- Problema específico encontrado
+- Discrepancia con documentación
+- Cambios técnicos realizados
+- Referencias a ECU/EIU/RNA
+
+### 4. CAMPO "microservicio_input"
+**Valores válidos:**
+- `"AdminContratos"`
+- `"AdminDevengados"`
+- `"AdminGeneral"`
+- `"Catalogos"`
+- `"Proveedores"`
+- `"Proyectos"`
+- `"ReporteDocumental"`
+- `"WebSerCfdi"`
+- `"WebSerDirectorioActivo"`
+
+**⚠️ IMPORTANTE:** Para cambios ÚNICAMENTE de frontend (React/Vue/Angular), usar `["N/A"]`
+
+### 5. CAMPO "puerto_input"
+**Obtener de:** `src/main/resources/application.properties`
+**Buscar:** `server.port=[NUMERO]`
+**Formato:** `["9191"]` (como string entre comillas)
+
+**⚠️ IMPORTANTE:** Para cambios ÚNICAMENTE de frontend (React/Vue/Angular), usar `["N/A"]`
+
+### 6. CAMPO "ruta_input"
+**Formato:** Ruta completa para localhost
+**Estructura:** `http://localhost:[PUERTO][PATH_BASE][endpoint]`
+**Ejemplo:** `["http://localhost:9191/asignar-proyecto/buscar"]`
+
+**⚠️ IMPORTANTE:** Para cambios ÚNICAMENTE de frontend (React/Vue/Angular), usar `["N/A"]`
+
+### 7. CAMPO "modificaciones"
+**OBLIGATORIO:** Incluir TODOS los archivos analizados durante la investigación
+**IMPORTANTE:** Registrar archivos SIEMPRE, independientemente si requieren cambios o no
+
+**Tipos de archivos a incluir:**
+- **Frontend**: React/Vue/Angular (.jsx, .vue, .ts, etc.)
+- **Backend**: Controllers, Services, Entities (.java, .cs, etc.)  
+- **Base de datos**: Scripts SQL, migrations, schemas
+- **Documentación**: ECU/EIU/CRN analizados (.md, .pdf)
+- **Configuración**: Properties, YAML, JSON de config
+- **Informes**: JSONs de solución creados/modificados
+
+**Para cada archivo:**
+- `titulo`: Nombre exacto del archivo con extensión
+- `lineas`: Array con descripción del análisis realizado o cambio implementado
+
+**Ejemplo para archivo SIN modificaciones (solo análisis):**
+```json
+{
+  "numero": 1,
+  "titulo": "ComponenteEjemplo.jsx",
+  "lineas": [
+    {"numero": 45, "texto": "Análisis de validación - Comportamiento actual correcto según EIU"},
+    {"numero": 67, "texto": "Revisión de lógica existente - No requiere modificaciones"}
+  ]
+}
+```
+
+**Ejemplo para archivo CON modificaciones:**
+**Ejemplo para archivo CON modificaciones:**
+```json
+{
+  "numero": 2,
+  "titulo": "AsignarProyectoCtl.java",
+  "lineas": [
+    {"numero": 127, "texto": "Modificar endpoint buscarProyecto para validar entrada"},
+    {"numero": 145, "texto": "Agregar validación de campo requerido"}
+  ]
+}
+```
+
+### 8. CAMPO "pruebas_realizadas"
+**INCLUIR:**
+- Prueba antes del cambio (demostrar el problema)
+- Prueba después del cambio (demostrar la solución)
+- Pruebas de regresión si aplican
+
+**⚠️ IMPORTANTE:** Para cambios ÚNICAMENTE de frontend, la `tabla_datos` puede contener solo datos de prueba de UI, no necesariamente datos de microservicio
+
+**Formato tabla_datos:**
+```json
+{
+  "key": "nombreCampo",
+  "type": "Text|Number|Boolean|File",
+  "value": "valorEjemplo"
+}
+```
+
+---
+
+## 🎨 **CASOS ESPECÍFICOS POR TIPO DE CAMBIO**
+
+### **📱 CAMBIOS ÚNICAMENTE DE FRONTEND**
+Cuando la solución involucra SOLO archivos frontend (React/Vue/Angular):
+
+```json
+{
+  "microservicio_input": ["N/A"],
+  "puerto_input": ["N/A"], 
+  "ruta_input": ["N/A"],
+  "base_datos": "N/A",
+  "tablas_input": ["N/A"],
+  "columnas_input": ["N/A"],
+  "pruebas_realizadas": [
+    {
+      "tabla_datos": []  // Array vacío o datos de UI solamente
+    }
+  ]
+}
+```
+
+### **⚙️ CAMBIOS DE BACKEND + FRONTEND**
+Cuando involucra microservicio + frontend:
+
+```json
+{
+  "microservicio_input": ["NombreMicroservicio"],
+  "puerto_input": ["9191"],
+  "ruta_input": ["http://localhost:9191/endpoint"],
+  "base_datos": "sisecofi",
+  "tablas_input": ["tabla1", "tabla2"],
+  "columnas_input": ["campo1", "campo2"]
+}
+```
+
+---
+
+## PROCESO OBLIGATORIO PASO A PASO
+
+### PASO 1: RECIBIR HALLAZGO Y ENTENDER CONTEXTO
+**Input del usuario:** Descripción del hallazgo a solucionar
+**Acción:** Analizar el problema reportado
+
+### PASO 2: BUSCAR DOCUMENTACIÓN RELACIONADA
+**Usar herramientas:**
+- `file_search` para encontrar ECU/EIU/CRN
+- `grep_search` para localizar secciones específicas
+- `read_file` para extraer textos exactos
+
+**Extraer:**
+- Comportamiento esperado según documentación
+- Reglas de negocio aplicables (RNA)
+- Mensajes definidos (MSG)
+
+### PASO 3: ANALIZAR CÓDIGO ACTUAL
+**Identificar:**
+- Microservicio responsable
+- Controllers y métodos específicos
+- Services con lógica de negocio
+- Entidades y campos involucrados
+
+**Usar herramientas:**
+- `read_file` para examinar código
+- `grep_search` para buscar implementaciones
+
+### PASO 4: PROPONER SOLUCIÓN TÉCNICA
+**Especificar:**
+- Archivos exactos a modificar
+- Líneas de código a cambiar
+- Nuevas validaciones a implementar
+- Cambios en frontend si aplican
+
+### PASO 5: GENERAR INFORME JSON
+**Seguir EXACTAMENTE** el formato de `datos-ejemplo.json`
+**Incluir TODOS** los campos obligatorios
+**Usar valores reales** obtenidos del análisis
+
+### PASO 6: PROPONER PRUEBAS DE VALIDACIÓN
+**Definir:**
+- Datos de prueba específicos
+- URLs completas para Postman
+- Pasos de validación en frontend
+- Criterios de aceptación
+
+---
+
+## VALIDACIONES OBLIGATORIAS ANTES DE ENTREGAR
+
+### ✅ CHECKLIST DE DOCUMENTACIÓN
+- [ ] ECU analizado y citado con página exacta
+- [ ] EIU analizado y citado con página exacta  
+- [ ] CRN consultado para RNA aplicables
+- [ ] Textos copiados literalmente (no parafraseados)
+- [ ] Coordenadas Aspose incluidas
+
+### ✅ CHECKLIST DE CÓDIGO
+- [ ] Microservicio identificado correctamente
+- [ ] Puerto real extraído de application.properties
+- [ ] PATH_BASE verificado en Constantes.java
+- [ ] Archivos específicos ubicados
+- [ ] Métodos y líneas exactas identificadas
+
+### ✅ CHECKLIST DE SOLUCIÓN
+- [ ] Cambios específicos definidos
+- [ ] Solución alineada con documentación
+- [ ] Impacto en otros módulos evaluado
+- [ ] Validaciones necesarias identificadas
+
+### ✅ CHECKLIST DEL JSON
+- [ ] Estructura idéntica a `datos-ejemplo.json`
+- [ ] Todos los campos obligatorios completos
+- [ ] Arrays con formato correcto
+- [ ] Valores realistas y verificables
+- [ ] Pruebas detalladas con datos específicos
+- [ ] **Campos N/A aplicados correctamente según tipo de cambio**
+- [ ] **Microservicio N/A si es solo frontend**
+- [ ] **Puerto/Rutas N/A si es solo frontend**
+- [ ] **Tablas BD N/A si no aplican**
+
+---
+
+## EJEMPLO DE RESPUESTA ESPERADA
+
+### 📋 ANÁLISIS DEL HALLAZGO: Campo "Id proyecto" editable cuando debe ser informativo
+
+#### 1️⃣ DOCUMENTACIÓN RELACIONADA
+
+**📄 ECU - 17_3083_ECU_AsignarProyectos:**
+- **Página PDF:** 12
+- **Coordenadas:** `_page11_x102.00_y518.92`
+- **Flujo Principal Paso 8:** "El sistema auto-genera el identificador de proyecto..."
+
+**🖥️ EIU - 17_3083_EIU_AsignarProyectos:**
+- **Página PDF:** 5  
+- **Coordenadas:** `_page4_x215.00_y342.15`
+- **Campo:** Id proyecto - Tipo: Numérico - Obligatorio: No - **Modo: Solo lectura**
+
+#### 2️⃣ ANÁLISIS DE CÓDIGO
+
+**Microservicio:** Proyectos
+**Puerto:** 9191
+**Archivo:** AsignarProyectoCtl.java
+**Problema:** Campo permite edición en frontend cuando debe ser readonly
+
+#### 3️⃣ SOLUCIÓN PROPUESTA
+
+**Archivos a modificar:**
+1. `AsignarProyectoCtl.java` - Línea 45: Agregar readonly attribute
+2. `AsignarProyectoServImp.java` - Línea 28: Validar que no se edite manualmente
+3. `asignar-proyecto.component.html` - Línea 12: Cambiar input a readonly
+
+#### 4️⃣ INFORME JSON GENERADO
+
+```json
+{
+  "nombreReporte": "Solucion_Hallazgo4_AsignarProyectos",
+  "descripcion_corta": "Campo Id proyecto corregido a solo lectura según especificación EIU",
+  "descripcion_detallada": "Se identificó que el campo 'Id proyecto' permitía edición manual cuando la documentación EIU especifica que debe ser solo informativo. Se modificó el frontend para aplicar readonly y el backend para validar que no se reciban valores editados manualmente.",
+  // ... resto del JSON completo
+}
+```
+
+---
+
+## INSTRUCCIONES FINALES
+
+**🚨 MUY IMPORTANTE:**
+1. **NO MODIFIQUES NINGÚN ARCHIVO** hasta que el usuario confirme el informe
+2. **SIEMPRE ANALIZA DOCUMENTACIÓN PRIMERO** antes del código
+3. **USA COORDENADAS EXACTAS** para referencias de PDF
+4. **SIGUE EL FORMATO JSON** de `datos-ejemplo.json` exactamente
+5. **INCLUYE PRUEBAS DETALLADAS** para validar la solución
+
+**El informe debe ser TAN ESPECÍFICO** que otro desarrollador pueda implementar los cambios exactos siguiendo únicamente la información proporcionada.
+
+---
+
+## 📝 **EJEMPLOS DE APLICACIÓN**
+
+### **Ejemplo 1: Cambio Solo Frontend**
+```json
+{
+  "nombreReporte": "Solucion_Hallazgo5_CampoValidacion",
+  "microservicio_input": ["N/A"],
+  "puerto_input": ["N/A"],
+  "ruta_input": ["N/A"],
+  "base_datos": "N/A",
+  "tablas_input": ["N/A"],
+  "columnas_input": ["N/A"],
+  "modificaciones": [
+    {
+      "titulo": "FormularioUsuario.jsx",
+      "lineas": [
+        {"numero": 45, "texto": "Agregar validación de email en campo input"}
+      ]
+    }
+  ]
+}
+```
+
+### **Ejemplo 2: Cambio Backend + Frontend**
+```json
+{
+  "nombreReporte": "Solucion_Hallazgo6_ValidacionBD",
+  "microservicio_input": ["Usuarios"],
+  "puerto_input": ["8080"],
+  "ruta_input": ["http://localhost:8080/api/usuarios/validar"],
+  "base_datos": "sisecofi",
+  "tablas_input": ["usuarios", "perfiles"],
+  "columnas_input": ["email", "activo"]
+}
+```
+
+---
+
+## USO DEL PROMPT
+
+**Para usar este prompt:**
+
+```
+HALLAZGO A SOLUCIONAR: [Descripción del problema]
+
+MÓDULO: [ej: Proyectos/Asignar proyectos]  
+FUNCIONALIDAD: [ej: Búsqueda por proyecto]
+COMPORTAMIENTO ACTUAL: [Lo que hace ahora]
+COMPORTAMIENTO ESPERADO: [Lo que debería hacer]
+
+[Proporcionar imágenes si las hay]
+```
+
+**El asistente seguirá automáticamente todos los pasos y generará el informe completo.**

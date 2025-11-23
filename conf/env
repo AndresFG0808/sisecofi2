@@ -1,0 +1,26 @@
+REACT_APP_BASE_URL = http://99.95.29.29:9080/sisecofi/api
+REACT_APP_USER = "tableroapp"
+REACT_APP_PASS = "tableroapp"
+REACT_APP_BASE_URL_OAUTH = 'http://99.95.29.29:9200'
+REACT_APP_CLIENT_ID = 'client_sisecofi'
+REACT_APP_CLIENT_SECRET = 'Sap49jJy2I1Ad'
+REACT_APP_REDIRECT_URI = 'http://99.95.29.29:80/app/pe/sisecofi/index.html'
+REACT_APP_REDIRECT_LOGOUT = 'https://pe.dev.cloudb.sat.gob.mx/AGLogout'
+REACT_APP_ENV_CONTEXT = ''
+NODE_ENV = production
+GENERATE_SOURCEMAP = false
+CI = false
+
+#===> AMBIENTE SAT
+#REACT_APP_BASE_URL = 'http://sfceps.dev.cloudb.sat.gob.mx:9080/sisecofi/api'
+#REACT_APP_USER = "tableroapp"
+#REACT_APP_PASS = "tableroapp"
+#REACT_APP_BASE_URL_OAUTH = 'https://auth.dev.cloudb.sat.gob.mx'
+#REACT_APP_CLIENT_ID = '180e8546-68ae-4c95-9122-1575040571aa'
+#REACT_APP_CLIENT_SECRET = 'LZ90qsYgu28q3GTv6s4Z-OFOoi6XxRhPWD8-apwaCnU1HHXXcD8UEN-hqYCm5aTNgHrnewxKMwqejeqDjmmcww'
+#REACT_APP_REDIRECT_URI = 'https://pe.dev.cloudb.sat.gob.mx/app/pe/sisecofi/index.html'
+#REACT_APP_REDIRECT_LOGOUT = 'https://pe.dev.cloudb.sat.gob.mx/AGLogout'
+#REACT_APP_ENV_CONTEXT = '/app/pe/sisecofi'
+#NODE_ENV = production
+#GENERATE_SOURCEMAP = false
+#CI = false
