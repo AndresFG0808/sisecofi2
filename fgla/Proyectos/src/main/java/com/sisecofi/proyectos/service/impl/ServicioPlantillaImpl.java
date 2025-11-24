@@ -55,9 +55,12 @@ public class ServicioPlantillaImpl implements ServicioPlantilla {
 	public PlantillaDto obtenerPlantillaPorId(Integer idPlantilla) {
 
 		try {
-			pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-					TipoSeccionPista.PROYECTO_DATOS_GENERALES.getIdSeccionPista(),
-					TipoMovPista.CONSULTA_REGISTRO.getClave(),Optional.empty());
+
+			// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+			// TipoSeccionPista.PROYECTO_DATOS_GENERALES.getIdSeccionPista(),
+
+			// TipoMovPista.CONSULTA_REGISTRO.getClave(),Optional.empty());
 
 			return plantillaDocMicroservicio.obtenerPlantilla(idPlantilla);
 
@@ -78,9 +81,12 @@ public class ServicioPlantillaImpl implements ServicioPlantilla {
 		}
 
 		try {
-			pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-					TipoSeccionPista.PROYECTO_DATOS_GENERALES.getIdSeccionPista(),
-					TipoMovPista.CONSULTA_REGISTRO.getClave(),Optional.empty());
+
+			// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+			// TipoSeccionPista.PROYECTO_DATOS_GENERALES.getIdSeccionPista(),
+
+			// TipoMovPista.CONSULTA_REGISTRO.getClave(),Optional.empty());
 
 			return plantillaVigenteComite;
 

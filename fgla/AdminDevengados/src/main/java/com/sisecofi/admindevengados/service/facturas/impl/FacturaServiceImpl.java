@@ -462,12 +462,24 @@ public class FacturaServiceImpl implements FacturaService {
 			throw new CatalogoException(ErroresEnum.FOLIO_COMPROBANTE_REGISTRADO);
 		}
 
-		pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-				TipoSeccionPista.FACTURAS.getIdSeccionPista(),
-				Constantes.getAtributosFactura()[0] + facturaDto.getDictamenId() + "|"
-						+ Constantes.getAtributosFactura()[1] + datosXml.getFolio() + "|"
-						+ Constantes.getAtributosFactura()[2] + datosXml.getComprobanteFiscal() + "|",
-				Optional.of(factura));
+
+
+		// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.FACTURAS.getIdSeccionPista(),
+
+
+		// Constantes.getAtributosFactura()[0] + facturaDto.getDictamenId() + "|"
+
+
+		// + Constantes.getAtributosFactura()[1] + datosXml.getFolio() + "|"
+
+
+		// + Constantes.getAtributosFactura()[2] + datosXml.getComprobanteFiscal() + "|",
+
+
+		// Optional.of(factura));
 
 		actualizarEstatusDictamen(dictamen);
 		return factura;
@@ -654,13 +666,27 @@ public class FacturaServiceImpl implements FacturaService {
 
 		boolean esFactura = facturaDto.getTipoDocumento().equals("Factura");
 
-		pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				esFactura ? TipoSeccionPista.FACTURAS.getIdSeccionPista()
-						: TipoSeccionPista.NOTA_CREDITO.getIdSeccionPista(),
-				Constantes.getAtributosFactura()[0] + facturaDto.getDictamenId() + "|"
-						+ Constantes.getAtributosFactura()[1] + facturaExistente.getFolio() + "|"
-						+ Constantes.getAtributosFactura()[2] + facturaExistente.getComprobanteFiscal() + "|",
-				Optional.of(facturaExistente));
+
+
+		// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+
+		// esFactura ? TipoSeccionPista.FACTURAS.getIdSeccionPista()
+
+
+		// : TipoSeccionPista.NOTA_CREDITO.getIdSeccionPista(),
+
+
+		// Constantes.getAtributosFactura()[0] + facturaDto.getDictamenId() + "|"
+
+
+		// + Constantes.getAtributosFactura()[1] + facturaExistente.getFolio() + "|"
+
+
+		// + Constantes.getAtributosFactura()[2] + facturaExistente.getComprobanteFiscal() + "|",
+
+
+		// Optional.of(facturaExistente));
 
 		actualizarEstatusDictamen(dictamen);
 
@@ -1036,13 +1062,27 @@ public class FacturaServiceImpl implements FacturaService {
 
 		FacturaModel facturaModel = facturasRepository.save(factura);
 
-		pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.FACTURAS.getIdSeccionPista(),
-				Constantes.getAtributosCancelarFactura()[0] + factura.getIdDictamen() + "|"
-						+ Constantes.getAtributosCancelarFactura()[1] + factura.getComprobanteFiscal() + "|"
-						+ Constantes.getAtributosCancelarFactura()[2] + factura.getFolio() + "|"
-						+ Constantes.getAtributosCancelarFactura()[3] + "|",
-				Optional.of(facturaModel));
+
+
+		// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.FACTURAS.getIdSeccionPista(),
+
+
+		// Constantes.getAtributosCancelarFactura()[0] + factura.getIdDictamen() + "|"
+
+
+		// + Constantes.getAtributosCancelarFactura()[1] + factura.getComprobanteFiscal() + "|"
+
+
+		// + Constantes.getAtributosCancelarFactura()[2] + factura.getFolio() + "|"
+
+
+		// + Constantes.getAtributosCancelarFactura()[3] + "|",
+
+
+		// Optional.of(facturaModel));
 
 		return facturaModel;
 	}
@@ -1063,13 +1103,27 @@ public class FacturaServiceImpl implements FacturaService {
 
 		notasCreditoRepository.save(notaCredito);
 
-		pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.NOTA_CREDITO.getIdSeccionPista(),
-				Constantes.getAtributosCancelarNota()[0] + notaCredito.getIdDictamen() + "|"
-						+ Constantes.getAtributosCancelarNota()[1] + notaCredito.getFolio() + "|"
-						+ Constantes.getAtributosCancelarNota()[2] + notaCredito.getComprobanteFiscal()
-						+ Constantes.getAtributosCancelarNota()[3],
-				Optional.of(notaCredito));
+
+
+		// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.NOTA_CREDITO.getIdSeccionPista(),
+
+
+		// Constantes.getAtributosCancelarNota()[0] + notaCredito.getIdDictamen() + "|"
+
+
+		// + Constantes.getAtributosCancelarNota()[1] + notaCredito.getFolio() + "|"
+
+
+		// + Constantes.getAtributosCancelarNota()[2] + notaCredito.getComprobanteFiscal()
+
+
+		// + Constantes.getAtributosCancelarNota()[3],
+
+
+		// Optional.of(notaCredito));
 
 		return notaCredito;
 	}
@@ -1138,12 +1192,24 @@ public class FacturaServiceImpl implements FacturaService {
 			throw new CatalogoException(ErroresEnum.FOLIO_COMP_UTILIZADO_OTRO_CONTRATO, e);
 		}
 
-		pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-				TipoSeccionPista.NOTA_CREDITO.getIdSeccionPista(),
-				Constantes.getAtributosNotaCredito()[0] + notaCreditoDto.getDictamenId() + "|"
-						+ Constantes.getAtributosNotaCredito()[1] + notaCredito.getFolio() + "|"
-						+ Constantes.getAtributosNotaCredito()[2] + notaCredito.getComprobanteFiscal(),
-				Optional.of(notaCredito));
+
+
+		// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.NOTA_CREDITO.getIdSeccionPista(),
+
+
+		// Constantes.getAtributosNotaCredito()[0] + notaCreditoDto.getDictamenId() + "|"
+
+
+		// + Constantes.getAtributosNotaCredito()[1] + notaCredito.getFolio() + "|"
+
+
+		// + Constantes.getAtributosNotaCredito()[2] + notaCredito.getComprobanteFiscal(),
+
+
+		// Optional.of(notaCredito));
 
 		return notaCredito;
 	}
@@ -1205,11 +1271,21 @@ public class FacturaServiceImpl implements FacturaService {
 
 		SolicitudFacturaModel solicitud = solicitudFacturaRepository.findByDictamenIdAndDictamenEstatusTrue(dictamenId);
 
-		pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.DICTAMEN_DATOS_GENERALES.getIdSeccionPista(),
-				Constantes.getAtributosRegresarProforma()[0] + dictamen.getIdDictamen() + "|"
-						+ Constantes.getAtributosRegresarProforma()[1],
-				Optional.of(dictamen));
+
+
+		// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.DICTAMEN_DATOS_GENERALES.getIdSeccionPista(),
+
+
+		// Constantes.getAtributosRegresarProforma()[0] + dictamen.getIdDictamen() + "|"
+
+
+		// + Constantes.getAtributosRegresarProforma()[1],
+
+
+		// Optional.of(dictamen));
 
 		solicitud.setBanderaFactura(false);
 		solicitudFacturaRepository.save(solicitud);
@@ -1300,9 +1376,12 @@ public class FacturaServiceImpl implements FacturaService {
 		dictamen.setUltimaModificacion(dictamenService.ultimaModificacionGeneral());
 
 		// 7. Registrar en pista de auditoría
-		pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.DICTAMEN_DATOS_GENERALES.getIdSeccionPista(),
-				"Dictamen ID: " + dictamen.getIdDictamen() + " | Estatus cambiado a PAGADO", Optional.of(dictamen));
+
+		// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+		// TipoSeccionPista.DICTAMEN_DATOS_GENERALES.getIdSeccionPista(),
+
+		// "Dictamen ID: " + dictamen.getIdDictamen() + " | Estatus cambiado a PAGADO", Optional.of(dictamen));
 
 		// 8. Guardar el dictamen actualizado
 		dictamenRepository.save(dictamen);

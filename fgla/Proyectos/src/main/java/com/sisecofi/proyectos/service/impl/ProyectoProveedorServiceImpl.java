@@ -84,13 +84,20 @@ public List<ProyectoProveedorResponseDto> getProveedoresAsignados(Long idProyect
             .collect(Collectors.joining(" |"));
 
     // Registro de pista de auditoría
-    pistaService.guardarPista(
-            ModuloPista.PROYECTOS.getId(),
-            TipoMovPista.CONSULTA_REGISTRO.getId(),
-            TipoSeccionPista.PROYECTO_DATOS_PARTICIPACION_PROVEDORES.getIdSeccionPista(),
-            proveedores,
-            Optional.empty()
-    );
+
+    // pistaService.guardarPista(
+
+    // ModuloPista.PROYECTOS.getId(),
+
+    // TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+    // TipoSeccionPista.PROYECTO_DATOS_PARTICIPACION_PROVEDORES.getIdSeccionPista(),
+
+    // proveedores,
+
+    // Optional.empty()
+
+    // );
 
     return lista;
 }
@@ -141,14 +148,20 @@ public List<ProyectoProveedorResponseDto> getProveedoresAsignados(Long idProyect
 				
 				if (pro.getId() == null) {
 					// Se inserto proveedor:
-					pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-							TipoSeccionPista.PROYECTO_DATOS_PARTICIPACION_PROVEDORES.getIdSeccionPista(),
-							Constantes.getDatosProveedor()[8]+dto.getProveedorNombre()+ obtenerDatosPistas(dto),Optional.empty());
+
+					// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+					// TipoSeccionPista.PROYECTO_DATOS_PARTICIPACION_PROVEDORES.getIdSeccionPista(),
+
+					// Constantes.getDatosProveedor()[8]+dto.getProveedorNombre()+ obtenerDatosPistas(dto),Optional.empty());
 				} else {
 					// Se actualizo proveedor:
-					pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-							TipoSeccionPista.PROYECTO_DATOS_PARTICIPACION_PROVEDORES.getIdSeccionPista(),
-							Constantes.getDatosProveedor()[8]+dto.getProveedorNombre()+ obtenerDatosPistas(dto),Optional.empty());
+
+					// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+					// TipoSeccionPista.PROYECTO_DATOS_PARTICIPACION_PROVEDORES.getIdSeccionPista(),
+
+					// Constantes.getDatosProveedor()[8]+dto.getProveedorNombre()+ obtenerDatosPistas(dto),Optional.empty());
 				}
 			}
 		}
@@ -157,11 +170,16 @@ public List<ProyectoProveedorResponseDto> getProveedoresAsignados(Long idProyect
 				ProyectoProveedorModel prov= proyectoProveedorRepository.findByIdProyectoProveedor(idEliminar);
 				prov.setEstatus(false);
 				proyectoProveedorRepository.save(prov);
-				pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
-						TipoSeccionPista.PROYECTO_DATOS_PARTICIPACION_PROVEDORES.getIdSeccionPista(),
-						Constantes.getDatosProveedor()[8] + 
-						(prov.getProveedorModel() != null ? prov.getProveedorModel().getNombreProveedor() : "") + 
-						obtenerDatosPistasModel(prov), Optional.empty());
+
+				// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
+
+				// TipoSeccionPista.PROYECTO_DATOS_PARTICIPACION_PROVEDORES.getIdSeccionPista(),
+
+				// Constantes.getDatosProveedor()[8] + 
+
+				// (prov.getProveedorModel() != null ? prov.getProveedorModel().getNombreProveedor() : "") + 
+
+				// obtenerDatosPistasModel(prov), Optional.empty());
 
 			}
 		} 
@@ -264,9 +282,12 @@ public List<ProyectoProveedorResponseDto> getProveedoresAsignados(Long idProyect
 		servicioProyecto.actualizarUltimaModificacion(prov.getProyectoModel().getIdProyecto());
 		
 		proyectoProveedorRepository.save(prov);
-		pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
-				TipoSeccionPista.PROYECTO_DATOS_PARTICIPACION_PROVEDORES.getIdSeccionPista(),
-				Constantes.getDatosProveedor()[8]+prov.getProveedorModel().getNombreProveedor()+" |"+ obtenerDatosPistasModel(prov) ,Optional.empty());
+
+		// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
+
+		// TipoSeccionPista.PROYECTO_DATOS_PARTICIPACION_PROVEDORES.getIdSeccionPista(),
+
+		// Constantes.getDatosProveedor()[8]+prov.getProveedorModel().getNombreProveedor()+" |"+ obtenerDatosPistasModel(prov) ,Optional.empty());
 		return true;
 	}
 

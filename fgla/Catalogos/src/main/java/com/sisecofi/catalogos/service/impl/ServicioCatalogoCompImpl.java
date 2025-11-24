@@ -158,12 +158,24 @@ public class ServicioCatalogoCompImpl implements ServicioCatalogoComp {
 				.append(ADMINISTRACION).append(admon.getAdministracion()).append("|").append(ACRONIMO)
 				.append(admon.getAcronimo()).append("|").append(PUESTO).append(admon.getPuesto()).append("|");
 
-		pistaService.guardarPista(ModuloPista.ADMIN_CATALOGOS.getId(),
-				nuevo ? TipoMovPista.INSERTA_REGISTRO.getId() : TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.CATALOGOS_COMPLEMENTARIOS.getIdSeccionPista(),
-				Constantes.getAtributosComplementarios()[0] + admon.getAdministracion()
-						+ Constantes.getAtributosComplementarios()[1] + admon.getIdAdmonGeneral() + "|" + textoPista,
-				Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.ADMIN_CATALOGOS.getId(),
+
+
+		// nuevo ? TipoMovPista.INSERTA_REGISTRO.getId() : TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.CATALOGOS_COMPLEMENTARIOS.getIdSeccionPista(),
+
+
+		// Constantes.getAtributosComplementarios()[0] + admon.getAdministracion()
+
+
+		// + Constantes.getAtributosComplementarios()[1] + admon.getIdAdmonGeneral() + "|" + textoPista,
+
+
+		// Optional.empty());
 	}
 
 	private void procesarAdministradores(List<CatAdministradorGeneral> administradores, CatAdmonGeneral admonGeneral) {
@@ -216,9 +228,12 @@ public class ServicioCatalogoCompImpl implements ServicioCatalogoComp {
 	private void guardarPistasAdministradores(List<CatAdministradorGeneral> administradores, boolean esNuevo) {
 		administradores.forEach(admin -> {
 			String textoPista = textoPista(admin);
-			pistaService.guardarPista(ModuloPista.ADMIN_CATALOGOS.getId(),
-					esNuevo ? TipoMovPista.INSERTA_REGISTRO.getId() : TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-					TipoSeccionPista.CATALOGOS_COMPLEMENTARIOS.getIdSeccionPista(), textoPista, Optional.empty());
+
+			// pistaService.guardarPista(ModuloPista.ADMIN_CATALOGOS.getId(),
+
+			// esNuevo ? TipoMovPista.INSERTA_REGISTRO.getId() : TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+			// TipoSeccionPista.CATALOGOS_COMPLEMENTARIOS.getIdSeccionPista(), textoPista, Optional.empty());
 		});
 	}
 
@@ -311,9 +326,12 @@ public class ServicioCatalogoCompImpl implements ServicioCatalogoComp {
 	private void guardarPistaAdmonCentral(AdminGeneric<CatAdmonCentral, CatAdministradorCentral> adminGralDto,
 			CatAdmonCentral admonCentral, boolean nuevo) {
 		String textoPista = generarTextoPistaAdmon(adminGralDto, admonCentral);
-		pistaService.guardarPista(ModuloPista.ADMIN_CATALOGOS.getId(),
-				nuevo ? TipoMovPista.INSERTA_REGISTRO.getId() : TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.CATALOGOS_COMPLEMENTARIOS.getIdSeccionPista(), textoPista, Optional.empty());
+
+		// pistaService.guardarPista(ModuloPista.ADMIN_CATALOGOS.getId(),
+
+		// nuevo ? TipoMovPista.INSERTA_REGISTRO.getId() : TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+		// TipoSeccionPista.CATALOGOS_COMPLEMENTARIOS.getIdSeccionPista(), textoPista, Optional.empty());
 	}
 
 	private String generarTextoPistaAdmon(AdminGeneric<CatAdmonCentral, CatAdministradorCentral> adminGralDto,
@@ -396,8 +414,10 @@ public class ServicioCatalogoCompImpl implements ServicioCatalogoComp {
 	private void guardarPistasAdministradores(List<CatAdministradorCentral> administradores, TipoMovPista tipoMov) {
 		for (CatAdministradorCentral administrador : administradores) {
 			String textoPista = textoPista(administrador);
-			pistaService.guardarPista(ModuloPista.ADMIN_CATALOGOS.getId(), tipoMov.getId(),
-					TipoSeccionPista.CATALOGOS_COMPLEMENTARIOS.getIdSeccionPista(), textoPista, Optional.empty());
+
+			// pistaService.guardarPista(ModuloPista.ADMIN_CATALOGOS.getId(), tipoMov.getId(),
+
+			// TipoSeccionPista.CATALOGOS_COMPLEMENTARIOS.getIdSeccionPista(), textoPista, Optional.empty());
 		}
 	}
 
@@ -622,17 +642,25 @@ public class ServicioCatalogoCompImpl implements ServicioCatalogoComp {
 	private void registrarPistas(CatAdministracion administracion,
 			List<CatAdministradorAdministracion> administradores) {
 		boolean esNuevo = administracion.getFechaModificacion() == null;
-		pistaService.guardarPista(ModuloPista.ADMIN_CATALOGOS.getId(),
-				esNuevo ? TipoMovPista.INSERTA_REGISTRO.getId() : TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.CATALOGOS_COMPLEMENTARIOS.getIdSeccionPista(), construirTextoPista(administracion),
-				Optional.empty());
+
+		// pistaService.guardarPista(ModuloPista.ADMIN_CATALOGOS.getId(),
+
+		// esNuevo ? TipoMovPista.INSERTA_REGISTRO.getId() : TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+		// TipoSeccionPista.CATALOGOS_COMPLEMENTARIOS.getIdSeccionPista(), construirTextoPista(administracion),
+
+		// Optional.empty());
 
 		administradores.forEach(adm -> {
 			String pista = textoPista(adm);
-			pistaService.guardarPista(ModuloPista.ADMIN_CATALOGOS.getId(),
-					adm.getFechaCreacion() != null ? TipoMovPista.INSERTA_REGISTRO.getId()
-							: TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-					TipoSeccionPista.CATALOGOS_COMPLEMENTARIOS.getIdSeccionPista(), pista, Optional.empty());
+
+			// pistaService.guardarPista(ModuloPista.ADMIN_CATALOGOS.getId(),
+
+			// adm.getFechaCreacion() != null ? TipoMovPista.INSERTA_REGISTRO.getId()
+
+			// : TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+			// TipoSeccionPista.CATALOGOS_COMPLEMENTARIOS.getIdSeccionPista(), pista, Optional.empty());
 		});
 	}
 

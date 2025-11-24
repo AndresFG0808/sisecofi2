@@ -144,12 +144,24 @@ public class EstimacionServiceImpl implements EstimacionService {
 
 		EstimacionResponse dto = agruparRespuesta(estimacion);
 
-		pistaService.guardarPista(ModuloPista.ESTIMACION.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-				TipoSeccionPista.ESTIMACION_DATOS_GENERALES.getIdSeccionPista(),
-				Constantes.getAtributosGenerales()[1] + estimacion.getIdEstimacion()
-						+ Constantes.getAtributosGenerales()[2] + contrato.getProyecto().getNombreCorto() + "| "
-						+ dto.toString(),
-				Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.ESTIMACION.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.ESTIMACION_DATOS_GENERALES.getIdSeccionPista(),
+
+
+		// Constantes.getAtributosGenerales()[1] + estimacion.getIdEstimacion()
+
+
+		// + Constantes.getAtributosGenerales()[2] + contrato.getProyecto().getNombreCorto() + "| "
+
+
+		// + dto.toString(),
+
+
+		// Optional.empty());
 
 		return dto;
 	}
@@ -452,8 +464,12 @@ public class EstimacionServiceImpl implements EstimacionService {
 						+ Constantes.getAtributosGenerales()[10] + dictamen.getId())
 				.collect(Collectors.joining("")); 
 
-		pistaService.guardarPista(ModuloPista.ESTIMACION.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
-				TipoSeccionPista.ESTIMACION_DATOS_GENERALES.getIdSeccionPista(), resultado, Optional.empty());
+ 
+
+		// pistaService.guardarPista(ModuloPista.ESTIMACION.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
+ 
+
+		// TipoSeccionPista.ESTIMACION_DATOS_GENERALES.getIdSeccionPista(), resultado, Optional.empty());
 
 		return consumer.cerrarBytes();
 
@@ -488,12 +504,24 @@ public class EstimacionServiceImpl implements EstimacionService {
 
 		EstimacionResponse dto = agruparRespuesta(estimacion);
 
-		pistaService.guardarPista(ModuloPista.ESTIMACION.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.ESTIMACION_DATOS_GENERALES.getIdSeccionPista(),
-				Constantes.getAtributosGenerales()[1] + estimacion.getIdEstimacion()
-						+ Constantes.getAtributosGenerales()[2] + contrato.getProyecto().getNombreCorto() + "| "
-						+ dto.toString(),
-				Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.ESTIMACION.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.ESTIMACION_DATOS_GENERALES.getIdSeccionPista(),
+
+
+		// Constantes.getAtributosGenerales()[1] + estimacion.getIdEstimacion()
+
+
+		// + Constantes.getAtributosGenerales()[2] + contrato.getProyecto().getNombreCorto() + "| "
+
+
+		// + dto.toString(),
+
+
+		// Optional.empty());
 		return dto;
 	}
 
@@ -555,8 +583,12 @@ public class EstimacionServiceImpl implements EstimacionService {
 							+ Constantes.getAtributosGenerales()[11] + factura.getComprobanteFiscal())
 					.collect(Collectors.joining(""));
 
-			pistaService.guardarPista(ModuloPista.ESTIMACION.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
-					TipoSeccionPista.ESTIMACION_DATOS_GENERALES.getIdSeccionPista(), resultado, Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.ESTIMACION.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.ESTIMACION_DATOS_GENERALES.getIdSeccionPista(), resultado, Optional.empty());
 
 			return consumerF.cerrarBytes();
 		} catch (Exception e) {
@@ -578,11 +610,21 @@ public class EstimacionServiceImpl implements EstimacionService {
 		
 		EstimacionResponse response= agruparRespuesta(estimacion);
 
-		pistaService.guardarPista(ModuloPista.ESTIMACION.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.ESTIMACION_DATOS_GENERALES.getIdSeccionPista(),
-				Constantes.getAtributosGenerales()[1] + response.getIdEstimacion() + Constantes.getAtributosGenerales()[5]
-						+ Constantes.getAtributosGenerales()[6] + "|",
-				Optional.of(estimacion));
+
+
+		// pistaService.guardarPista(ModuloPista.ESTIMACION.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.ESTIMACION_DATOS_GENERALES.getIdSeccionPista(),
+
+
+		// Constantes.getAtributosGenerales()[1] + response.getIdEstimacion() + Constantes.getAtributosGenerales()[5]
+
+
+		// + Constantes.getAtributosGenerales()[6] + "|",
+
+
+		// Optional.of(estimacion));
 		return response;
 	}
 	
@@ -600,11 +642,21 @@ public class EstimacionServiceImpl implements EstimacionService {
 		
 		EstimacionResponse response = agruparRespuesta(estimacion);
 
-		pistaService.guardarPista(ModuloPista.ESTIMACION.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.ESTIMACION_DATOS_GENERALES.getIdSeccionPista(),
-				Constantes.getAtributosGenerales()[1] +  response.getIdEstimacion() + Constantes.getAtributosGenerales()[5]
-						+ Constantes.getAtributosGenerales()[7] + "|",
-				Optional.of(estimacion));
+
+
+		// pistaService.guardarPista(ModuloPista.ESTIMACION.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.ESTIMACION_DATOS_GENERALES.getIdSeccionPista(),
+
+
+		// Constantes.getAtributosGenerales()[1] +  response.getIdEstimacion() + Constantes.getAtributosGenerales()[5]
+
+
+		// + Constantes.getAtributosGenerales()[7] + "|",
+
+
+		// Optional.of(estimacion));
 
 		return response;
 	}
@@ -630,13 +682,27 @@ public class EstimacionServiceImpl implements EstimacionService {
 		ContratoModel contrato = contratoRepository.findByIdContratoAndEstatusTrue(estimacion.getIdContrato())
 				.orElseThrow(() -> new CatalogoException(ErroresEnum.ESTIMACION_NO_ENCONTRADA));
 
-		pistaService.guardarPista(ModuloPista.ESTIMACION.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.ESTIMACION_REGISTRO_SERVICIOS.getIdSeccionPista(),
-				Constantes.getAtributosGenerales()[1] + obtenerIdVisual(contrato.getNombreCorto(),estimacion.getIdProveedor(), estimacion.getConsecutivo())+ Constantes.getAtributosGenerales()[5]
-						+ Constantes.getAtributosGenerales()[8] + Constantes.getAtributosGenerales()[3]
-						+ contrato.getIdContrato() + Constantes.getAtributosGenerales()[9] + estimacion.getIdProveedor()
-						+ "|",
-				Optional.of(estimacion));
+
+
+		// pistaService.guardarPista(ModuloPista.ESTIMACION.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.ESTIMACION_REGISTRO_SERVICIOS.getIdSeccionPista(),
+
+
+		// Constantes.getAtributosGenerales()[1] + obtenerIdVisual(contrato.getNombreCorto(),estimacion.getIdProveedor(), estimacion.getConsecutivo())+ Constantes.getAtributosGenerales()[5]
+
+
+		// + Constantes.getAtributosGenerales()[8] + Constantes.getAtributosGenerales()[3]
+
+
+		// + contrato.getIdContrato() + Constantes.getAtributosGenerales()[9] + estimacion.getIdProveedor()
+
+
+		// + "|",
+
+
+		// Optional.of(estimacion));
 
 		return guardarServicios(servicios, idEstimacion, true);
 	}
@@ -696,13 +762,20 @@ public class EstimacionServiceImpl implements EstimacionService {
 								: BigDecimal.ZERO);
 
 				servicioNuevo= servicioEstimadoRepository.save(servicioNuevo);
-				pistaService.guardarPista(ModuloPista.ESTIMACION.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-						TipoSeccionPista.ESTIMACION_REGISTRO_SERVICIOS.getIdSeccionPista(),
-						Constantes.getAtributosGenerales()[1] + estimacion.getIdEstimacion()
-								+ Constantes.getAtributosGenerales()[3] + contrato.getIdContrato()
-								+ Constantes.getAtributosGenerales()[4] + servicioContrato.getIdServicioContrato()
-								+ "|",
-						Optional.of(servicioNuevo));
+
+				// pistaService.guardarPista(ModuloPista.ESTIMACION.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+				// TipoSeccionPista.ESTIMACION_REGISTRO_SERVICIOS.getIdSeccionPista(),
+
+				// Constantes.getAtributosGenerales()[1] + estimacion.getIdEstimacion()
+
+				// + Constantes.getAtributosGenerales()[3] + contrato.getIdContrato()
+
+				// + Constantes.getAtributosGenerales()[4] + servicioContrato.getIdServicioContrato()
+
+				// + "|",
+
+				// Optional.of(servicioNuevo));
 
 				listaEstimados.add(servicioNuevo);
 
@@ -960,13 +1033,13 @@ public class EstimacionServiceImpl implements EstimacionService {
 		
 		servicioEstimadoRepository.saveAll(servicios);
 
-		servicios.forEach(serv -> pistaService.guardarPista(ModuloPista.ESTIMACION.getId(),
-				TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.ESTIMACION_REGISTRO_SERVICIOS.getIdSeccionPista(),
-				Constantes.getAtributosGenerales()[1] + obtenerIdVisual(contrato.getNombreCorto(),estimacion.getIdProveedor(), estimacion.getConsecutivo())+ Constantes.getAtributosGenerales()[3]
-						+ contrato.getIdContrato() + Constantes.getAtributosGenerales()[4]
-						+ serv.getIdServicioEstimado() + "|",
-				Optional.of(serv)));
+		// servicios.forEach(serv -> pistaService.guardarPista(ModuloPista.ESTIMACION.getId(),
+		// 	TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+		// 	TipoSeccionPista.ESTIMACION_REGISTRO_SERVICIOS.getIdSeccionPista(),
+		// 	Constantes.getAtributosGenerales()[1] + obtenerIdVisual(contrato.getNombreCorto(),estimacion.getIdProveedor(), estimacion.getConsecutivo())+ Constantes.getAtributosGenerales()[3]
+		// 		+ contrato.getIdContrato() + Constantes.getAtributosGenerales()[4]
+		// 		+ serv.getIdServicioEstimado() + "|",
+		// 	Optional.of(serv)));
 
 		dto.setMontoEstimado(estimacion.getMontoEstimado());
 		dto.setMontoEstimadoPesos(estimacion.getMontoEstimadoPesos());
@@ -997,8 +1070,12 @@ public class EstimacionServiceImpl implements EstimacionService {
 						+ servicioEstimado.getServicioBase().getIdServicioContrato() + servicioEstimado.toString())
 				.collect(Collectors.joining(""));
 
-		pistaService.guardarPista(ModuloPista.ESTIMACION.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
-				TipoSeccionPista.ESTIMACION_REGISTRO_SERVICIOS.getIdSeccionPista(), resultado, Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.ESTIMACION.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.ESTIMACION_REGISTRO_SERVICIOS.getIdSeccionPista(), resultado, Optional.empty());
 
 		return consumerSer.cerrarBytes();
 	}

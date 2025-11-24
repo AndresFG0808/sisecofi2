@@ -90,9 +90,15 @@ public class DirectorioProveedorServiceImpl implements DirectorioProveedorServic
 
         log.info(PISTA_GEN, builder.toString());
 
-        pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-                TipoSeccionPista.PROVEEDOR_DIRECTORIO_CONTACTO.getIdSeccionPista(), builder.toString(),
-                Optional.empty());
+
+
+        // pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+
+        // TipoSeccionPista.PROVEEDOR_DIRECTORIO_CONTACTO.getIdSeccionPista(), builder.toString(),
+
+
+        // Optional.empty());
 
         return directorioModel;
     }
@@ -101,9 +107,15 @@ public class DirectorioProveedorServiceImpl implements DirectorioProveedorServic
     public List<DirectorioProveedorDto> obtenerDirectorioProveedor() {
         List<DirectorioProveedorModel> directorioProveedorModel = directorioProveedorRepository.findByEstatusTrue();
 
-        pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-                TipoSeccionPista.PROVEEDOR_DIRECTORIO_CONTACTO.getIdSeccionPista(),
-                TipoMovPista.CONSULTA_REGISTRO.getClave(), Optional.empty());
+
+
+        // pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+        // TipoSeccionPista.PROVEEDOR_DIRECTORIO_CONTACTO.getIdSeccionPista(),
+
+
+        // TipoMovPista.CONSULTA_REGISTRO.getClave(), Optional.empty());
 
         return directorioProveedorModel.stream()
                 .map(model -> modelMapper.map(model, DirectorioProveedorDto.class))
@@ -171,9 +183,15 @@ public class DirectorioProveedorServiceImpl implements DirectorioProveedorServic
 
         log.info(PISTA_GEN, builder.toString());
 
-        pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-                TipoSeccionPista.PROVEEDOR_DIRECTORIO_CONTACTO.getIdSeccionPista(), builder.toString(),
-                Optional.empty());
+
+
+        // pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+
+        // TipoSeccionPista.PROVEEDOR_DIRECTORIO_CONTACTO.getIdSeccionPista(), builder.toString(),
+
+
+        // Optional.empty());
 
         return directorioExistente;
 
@@ -218,9 +236,15 @@ public class DirectorioProveedorServiceImpl implements DirectorioProveedorServic
 
         log.info(PISTA_GEN, builder.toString());
 
-        pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
-                TipoSeccionPista.PROVEEDOR_DIRECTORIO_CONTACTO.getIdSeccionPista(), builder.toString(),
-                Optional.empty());
+
+
+        // pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
+
+
+        // TipoSeccionPista.PROVEEDOR_DIRECTORIO_CONTACTO.getIdSeccionPista(), builder.toString(),
+
+
+        // Optional.empty());
 
     }
 
@@ -245,11 +269,21 @@ public class DirectorioProveedorServiceImpl implements DirectorioProveedorServic
         StringBuilder builder = new StringBuilder();
         builder.append(ID_PROVEEDOR).append(idProveedor);
 
-        pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(),
-                TipoMovPista.CONSULTA_REGISTRO.getId(),
-                TipoSeccionPista.PROVEEDOR_DIRECTORIO_CONTACTO.getIdSeccionPista(),
-                builder.toString(),
-                Optional.empty());
+
+
+        // pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(),
+
+
+        // TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+        // TipoSeccionPista.PROVEEDOR_DIRECTORIO_CONTACTO.getIdSeccionPista(),
+
+
+        // builder.toString(),
+
+
+        // Optional.empty());
     }
 
 }

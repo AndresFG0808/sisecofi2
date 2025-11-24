@@ -43,8 +43,10 @@ public class ServicioReporteProveedoresAsignadosImpl implements ServicioReporteP
 			asignadosConsumer.inializar("Proveedores Participantes");
 			asignadosConsumer.agregarCabeceras(Constantes.TITULOS_REPORTE_PROVEEDORES_PARTICIPANTES);
 			lista.stream().forEach(asignadosConsumer);
-			pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),TipoSeccionPista.PROYECTO_DATOS_PARTICIPACION_PROVEDORES.getIdSeccionPista(),
-					proveedores.toString(),Optional.empty());
+
+			// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),TipoSeccionPista.PROYECTO_DATOS_PARTICIPACION_PROVEDORES.getIdSeccionPista(),
+
+			// proveedores.toString(),Optional.empty());
 			return asignadosConsumer.cerrarBytes();
 		} catch (Exception e) {
 			throw new ProyectoException(ErroresEnum.ERROR_AL_CONSULTAR, e);

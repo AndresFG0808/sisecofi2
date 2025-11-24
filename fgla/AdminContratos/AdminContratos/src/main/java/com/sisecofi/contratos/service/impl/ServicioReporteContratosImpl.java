@@ -68,8 +68,12 @@ public class ServicioReporteContratosImpl implements ServicioReporteContratos {
             contratoDtoList.stream().forEach(reporteContratoConsumer);
             byte[] reporte = reporteContratoConsumer.cerrarBytes();
 
-            pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-                    TipoSeccionPista.CONTRATOS_TABLA.getIdSeccionPista(), ids.toString(), Optional.empty());
+
+
+            // pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+            // TipoSeccionPista.CONTRATOS_TABLA.getIdSeccionPista(), ids.toString(), Optional.empty());
 
             return Base64.getEncoder().encodeToString(reporte);
 
@@ -91,11 +95,19 @@ public class ServicioReporteContratosImpl implements ServicioReporteContratos {
             servicioContratoDtos.stream().forEach(reporteServicioContratoConsumer);
             byte[] reporte = reporteServicioContratoConsumer.cerrarBytes();
 
-            pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-                    TipoSeccionPista.CONTRATOS_REGISTRO_SERVICIOS.getIdSeccionPista(), TipoMovPista.CONSULTA_REGISTRO.getClave(), Optional.empty());
 
-            pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-                    TipoSeccionPista.CONTRATOS_REGISTRO_SERVICIOS.getIdSeccionPista(), TipoMovPista.IMPRIME_REGISTRO.getClave(), Optional.empty());
+
+            // pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+            // TipoSeccionPista.CONTRATOS_REGISTRO_SERVICIOS.getIdSeccionPista(), TipoMovPista.CONSULTA_REGISTRO.getClave(), Optional.empty());
+
+
+
+            // pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+            // TipoSeccionPista.CONTRATOS_REGISTRO_SERVICIOS.getIdSeccionPista(), TipoMovPista.IMPRIME_REGISTRO.getClave(), Optional.empty());
 
             return Base64.getEncoder().encodeToString(reporte);
 
@@ -120,11 +132,19 @@ public class ServicioReporteContratosImpl implements ServicioReporteContratos {
             servicioContratoDtos.stream().forEach(reporteAtrasoPrestacionConsumer);
             byte[] reporte = reporteAtrasoPrestacionConsumer.cerrarBytes();
 
-            pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-                    TipoSeccionPista.CONTRATOS_ATRASO.getIdSeccionPista(), TipoMovPista.CONSULTA_REGISTRO.getClave(), Optional.empty());
 
-            pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-                    TipoSeccionPista.CONTRATOS_ATRASO.getIdSeccionPista(), TipoMovPista.IMPRIME_REGISTRO.getClave(), Optional.empty());
+
+            // pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+            // TipoSeccionPista.CONTRATOS_ATRASO.getIdSeccionPista(), TipoMovPista.CONSULTA_REGISTRO.getClave(), Optional.empty());
+
+
+
+            // pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+            // TipoSeccionPista.CONTRATOS_ATRASO.getIdSeccionPista(), TipoMovPista.IMPRIME_REGISTRO.getClave(), Optional.empty());
 
             return Base64.getEncoder().encodeToString(reporte);
 
@@ -145,11 +165,19 @@ public class ServicioReporteContratosImpl implements ServicioReporteContratos {
         participantesAdminContratoDtos.stream().forEach(reporteParticipantesContratoConsumer);
         byte[] reporte = reporteParticipantesContratoConsumer.cerrarBytes();
 
-        pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-                TipoSeccionPista.CONTRATO_DATOS_GENERALES.getIdSeccionPista(), TipoMovPista.CONSULTA_REGISTRO.getClave(), Optional.empty());
 
-        pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-                TipoSeccionPista.CONTRATO_DATOS_GENERALES.getIdSeccionPista(), TipoMovPista.IMPRIME_REGISTRO.getClave(), Optional.empty());
+
+        // pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+        // TipoSeccionPista.CONTRATO_DATOS_GENERALES.getIdSeccionPista(), TipoMovPista.CONSULTA_REGISTRO.getClave(), Optional.empty());
+
+
+
+        // pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+        // TipoSeccionPista.CONTRATO_DATOS_GENERALES.getIdSeccionPista(), TipoMovPista.IMPRIME_REGISTRO.getClave(), Optional.empty());
 
         return Base64.getEncoder().encodeToString(reporte);
     }
@@ -167,11 +195,19 @@ public class ServicioReporteContratosImpl implements ServicioReporteContratos {
         reporteReintegrosAsociadosConsumer.agregarValoresTotales(reporteReintegroAsociadoDto.getListaTotales().toArray(new BigDecimal[0]));
         byte[] reporte = reporteReintegrosAsociadosConsumer.cerrarBytes();
 
-        pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-                TipoSeccionPista.CONTRATOS_REINTEGROS_ASOCIADOS.getIdSeccionPista(), TipoMovPista.CONSULTA_REGISTRO.getClave(), Optional.empty());
 
-        pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-                TipoSeccionPista.CONTRATOS_REINTEGROS_ASOCIADOS.getIdSeccionPista(), TipoMovPista.IMPRIME_REGISTRO.getClave(), Optional.empty());
+
+        // pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+        // TipoSeccionPista.CONTRATOS_REINTEGROS_ASOCIADOS.getIdSeccionPista(), TipoMovPista.CONSULTA_REGISTRO.getClave(), Optional.empty());
+
+
+
+        // pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+        // TipoSeccionPista.CONTRATOS_REINTEGROS_ASOCIADOS.getIdSeccionPista(), TipoMovPista.IMPRIME_REGISTRO.getClave(), Optional.empty());
 
         return Base64.getEncoder().encodeToString(reporte);
     }
@@ -187,11 +223,19 @@ public class ServicioReporteContratosImpl implements ServicioReporteContratos {
         convenioModificatorio.stream().forEach(reporteConvenioModificatorioConsumer);
         byte[] reporte = reporteConvenioModificatorioConsumer.cerrarBytes();
 
-        pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-                TipoSeccionPista.CONTRATO_DATOS_GENERALES.getIdSeccionPista(), TipoMovPista.CONSULTA_REGISTRO.getClave(), Optional.empty());
 
-        pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-                TipoSeccionPista.CONTRATO_DATOS_GENERALES.getIdSeccionPista(), TipoMovPista.IMPRIME_REGISTRO.getClave(), Optional.empty());
+
+        // pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+        // TipoSeccionPista.CONTRATO_DATOS_GENERALES.getIdSeccionPista(), TipoMovPista.CONSULTA_REGISTRO.getClave(), Optional.empty());
+
+
+
+        // pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+        // TipoSeccionPista.CONTRATO_DATOS_GENERALES.getIdSeccionPista(), TipoMovPista.IMPRIME_REGISTRO.getClave(), Optional.empty());
 
         return Base64.getEncoder().encodeToString(reporte);
     }

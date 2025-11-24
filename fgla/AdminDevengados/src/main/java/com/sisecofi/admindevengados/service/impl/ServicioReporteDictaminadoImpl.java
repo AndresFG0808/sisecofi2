@@ -46,11 +46,21 @@ public class ServicioReporteDictaminadoImpl implements ServicioReporteDictaminad
 			    .map(DictaminadoDto::toString)
 			    .collect(Collectors.joining("|"));
 		
-		pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
-				TipoSeccionPista.DICTAMEN_REGISTRO_SERVICIOS.getIdSeccionPista(),
-				Constantes.getAtributosDictaminados()[0] + listaDictaminados.get(0).getIdDictamen() + "|"
-						+ Constantes.getAtributosDictaminados()[1] + idsDictaminados + "|" + resultado,
-				Optional.empty());
+
+		
+		// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+		
+		// TipoSeccionPista.DICTAMEN_REGISTRO_SERVICIOS.getIdSeccionPista(),
+
+		
+		// Constantes.getAtributosDictaminados()[0] + listaDictaminados.get(0).getIdDictamen() + "|"
+
+		
+		// + Constantes.getAtributosDictaminados()[1] + idsDictaminados + "|" + resultado,
+
+		
+		// Optional.empty());
 
 		return Base64.getEncoder().encodeToString(reporte);
 

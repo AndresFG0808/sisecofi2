@@ -31,7 +31,8 @@ public class PistaAuditoriaServiceImpl implements PistaAuditoriaService {
 			pista.setModuloPistaModel(new CatModuloPistaModel(idModuloPista));
 			pista.setTipoMovPistaModel(new CatTipoMovPistaModel(idTipoMovPista));
 			pista.setMovimiento(movimiento);
-			pistaService.guardarPista(pista);
+
+			// pistaService.guardarPista(pista);
 			return true;
 		} catch (Exception e) {
 			throw new PistaException(ErroresPistasEnum.ERROR_GUARDAR_PISTA);

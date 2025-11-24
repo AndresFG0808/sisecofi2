@@ -48,10 +48,18 @@ public class ServicioReportePenasConvencionalesImpl implements ServicioReportePe
 			    .map(PenaContractualExcelDto::toString)
 			    .collect(Collectors.joining("|"));
 		
-			pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
-					TipoSeccionPista.DICTAMEN_PENAS_CONVENCIONALES.getIdSeccionPista(),
-					Constantes.getAtributosPenasConvencionalesExportar()[0] + penasSeleccionadas.get(0).getDictamenId() + "|"
-							+ Constantes.getAtributosPenasConvencionalesExportar()[1] + "|" + resultado, Optional.empty());
+
+		
+			// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+		
+			// TipoSeccionPista.DICTAMEN_PENAS_CONVENCIONALES.getIdSeccionPista(),
+
+		
+			// Constantes.getAtributosPenasConvencionalesExportar()[0] + penasSeleccionadas.get(0).getDictamenId() + "|"
+
+		
+			// + Constantes.getAtributosPenasConvencionalesExportar()[1] + "|" + resultado, Optional.empty());
 
 		return Base64.getEncoder().encodeToString(reporte);
 	}

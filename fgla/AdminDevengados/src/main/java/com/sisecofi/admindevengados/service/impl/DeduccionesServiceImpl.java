@@ -258,10 +258,14 @@ public class DeduccionesServiceImpl implements DeduccionesService {
 				.collect(Collectors.joining(","));
 
 		for (DeduccionesModel deduccionesModel : listaPenas) {
-			pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-					TipoSeccionPista.DICTAMEN_DEDUCCIONES.getIdSeccionPista(), Constantes.getAtributosDeducciones()[0]
-							+ deduccionesModel.getIdDictamen() + "|" + Constantes.getAtributosDeducciones()[1] + ids,
-					Optional.of(deduccionesModel));
+
+			// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+			// TipoSeccionPista.DICTAMEN_DEDUCCIONES.getIdSeccionPista(), Constantes.getAtributosDeducciones()[0]
+
+			// + deduccionesModel.getIdDictamen() + "|" + Constantes.getAtributosDeducciones()[1] + ids,
+
+			// Optional.of(deduccionesModel));
 		}
 		dictamenService.actualizarResumenConsolidado(listaPenas.get(0).getIdDictamen());
 	}
@@ -346,11 +350,16 @@ public class DeduccionesServiceImpl implements DeduccionesService {
 		dictamenService.actualizarResumenConsolidado(dictamenId);
 
 		for (DeduccionesModel deduccionesModel : listaDeduccionesModificadas) {
-			pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-					TipoSeccionPista.DICTAMEN_DEDUCCIONES.getIdSeccionPista(),
-					Constantes.getAtributosDeducciones()[0] + deduccionesModel.getIdTipoDeduccion() + "|"
-							+ Constantes.getAtributosDeducciones()[1] + ids,
-					Optional.of(deduccionesModel));
+
+			// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+			// TipoSeccionPista.DICTAMEN_DEDUCCIONES.getIdSeccionPista(),
+
+			// Constantes.getAtributosDeducciones()[0] + deduccionesModel.getIdTipoDeduccion() + "|"
+
+			// + Constantes.getAtributosDeducciones()[1] + ids,
+
+			// Optional.of(deduccionesModel));
 		}
 
 		return listaDeduccionesModificadas;
@@ -426,11 +435,16 @@ public class DeduccionesServiceImpl implements DeduccionesService {
 				Dictamen dictamen = pena.getDictamen();
 				dictamen.setUltimaModificacion(dictamenService.ultimaModificacionGeneral());
 				deduccionRepository.save(pena);
-				pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
-						TipoSeccionPista.DICTAMEN_DEDUCCIONES.getIdSeccionPista(),
-						Constantes.getAtributosDeducciones()[0] + pena.getIdDictamen() + "|"
-								+ Constantes.getAtributosDeducciones()[1] + ids,
-						Optional.of(pena));
+
+				// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
+
+				// TipoSeccionPista.DICTAMEN_DEDUCCIONES.getIdSeccionPista(),
+
+				// Constantes.getAtributosDeducciones()[0] + pena.getIdDictamen() + "|"
+
+				// + Constantes.getAtributosDeducciones()[1] + ids,
+
+				// Optional.of(pena));
 				idsActualizados.add(id);
 			} else {
 				throw new CatalogoException(ErroresEnum.PENA_DOCUMENTO_NOT_FOUND);

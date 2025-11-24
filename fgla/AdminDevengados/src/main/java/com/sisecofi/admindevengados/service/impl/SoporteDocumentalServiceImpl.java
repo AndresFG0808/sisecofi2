@@ -130,11 +130,21 @@ public class SoporteDocumentalServiceImpl implements SoporteDocumentalService {
 
 			String nombreArchivo = path.substring(path.lastIndexOf("/") + 1);
 
-			pistaService.guardarPista(ModuloPista.ADMIN_DEVENGADOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
-					TipoSeccionPista.DICTAMEN_SOPORTE_DOC.getIdSeccionPista(),
-					Constantes.getAtributosSoporteDocumental()[0] + "|" + dictamenId
-							+ Constantes.getAtributosSoporteDocumental()[1] + nombreArchivo,
-					Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.ADMIN_DEVENGADOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.DICTAMEN_SOPORTE_DOC.getIdSeccionPista(),
+
+
+			// Constantes.getAtributosSoporteDocumental()[0] + "|" + dictamenId
+
+
+			// + Constantes.getAtributosSoporteDocumental()[1] + nombreArchivo,
+
+
+			// Optional.empty());
 
 			return nexusImpl.crearCarpetaCompartida(path);
 		} catch (Exception e) {
@@ -154,11 +164,21 @@ public class SoporteDocumentalServiceImpl implements SoporteDocumentalService {
 
 			String nombreArchivo = path.substring(path.lastIndexOf("/") + 1);
 
-			pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
-					TipoSeccionPista.DICTAMEN_SOPORTE_DOC.getIdSeccionPista(),
-					Constantes.getAtributosSoporteDocumental()[0] + dictamenId + "|"
-							+ Constantes.getAtributosSoporteDocumental()[1] + nombreArchivo,
-					Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.DICTAMEN_SOPORTE_DOC.getIdSeccionPista(),
+
+
+			// Constantes.getAtributosSoporteDocumental()[0] + dictamenId + "|"
+
+
+			// + Constantes.getAtributosSoporteDocumental()[1] + nombreArchivo,
+
+
+			// Optional.empty());
 
 			return Base64.getEncoder().encodeToString(bytes);
 		} catch (Exception e) {
@@ -601,11 +621,21 @@ public class SoporteDocumentalServiceImpl implements SoporteDocumentalService {
 			dictamen = (Dictamen) ((HibernateProxy) dictamen).getHibernateLazyInitializer().getImplementation();
 		}
 
-		pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.DICTAMEN_DATOS_GENERALES.getIdSeccionPista(),
-				Constantes.getAtributosDictaminado()[0] + dictamen.getIdDictamen() + "|"
-						+ Constantes.getAtributosDictaminado()[1] + dictamen.getCatEstatusDictamen().getNombre(),
-				Optional.of(dictamen));
+
+
+		// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.DICTAMEN_DATOS_GENERALES.getIdSeccionPista(),
+
+
+		// Constantes.getAtributosDictaminado()[0] + dictamen.getIdDictamen() + "|"
+
+
+		// + Constantes.getAtributosDictaminado()[1] + dictamen.getCatEstatusDictamen().getNombre(),
+
+
+		// Optional.of(dictamen));
 
 		return dictamen;
 	}
@@ -844,10 +874,18 @@ public class SoporteDocumentalServiceImpl implements SoporteDocumentalService {
 				boolean esCreacion = idSoporteDocumental == null;
 				logger.debug("Es creación: {}", esCreacion);
 
-				pistaService.guardarPista(ModuloPista.DICTAMEN.getId(),
-						esCreacion ? TipoMovPista.INSERTA_REGISTRO.getId() : TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-						TipoSeccionPista.DICTAMEN_SOPORTE_DOC.getIdSeccionPista(),
-						Constantes.getAtributosSoporteDocumentalRegiActua()[0] + idDictamen, Optional.of(soporte));
+
+
+				// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(),
+
+
+				// esCreacion ? TipoMovPista.INSERTA_REGISTRO.getId() : TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+
+				// TipoSeccionPista.DICTAMEN_SOPORTE_DOC.getIdSeccionPista(),
+
+
+				// Constantes.getAtributosSoporteDocumentalRegiActua()[0] + idDictamen, Optional.of(soporte));
 
 				logger.debug("Pista guardada correctamente para el idDictamen={}", idDictamen);
 				return true;

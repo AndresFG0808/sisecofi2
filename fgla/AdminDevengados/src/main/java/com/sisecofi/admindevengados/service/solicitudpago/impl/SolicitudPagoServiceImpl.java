@@ -187,8 +187,10 @@ public class SolicitudPagoServiceImpl implements SolicitudPagoService {
 		solicitudPagoResponseDto.setAplicaConvenioColaboracion(convenio);
 		actualizarUltimaModificacion(dictamen.getIdDictamen());
 		String movimiento = solicitudPagoPistasConsumer.movimientoSolicitudPagol(solicitudPagoModel);
-		pistaService.guardarPista(ModuloPista.ADMIN_DEVENGADOS.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-				TipoSeccionPista.SOLICITUD_PAGO.getIdSeccionPista(), movimiento, Optional.empty());
+
+		// pistaService.guardarPista(ModuloPista.ADMIN_DEVENGADOS.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+		// TipoSeccionPista.SOLICITUD_PAGO.getIdSeccionPista(), movimiento, Optional.empty());
 
 		return solicitudPagoResponseDto;
 
@@ -227,9 +229,15 @@ public class SolicitudPagoServiceImpl implements SolicitudPagoService {
 			dictamenRepository.save(disctamen);
 			facturasRepository.saveAll(facturasNoCanceladas);
 
-			pistaService.guardarPista(ModuloPista.ADMIN_DEVENGADOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-					TipoSeccionPista.SOLICITUD_PAGO.getIdSeccionPista(),
-					"Id dictamen:" + solicitudPagoDto.getIdDictamen(), Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.ADMIN_DEVENGADOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.SOLICITUD_PAGO.getIdSeccionPista(),
+
+
+			// "Id dictamen:" + solicitudPagoDto.getIdDictamen(), Optional.empty());
 
 		} else {
 			return "estatus solicitud debe estar en true";
@@ -263,8 +271,10 @@ public class SolicitudPagoServiceImpl implements SolicitudPagoService {
 			}
 			actualizarUltimaModificacion(referenciaPagoDto.getDictamenId().getIdDictamen());
 			String movimiento = solicitudPagoPistasConsumer.movimientoReferenciaPago(referenciaPagoModel);
-			pistaService.guardarPista(ModuloPista.ADMIN_DEVENGADOS.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-					TipoSeccionPista.SOLICITUD_PAGO.getIdSeccionPista(), movimiento, Optional.empty());
+
+			// pistaService.guardarPista(ModuloPista.ADMIN_DEVENGADOS.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+			// TipoSeccionPista.SOLICITUD_PAGO.getIdSeccionPista(), movimiento, Optional.empty());
 		}
 		return "OK";
 	}
@@ -291,8 +301,10 @@ public class SolicitudPagoServiceImpl implements SolicitudPagoService {
 		}
 		solicitudPagoRepository.save(solicitudPago);
 		String movimiento = solicitudPagoPistasConsumer.movimientoSolicitudPagol(solicitudPago);
-		pistaService.guardarPista(ModuloPista.ADMIN_DEVENGADOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.SOLICITUD_PAGO.getIdSeccionPista(), movimiento, Optional.empty());
+
+		// pistaService.guardarPista(ModuloPista.ADMIN_DEVENGADOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+		// TipoSeccionPista.SOLICITUD_PAGO.getIdSeccionPista(), movimiento, Optional.empty());
 
 		return "OK";
 	}
@@ -332,9 +344,15 @@ public class SolicitudPagoServiceImpl implements SolicitudPagoService {
 			String response = Base64.getEncoder().encodeToString(word);
 			contenidoPlantillador.setDocumentoBase64(response);
 
-			pistaService.guardarPista(ModuloPista.ADMIN_DEVENGADOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-					TipoSeccionPista.SOLICITUD_PAGO.getIdSeccionPista(), TipoMovPista.CONSULTA_REGISTRO.getClave(),
-					Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.ADMIN_DEVENGADOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.SOLICITUD_PAGO.getIdSeccionPista(), TipoMovPista.CONSULTA_REGISTRO.getClave(),
+
+
+			// Optional.empty());
 
 			return contenidoPlantillador;
 		} catch (DevengadosException e) {
@@ -352,9 +370,15 @@ public class SolicitudPagoServiceImpl implements SolicitudPagoService {
 			List<PlantilladorModel> plantilladorModels = plantilladorMicriservicio
 					.obtenerPlantillador(idTipoPlantillador);
 
-			pistaService.guardarPista(ModuloPista.ADMIN_DEVENGADOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-					TipoSeccionPista.SOLICITUD_PAGO.getIdSeccionPista(), TipoMovPista.CONSULTA_REGISTRO.getClave(),
-					Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.ADMIN_DEVENGADOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.SOLICITUD_PAGO.getIdSeccionPista(), TipoMovPista.CONSULTA_REGISTRO.getClave(),
+
+
+			// Optional.empty());
 
 			if (plantilladorModels != null) {
 				return plantilladorModels;
@@ -822,9 +846,15 @@ public class SolicitudPagoServiceImpl implements SolicitudPagoService {
 
 			log.info("Archivo eliminado");
 
-			pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
-					TipoSeccionPista.PROYECTO_DATOS_GENERALES.getIdSeccionPista(),
-					TipoMovPista.BORRA_REGISTRO.getClave(), Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.PROYECTO_DATOS_GENERALES.getIdSeccionPista(),
+
+
+			// TipoMovPista.BORRA_REGISTRO.getClave(), Optional.empty());
 
 		} catch (Exception e) {
 			throw new DevengadosException(ErroresEnum.ERROR_AL_GUARDAR);
@@ -988,8 +1018,10 @@ public class SolicitudPagoServiceImpl implements SolicitudPagoService {
 			registrarMovimientoYGuardarPista(referenciaPagoModel);
 
 			String movimiento = solicitudPagoPistasConsumer.movimientoReferenciaPago(referenciaPagoModel);
-			pistaService.guardarPista(ModuloPista.ADMIN_DEVENGADOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-					TipoSeccionPista.SOLICITUD_PAGO.getIdSeccionPista(), movimiento, Optional.empty());
+
+			// pistaService.guardarPista(ModuloPista.ADMIN_DEVENGADOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+			// TipoSeccionPista.SOLICITUD_PAGO.getIdSeccionPista(), movimiento, Optional.empty());
 
 		} catch (Exception e) {
 			log.error("Error al actualizar referencia de pago", e);
@@ -1080,8 +1112,10 @@ public class SolicitudPagoServiceImpl implements SolicitudPagoService {
 
 	private void registrarMovimientoYGuardarPista(ReferenciaPagoModel referenciaPagoModel) {
 		String movimiento = solicitudPagoPistasConsumer.movimientoReferenciaPago(referenciaPagoModel);
-		pistaService.guardarPista(ModuloPista.ADMIN_DEVENGADOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.SOLICITUD_PAGO.getIdSeccionPista(), movimiento, Optional.empty());
+
+		// pistaService.guardarPista(ModuloPista.ADMIN_DEVENGADOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+		// TipoSeccionPista.SOLICITUD_PAGO.getIdSeccionPista(), movimiento, Optional.empty());
 	}
 
 	// ***

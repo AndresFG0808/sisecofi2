@@ -41,19 +41,43 @@ public class ServicioReporteComiteImpl implements ServicioReporteComite {
 			comiteProyectoModel.forEach(reporteContratoConvenioConsumer);
 			byte[] reporte = reporteContratoConvenioConsumer.cerrarBytes();
 
-			pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-					TipoSeccionPista.PROYECTO_DATOS_INFORMACION_COMITE.getIdSeccionPista(),
-					"ID proyecto: " + comiteProyectoModel.get(0).getInformacionComite().getIdProyecto() + "| "
-							+ "Nombre corto del proyecto: "
-							+ comiteProyectoModel.get(0).getInformacionComite().getNombreCortoProyecto(),
-					Optional.empty());
 
-			pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
-					TipoSeccionPista.PROYECTO_DATOS_INFORMACION_COMITE.getIdSeccionPista(),
-					"ID proyecto: " + comiteProyectoModel.get(0).getInformacionComite().getIdProyecto() + "| "
-							+ "Nombre corto del proyecto: "
-							+ comiteProyectoModel.get(0).getInformacionComite().getNombreCortoProyecto(),
-					Optional.empty());
+
+			// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.PROYECTO_DATOS_INFORMACION_COMITE.getIdSeccionPista(),
+
+
+			// "ID proyecto: " + comiteProyectoModel.get(0).getInformacionComite().getIdProyecto() + "| "
+
+
+			// + "Nombre corto del proyecto: "
+
+
+			// + comiteProyectoModel.get(0).getInformacionComite().getNombreCortoProyecto(),
+
+
+			// Optional.empty());
+
+
+
+			// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.PROYECTO_DATOS_INFORMACION_COMITE.getIdSeccionPista(),
+
+
+			// "ID proyecto: " + comiteProyectoModel.get(0).getInformacionComite().getIdProyecto() + "| "
+
+
+			// + "Nombre corto del proyecto: "
+
+
+			// + comiteProyectoModel.get(0).getInformacionComite().getNombreCortoProyecto(),
+
+
+			// Optional.empty());
 
 			return Base64.getEncoder().encodeToString(reporte);
 		} catch (Exception e) {

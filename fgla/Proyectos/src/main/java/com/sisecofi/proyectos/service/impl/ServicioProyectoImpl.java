@@ -167,11 +167,16 @@ public class ServicioProyectoImpl implements ServicioProyecto {
 		proyectoRepository.save(proyectoExistente);
 
 		ProyectoResponse response = agruparRespuesta(proyectoExistente, null);
-		pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.PROYECTO_DATOS_GENERALES.getIdSeccionPista(),
-				Constantes.getAtributosProyecto()[0] + proyectoExistente.getIdProyecto() + "|"
-						+ Constantes.getAtributosProyecto()[1] + proyectoExistente.getNombreCorto(),
-				Optional.of(proyectoExistente));
+
+		// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+		// TipoSeccionPista.PROYECTO_DATOS_GENERALES.getIdSeccionPista(),
+
+		// Constantes.getAtributosProyecto()[0] + proyectoExistente.getIdProyecto() + "|"
+
+		// + Constantes.getAtributosProyecto()[1] + proyectoExistente.getNombreCorto(),
+
+		// Optional.of(proyectoExistente));
 		return response;
 	}
 
@@ -217,12 +222,18 @@ public class ServicioProyectoImpl implements ServicioProyecto {
 
 		ultimaMod(proyectoExistente);
 		proyectoRepository.save(proyectoExistente);
-		pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.PROYECTO_DATOS_GENERALES.getIdSeccionPista(),
-				Constantes.getAtributosProyecto()[2] + actual.getNombre() + "|" + Constantes.getAtributosProyecto()[3]
-						+ estatus.getNombre() + "|" + Constantes.getAtributosProyecto()[1]
-						+ proyectoExistente.getNombreCorto(),
-				Optional.of(proyectoExistente));
+
+		// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+		// TipoSeccionPista.PROYECTO_DATOS_GENERALES.getIdSeccionPista(),
+
+		// Constantes.getAtributosProyecto()[2] + actual.getNombre() + "|" + Constantes.getAtributosProyecto()[3]
+
+		// + estatus.getNombre() + "|" + Constantes.getAtributosProyecto()[1]
+
+		// + proyectoExistente.getNombreCorto(),
+
+		// Optional.of(proyectoExistente));
 		return agruparRespuesta(proyectoExistente, estatus);
 	}
 

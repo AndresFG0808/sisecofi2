@@ -160,9 +160,15 @@ public class ServicioCatalogoImpl implements ServicioCatalogo {
 					seccion = TipoSeccionPista.CATALOGOS_COMPLEMENTARIOS.getIdSeccionPista();
 				}
 
-				pistaService.guardarPista(ModuloPista.ADMIN_CATALOGOS.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-						seccion, cat.get().getCatalogosComunes().getNombreCatalogo() + "|" + base.getPrimaryKey(),
-						Optional.of(obj));
+
+
+				// pistaService.guardarPista(ModuloPista.ADMIN_CATALOGOS.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+
+				// seccion, cat.get().getCatalogosComunes().getNombreCatalogo() + "|" + base.getPrimaryKey(),
+
+
+				// Optional.of(obj));
 
 				return base;
 			}
@@ -268,8 +274,10 @@ public class ServicioCatalogoImpl implements ServicioCatalogo {
 			if (cat.get().isComplementario()) {
 				seccion = TipoSeccionPista.CATALOGOS_COMPLEMENTARIOS.getIdSeccionPista();
 			}
-			pistaService.guardarPista(ModuloPista.ADMIN_CATALOGOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-					seccion, cat.get().getCatalogosComunes().getNombreCatalogo(), Optional.empty());
+
+			// pistaService.guardarPista(ModuloPista.ADMIN_CATALOGOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+			// seccion, cat.get().getCatalogosComunes().getNombreCatalogo(), Optional.empty());
 			session.disableFilter("estatusAdminCentral");
 			session.disableFilter("estatusAdminGeneral");
 			session.disableFilter("estatusAdminAdministracion");
@@ -369,8 +377,12 @@ public class ServicioCatalogoImpl implements ServicioCatalogo {
 				seccion = TipoSeccionPista.CATALOGOS_COMPLEMENTARIOS.getIdSeccionPista();
 			}
 
-			pistaService.guardarPista(ModuloPista.ADMIN_CATALOGOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
-					seccion, cat.get().getCatalogosComunes().getNombreCatalogo(), Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.ADMIN_CATALOGOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+
+			// seccion, cat.get().getCatalogosComunes().getNombreCatalogo(), Optional.empty());
 			return lista;
 		}
 		return Collections.emptyList();
@@ -416,9 +428,15 @@ public class ServicioCatalogoImpl implements ServicioCatalogo {
 					seccion = TipoSeccionPista.CATALOGOS_COMPLEMENTARIOS.getIdSeccionPista();
 				}
 
-				pistaService.guardarPista(ModuloPista.ADMIN_CATALOGOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-						seccion, cat.get().getCatalogosComunes().getNombreCatalogo() + "|" + base.getPrimaryKey(),
-						Optional.of(obj));
+
+
+				// pistaService.guardarPista(ModuloPista.ADMIN_CATALOGOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+
+				// seccion, cat.get().getCatalogosComunes().getNombreCatalogo() + "|" + base.getPrimaryKey(),
+
+
+				// Optional.of(obj));
 				return (T) base;
 			}
 		} catch (CatalogoException e1) {
@@ -494,8 +512,18 @@ public class ServicioCatalogoImpl implements ServicioCatalogo {
 
 			
 
-				pistaService.guardarPista(ModuloPista.ADMIN_CATALOGOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-						seccion, cat.get().getCatalogosComunes().getNombreCatalogo(), Optional.empty());
+
+
+
+			
+
+				// pistaService.guardarPista(ModuloPista.ADMIN_CATALOGOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+
+			
+
+				// seccion, cat.get().getCatalogosComunes().getNombreCatalogo(), Optional.empty());
 				return lista;
 			}
 		}
@@ -530,8 +558,12 @@ public class ServicioCatalogoImpl implements ServicioCatalogo {
 					seccion = TipoSeccionPista.CATALOGOS_COMPLEMENTARIOS.getIdSeccionPista();
 				}
 
-				pistaService.guardarPista(ModuloPista.ADMIN_CATALOGOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-						seccion, cat.get().getCatalogosComunes().getNombreCatalogo(), Optional.empty());
+
+
+				// pistaService.guardarPista(ModuloPista.ADMIN_CATALOGOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+				// seccion, cat.get().getCatalogosComunes().getNombreCatalogo(), Optional.empty());
 				return lista;
 			}
 		}

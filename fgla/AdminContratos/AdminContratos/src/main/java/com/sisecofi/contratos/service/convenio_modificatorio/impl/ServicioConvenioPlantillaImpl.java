@@ -67,13 +67,27 @@ public class ServicioConvenioPlantillaImpl implements ServicioConvenioPlantilla 
 			@SuppressWarnings("rawtypes")
 			PlantillaDto dto = servicioPlantilla.obtenerPlantillaPorId(asociacion.getIdPlantillaVigente());
 
-			pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-					TipoSeccionPista.CONVENIO_MODIFICATORIO_ASIGNAR_PLANTILLA.getIdSeccionPista(),
-					Constantes.getAtributosPlantillaConvenioModificatorio()[0] + idConvenio + "|"
-							+ Constantes.getAtributosPlantillaConvenioModificatorio()[1]
-							+ dto.getPlantillaVigenteModel().getNombre() + "|Id asociacion: "
-							+ asociacion.getIdConvenioPlantilla() + "|Estatus: true",
-					Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.CONVENIO_MODIFICATORIO_ASIGNAR_PLANTILLA.getIdSeccionPista(),
+
+
+			// Constantes.getAtributosPlantillaConvenioModificatorio()[0] + idConvenio + "|"
+
+
+			// + Constantes.getAtributosPlantillaConvenioModificatorio()[1]
+
+
+			// + dto.getPlantillaVigenteModel().getNombre() + "|Id asociacion: "
+
+
+			// + asociacion.getIdConvenioPlantilla() + "|Estatus: true",
+
+
+			// Optional.empty());
 			return true;
 
 		} catch (DataAccessException e) {
@@ -149,12 +163,24 @@ public class ServicioConvenioPlantillaImpl implements ServicioConvenioPlantilla 
 		PlantillaDto dto = servicioPlantilla.obtenerPlantillaPorId(asociacion.getIdPlantillaVigente());
 		guardarAsociacion(asociacion);
 
-		pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.CONVENIO_MODIFICATORIO_ASIGNAR_PLANTILLA.getIdSeccionPista(),
-				Constantes.getAtributosPlantillaConvenioModificatorio()[0] + original.getIdConvenio() + "|"
-						+ Constantes.getAtributosPlantillaConvenioModificatorio()[1]
-						+ dto.getPlantillaVigenteModel().getNombre() + "|Estatus: true",
-				Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.CONVENIO_MODIFICATORIO_ASIGNAR_PLANTILLA.getIdSeccionPista(),
+
+
+		// Constantes.getAtributosPlantillaConvenioModificatorio()[0] + original.getIdConvenio() + "|"
+
+
+		// + Constantes.getAtributosPlantillaConvenioModificatorio()[1]
+
+
+		// + dto.getPlantillaVigenteModel().getNombre() + "|Estatus: true",
+
+
+		// Optional.empty());
 		return true;
 	}
 
@@ -169,12 +195,18 @@ public class ServicioConvenioPlantillaImpl implements ServicioConvenioPlantilla 
 			@SuppressWarnings("rawtypes")
 			PlantillaDto dto = servicioPlantilla.obtenerPlantillaPorId(asociacion.getIdPlantillaVigente());
 			deshabilitarCarpetas(asociacion);
-			pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
-					TipoSeccionPista.CONVENIO_MODIFICATORIO_ASIGNAR_PLANTILLA.getIdSeccionPista(),
-					Constantes.getAtributosPlantillaConvenioModificatorio()[0] + asociacion.getIdConvenio() + "|"
-							+ Constantes.getAtributosPlantillaConvenioModificatorio()[1]
-							+ dto.getPlantillaVigenteModel().getNombre() + "|Estatus: false",
-					Optional.empty());
+
+			// pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
+
+			// TipoSeccionPista.CONVENIO_MODIFICATORIO_ASIGNAR_PLANTILLA.getIdSeccionPista(),
+
+			// Constantes.getAtributosPlantillaConvenioModificatorio()[0] + asociacion.getIdConvenio() + "|"
+
+			// + Constantes.getAtributosPlantillaConvenioModificatorio()[1]
+
+			// + dto.getPlantillaVigenteModel().getNombre() + "|Estatus: false",
+
+			// Optional.empty());
 		}
 		return true;
 	}

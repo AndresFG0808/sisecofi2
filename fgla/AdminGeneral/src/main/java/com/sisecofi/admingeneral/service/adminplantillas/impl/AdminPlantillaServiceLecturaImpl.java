@@ -293,11 +293,21 @@ public class AdminPlantillaServiceLecturaImpl implements AdminPlantillaService {
 				CatalogosComunes.FASES_PROYECTOS.getIdCatalogo(), plan.getIdFaseProyecto(), CatFaseProyecto.class);
 		dto.setCatFaseProyecto(catFaseProyecto);
 
-		pistaService.guardarPista(ModuloPista.MATRIZ_DOCUMENTAL.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-				TipoSeccionPista.MATRIZ_DOCUMENTAL.getIdSeccionPista(),
-				Constantes.getMatrizDocumental()[0] + plan.getIdPlantillaVigente() + "|"
-						+ Constantes.getMatrizDocumental()[1] + plan.getNombre() + "|",
-				Optional.of(plan));
+
+
+		// pistaService.guardarPista(ModuloPista.MATRIZ_DOCUMENTAL.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.MATRIZ_DOCUMENTAL.getIdSeccionPista(),
+
+
+		// Constantes.getMatrizDocumental()[0] + plan.getIdPlantillaVigente() + "|"
+
+
+		// + Constantes.getMatrizDocumental()[1] + plan.getNombre() + "|",
+
+
+		// Optional.of(plan));
 		return dto;
 	}
 
@@ -498,10 +508,18 @@ public class AdminPlantillaServiceLecturaImpl implements AdminPlantillaService {
 			}
 			obj.setCarpetas(carpetaDtos);
 
-			pistaService.guardarPista(ModuloPista.MATRIZ_DOCUMENTAL.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-					TipoSeccionPista.MATRIZ_DOCUMENTAL.getIdSeccionPista(), Constantes.getDescargarPlantillaFase()[0]
-							+ idPlantilla + "|" + Constantes.getDescargarPlantillaFase()[1] + plan.get().getNombre(),
-					Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.MATRIZ_DOCUMENTAL.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.MATRIZ_DOCUMENTAL.getIdSeccionPista(), Constantes.getDescargarPlantillaFase()[0]
+
+
+			// + idPlantilla + "|" + Constantes.getDescargarPlantillaFase()[1] + plan.get().getNombre(),
+
+
+			// Optional.empty());
 
 			return obj;
 		}
@@ -574,11 +592,21 @@ public class AdminPlantillaServiceLecturaImpl implements AdminPlantillaService {
 		PlantillaVigenteModel plan = plantillaVigenteRopository.save(plantillaV);
 		guardarCarpetas(plantilla, plan);
 
-		pistaService.guardarPista(ModuloPista.MATRIZ_DOCUMENTAL.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.MATRIZ_DOCUMENTAL.getIdSeccionPista(),
-				Constantes.getDescargarPlantillaFase()[0] + plantillaV.getIdPlantillaVigente() + "|"
-						+ Constantes.getDescargarPlantillaFase()[1] + plantillaV.getNombre(),
-				Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.MATRIZ_DOCUMENTAL.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.MATRIZ_DOCUMENTAL.getIdSeccionPista(),
+
+
+		// Constantes.getDescargarPlantillaFase()[0] + plantillaV.getIdPlantillaVigente() + "|"
+
+
+		// + Constantes.getDescargarPlantillaFase()[1] + plantillaV.getNombre(),
+
+
+		// Optional.empty());
 		return plantillaVigenteRopository.findByIdPlantillaVigente(idPlantillaVigente);
 	}
 
@@ -623,12 +651,24 @@ public class AdminPlantillaServiceLecturaImpl implements AdminPlantillaService {
 		plantilla.setFechaModificacion(horaActual());
 		plantillaVigenteRopository.save(plantilla);
 
-		pistaService.guardarPista(ModuloPista.MATRIZ_DOCUMENTAL.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.MATRIZ_DOCUMENTAL.getIdSeccionPista(),
-				Constantes.getMatrizDocumental()[0] + plantilla.getIdPlantillaVigente() + "|"
-						+ Constantes.getMatrizDocumental()[1] + plantilla.getNombre() + "|"
-						+ Constantes.getMatrizDocumental()[2] + plantilla.isEstado() + "|",
-				Optional.of(plantilla));
+
+
+		// pistaService.guardarPista(ModuloPista.MATRIZ_DOCUMENTAL.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.MATRIZ_DOCUMENTAL.getIdSeccionPista(),
+
+
+		// Constantes.getMatrizDocumental()[0] + plantilla.getIdPlantillaVigente() + "|"
+
+
+		// + Constantes.getMatrizDocumental()[1] + plantilla.getNombre() + "|"
+
+
+		// + Constantes.getMatrizDocumental()[2] + plantilla.isEstado() + "|",
+
+
+		// Optional.of(plantilla));
 		return plantilla;
 	}
 

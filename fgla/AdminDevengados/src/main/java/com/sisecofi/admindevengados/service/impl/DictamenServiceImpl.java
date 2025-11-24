@@ -240,10 +240,18 @@ public class DictamenServiceImpl implements DictamenService {
 		dictamenGuardado.setIdDictamenVisual(
 				obtenerIdVisual(nombreCorto, dictamendto.getIdProovedor(), dictamen.getConsecutivo()));
 
-		pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-				TipoSeccionPista.DICTAMEN_DATOS_GENERALES.getIdSeccionPista(),
-				Constantes.getAtributosDictamen()[0] + dictamenGuardado.getIdDictamen() + "|",
-				Optional.of(dictamenGuardado));
+
+
+		// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.DICTAMEN_DATOS_GENERALES.getIdSeccionPista(),
+
+
+		// Constantes.getAtributosDictamen()[0] + dictamenGuardado.getIdDictamen() + "|",
+
+
+		// Optional.of(dictamenGuardado));
 
 		return dictamenGuardado;
 	}
@@ -696,9 +704,15 @@ public class DictamenServiceImpl implements DictamenService {
 			dictamen.setDescripcion("Motivo de la cancelación: " + descripcion + "|" + dictamen.getDescripcion());
 			dictamen.setUltimaModificacion(ultimaModificacionGeneral());
 
-			pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-					TipoSeccionPista.DICTAMEN_DATOS_GENERALES.getIdSeccionPista(),
-					Constantes.getAtributosDictamen()[0] + dictamen.getIdDictamen() + "|", Optional.of(dictamen));
+
+
+			// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.DICTAMEN_DATOS_GENERALES.getIdSeccionPista(),
+
+
+			// Constantes.getAtributosDictamen()[0] + dictamen.getIdDictamen() + "|", Optional.of(dictamen));
 
 			dictamenRepositoy.save(dictamen);
 
@@ -868,10 +882,18 @@ public class DictamenServiceImpl implements DictamenService {
 
 		asignarValoresDictamen(dictamendto, dictamenActual);
 
-		pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.DICTAMEN_DATOS_GENERALES.getIdSeccionPista(),
-				Constantes.getAtributosDictamen()[0] + dictamenActual.getIdDictamen() + "|",
-				Optional.of(dictamenActual));
+
+
+		// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.DICTAMEN_DATOS_GENERALES.getIdSeccionPista(),
+
+
+		// Constantes.getAtributosDictamen()[0] + dictamenActual.getIdDictamen() + "|",
+
+
+		// Optional.of(dictamenActual));
 
 		return dictamenRepositoy.save(dictamenActual);
 	}
@@ -1194,10 +1216,14 @@ public class DictamenServiceImpl implements DictamenService {
 				dictaminadoNuevo.setSeleccionado(dictaminadoModel.getSeleccionado());
 				dictaminadoNuevo.setFechaRegistro(hoy);
 				dictaminadoRepository.save(dictaminadoNuevo);
-				pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-						TipoSeccionPista.DICTAMEN_REGISTRO_SERVICIOS.getIdSeccionPista(),
-						Constantes.getAtributosDictamen()[0] + dictaminadoNuevo.getIdDictamen() + "|",
-						Optional.of(dictaminadoNuevo));
+
+				// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+				// TipoSeccionPista.DICTAMEN_REGISTRO_SERVICIOS.getIdSeccionPista(),
+
+				// Constantes.getAtributosDictamen()[0] + dictaminadoNuevo.getIdDictamen() + "|",
+
+				// Optional.of(dictaminadoNuevo));
 			}
 		}
 		if (Boolean.TRUE.equals(penasContractuales)) {
@@ -1219,10 +1245,18 @@ public class DictamenServiceImpl implements DictamenService {
 				penaContractualNueva.setEstatus(true);
 				penasContractualesRepository.save(penaContractualNueva);
 
-				pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-						TipoSeccionPista.DICTAMEN_PENAS_CONTRACTUALES.getIdSeccionPista(),
-						Constantes.getAtributosDictamen()[0] + penaContractualNueva.getIdDictamen() + "|",
-						Optional.of(penaContractualNueva));
+
+
+				// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+
+				// TipoSeccionPista.DICTAMEN_PENAS_CONTRACTUALES.getIdSeccionPista(),
+
+
+				// Constantes.getAtributosDictamen()[0] + penaContractualNueva.getIdDictamen() + "|",
+
+
+				// Optional.of(penaContractualNueva));
 			}
 		}
 
@@ -1243,10 +1277,18 @@ public class DictamenServiceImpl implements DictamenService {
 				penaConvencionalNueva.setEstatus(true);
 				penasConvencionalesRepository.save(penaConvencionalNueva);
 
-				pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-						TipoSeccionPista.DICTAMEN_PENAS_CONVENCIONALES.getIdSeccionPista(),
-						Constantes.getAtributosDictamen()[0] + penaConvencionalNueva.getIdDictamen() + "|",
-						Optional.of(penaConvencionalNueva));
+
+
+				// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+
+				// TipoSeccionPista.DICTAMEN_PENAS_CONVENCIONALES.getIdSeccionPista(),
+
+
+				// Constantes.getAtributosDictamen()[0] + penaConvencionalNueva.getIdDictamen() + "|",
+
+
+				// Optional.of(penaConvencionalNueva));
 
 			}
 		}
@@ -1272,10 +1314,14 @@ public class DictamenServiceImpl implements DictamenService {
 				deduccionesNueva.setEstatus(true);
 				deduccionRepository.save(deduccionesNueva);
 				log.info("deduccion duplicada: {}", deduccionesNueva.getIdDeduccion());
-				pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-						TipoSeccionPista.DICTAMEN_DEDUCCIONES.getIdSeccionPista(),
-						Constantes.getAtributosDictamen()[0] + deduccionesNueva.getIdDictamen() + "|",
-						Optional.of(deduccionesNueva));
+
+				// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+				// TipoSeccionPista.DICTAMEN_DEDUCCIONES.getIdSeccionPista(),
+
+				// Constantes.getAtributosDictamen()[0] + deduccionesNueva.getIdDictamen() + "|",
+
+				// Optional.of(deduccionesNueva));
 			}
 		}
 

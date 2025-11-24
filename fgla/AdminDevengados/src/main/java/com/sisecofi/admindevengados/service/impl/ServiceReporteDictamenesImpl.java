@@ -50,10 +50,18 @@ public class ServiceReporteDictamenesImpl implements ServiceReporteDictamenes {
 				    .map(ResumenConsolidadoDto::toString)
 				    .collect(Collectors.joining("|"));
 				
-				pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
-						TipoSeccionPista.DICTAMEN_DATOS_GENERALES_RESUMEN.getIdSeccionPista(),
-						Constantes.getAtributosDictamen()[0] + resumenConsolidado.get(0).getIdDictamen() + "|" + resultado,
-						Optional.empty());
+
+				
+				// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+				
+				// TipoSeccionPista.DICTAMEN_DATOS_GENERALES_RESUMEN.getIdSeccionPista(),
+
+				
+				// Constantes.getAtributosDictamen()[0] + resumenConsolidado.get(0).getIdDictamen() + "|" + resultado,
+
+				
+				// Optional.empty());
 
 			return Base64.getEncoder().encodeToString(reporte);
 		}

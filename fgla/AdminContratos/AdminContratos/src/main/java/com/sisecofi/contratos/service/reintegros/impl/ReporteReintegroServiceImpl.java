@@ -49,11 +49,21 @@ public class ReporteReintegroServiceImpl implements ReporteReintegroService {
             builder.append("Nombre Corto: ").append(listReintegros.getNombreCorto()).append(" | ")
                     .append("Id Reintegro Asociado: ").append(listReintegros.getIdReintegrosAsociados()).append(" | ");
 
-            pistaService.guardarPista(ModuloPista.REINTEGRO.getId(),
-                    TipoMovPista.IMPRIME_REGISTRO.getId(),
-                    TipoSeccionPista.REINTEGROS.getIdSeccionPista(),
-                    builder.toString(),
-                    Optional.empty());
+
+
+            // pistaService.guardarPista(ModuloPista.REINTEGRO.getId(),
+
+
+            // TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+
+            // TipoSeccionPista.REINTEGROS.getIdSeccionPista(),
+
+
+            // builder.toString(),
+
+
+            // Optional.empty());
 
         });
 

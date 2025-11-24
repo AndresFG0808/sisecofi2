@@ -135,8 +135,12 @@ public class TituloServicioProveedorServiceImpl implements TituloServicioProveed
 
 		log.info(PISTA_GEN, builder.toString());
 
-		pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-				TipoSeccionPista.PROVEEDOR_TITULO_SERVICIO.getIdSeccionPista(), builder.toString(), Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.PROVEEDOR_TITULO_SERVICIO.getIdSeccionPista(), builder.toString(), Optional.empty());
 
 		return responseDto;
 	}
@@ -223,8 +227,12 @@ public class TituloServicioProveedorServiceImpl implements TituloServicioProveed
 
 		log.info(PISTA_GEN, builder.toString());
 
-		pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.PROVEEDOR_TITULO_SERVICIO.getIdSeccionPista(), builder.toString(), Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.PROVEEDOR_TITULO_SERVICIO.getIdSeccionPista(), builder.toString(), Optional.empty());
 
 		return responseDto;
 	}
@@ -265,8 +273,12 @@ public class TituloServicioProveedorServiceImpl implements TituloServicioProveed
 
 		log.info(PISTA_GEN, builder.toString());
 
-		pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
-				TipoSeccionPista.PROVEEDOR_TITULO_SERVICIO.getIdSeccionPista(), builder.toString(), Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.PROVEEDOR_TITULO_SERVICIO.getIdSeccionPista(), builder.toString(), Optional.empty());
 
 	}
 
@@ -281,8 +293,12 @@ public class TituloServicioProveedorServiceImpl implements TituloServicioProveed
 		StringBuilder builder = new StringBuilder();
 		builder.append(ID_PROVEEDOR).append(tituloServicioProveedorModel.getProveedorModel().getIdProveedor());
 
-		pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-				TipoSeccionPista.PROVEEDOR_TITULO_SERVICIO.getIdSeccionPista(), builder.toString(), Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.PROVEEDOR_TITULO_SERVICIO.getIdSeccionPista(), builder.toString(), Optional.empty());
 
 		return modelMapper.map(tituloServicioProveedorModel, ConsultaTituloServicioProveedorDto.class);
 	}
@@ -320,9 +336,15 @@ public class TituloServicioProveedorServiceImpl implements TituloServicioProveed
 	@Override
 	public List<ConsultaTituloServicioProveedorDto> obtenerTodosLosTitulos() {
 
-		pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-				TipoSeccionPista.PROVEEDOR_TITULO_SERVICIO.getIdSeccionPista(),
-				TipoMovPista.CONSULTA_REGISTRO.getClave(), Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.PROVEEDOR_TITULO_SERVICIO.getIdSeccionPista(),
+
+
+		// TipoMovPista.CONSULTA_REGISTRO.getClave(), Optional.empty());
 
 		List<TituloServicioProveedorModel> tituloServicioProveedorModel = tituloServicioProveedorServiceRepository
 				.findByIdTituloServicioProveedorAndEstatusEliminacionLogicaTrue();

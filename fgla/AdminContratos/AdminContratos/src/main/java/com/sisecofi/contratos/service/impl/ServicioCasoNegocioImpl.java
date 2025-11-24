@@ -103,11 +103,21 @@ public class ServicioCasoNegocioImpl implements ServicioCasoNegocio {
 
 		String resultadoFinal = resultado.toString();
 
-		pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
-				TipoSeccionPista.CONTRATOS_PROYECCION_CASO_NEGOCIO.getIdSeccionPista(),
-				Constantes.getAtributosConvenioModificatorio()[0] + contrato.getIdContrato()
-						+ Constantes.getAtributosConvenioModificatorio()[1] + resultadoFinal,
-				Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.CONTRATOS_PROYECCION_CASO_NEGOCIO.getIdSeccionPista(),
+
+
+		// Constantes.getAtributosConvenioModificatorio()[0] + contrato.getIdContrato()
+
+
+		// + Constantes.getAtributosConvenioModificatorio()[1] + resultadoFinal,
+
+
+		// Optional.empty());
 
 		return obtenerLayoutGenerico(idContrato, fechaInicio, fechaTermino, volumeria, false);
 	}
@@ -315,11 +325,21 @@ public class ServicioCasoNegocioImpl implements ServicioCasoNegocio {
 
 		contratoService.actualizarUltimaMod(idContrato);
 
-		pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(),
-				esCreacion ? TipoMovPista.INSERTA_REGISTRO.getId() : TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.CONTRATOS_PROYECCION_CASO_NEGOCIO.getIdSeccionPista(),
-				Constantes.getAtributosConvenioModificatorio()[0] + contrato.getIdContrato() + resultadoFinal,
-				Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(),
+
+
+		// esCreacion ? TipoMovPista.INSERTA_REGISTRO.getId() : TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.CONTRATOS_PROYECCION_CASO_NEGOCIO.getIdSeccionPista(),
+
+
+		// Constantes.getAtributosConvenioModificatorio()[0] + contrato.getIdContrato() + resultadoFinal,
+
+
+		// Optional.empty());
 
 		return leerExcel(archivo.getArchivo());
 	}
@@ -348,12 +368,24 @@ public class ServicioCasoNegocioImpl implements ServicioCasoNegocio {
 
 		String resultadoFinal = resultado.toString();
 
-		pistaService.guardarPista(ModuloPista.CONVENIO_MODIFICATORIO.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-				TipoSeccionPista.PROYECCION_CONVENIO_MODIFICATORIO.getIdSeccionPista(),
-				Constantes.getAtributosConvenioModificatorio()[0] + contrato.getIdContrato()
-						+ Constantes.getAtributosConvenioModificatorio()[1] + convenio.getIdConvenioModificatorio()
-						+ resultadoFinal,
-				Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.CONVENIO_MODIFICATORIO.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.PROYECCION_CONVENIO_MODIFICATORIO.getIdSeccionPista(),
+
+
+		// Constantes.getAtributosConvenioModificatorio()[0] + contrato.getIdContrato()
+
+
+		// + Constantes.getAtributosConvenioModificatorio()[1] + convenio.getIdConvenioModificatorio()
+
+
+		// + resultadoFinal,
+
+
+		// Optional.empty());
 
 		return obtenerLayoutGenerico(convenio.getIdContrato(), fechaInicio, fechaTermino, volumeria, false);
 	}
@@ -434,12 +466,24 @@ public class ServicioCasoNegocioImpl implements ServicioCasoNegocio {
 		casoNegocioConvenioRepository.save(casoConvenio);
 		convenioRepository.save(convenio);
 
-		pistaService.guardarPista(ModuloPista.CONVENIO_MODIFICATORIO.getId(),
-				esCreacion ? TipoMovPista.INSERTA_REGISTRO.getId() : TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.PROYECCION_CONVENIO_MODIFICATORIO.getIdSeccionPista(),
-				Constantes.getAtributosConvenioModificatorio()[1] + convenio.getIdConvenioModificatorio()
-						+ resultadoFinal,
-				Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.CONVENIO_MODIFICATORIO.getId(),
+
+
+		// esCreacion ? TipoMovPista.INSERTA_REGISTRO.getId() : TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.PROYECCION_CONVENIO_MODIFICATORIO.getIdSeccionPista(),
+
+
+		// Constantes.getAtributosConvenioModificatorio()[1] + convenio.getIdConvenioModificatorio()
+
+
+		// + resultadoFinal,
+
+
+		// Optional.empty());
 
 		return leerExcel(archivo.getArchivo());
 	}
@@ -625,10 +669,18 @@ public class ServicioCasoNegocioImpl implements ServicioCasoNegocio {
 			resultado.append("|").append(srv.getIdCasoNegocioServicio());
 		}
 
-		pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-				TipoSeccionPista.CONTRATOS_PROYECCION_CASO_NEGOCIO.getIdSeccionPista(),
-				Constantes.getAtributosConvenioModificatorio()[0] + contrato.getIdContrato() + resultado,
-				Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.CONTRATOS_PROYECCION_CASO_NEGOCIO.getIdSeccionPista(),
+
+
+		// Constantes.getAtributosConvenioModificatorio()[0] + contrato.getIdContrato() + resultado,
+
+
+		// Optional.empty());
 
 		if (casoNegocio.isPresent()) {
 			return obtenerLayoutGenerico(idContrato, fechaInicio, fechaTermino, casoNegocio.get().getVolumeria(), true);
@@ -736,12 +788,24 @@ public class ServicioCasoNegocioImpl implements ServicioCasoNegocio {
 			resultado.append("|").append(srv.getIdCasoNegocioServicio());
 		}
 
-		pistaService.guardarPista(ModuloPista.CONVENIO_MODIFICATORIO.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-				TipoSeccionPista.PROYECCION_CONVENIO_MODIFICATORIO.getIdSeccionPista(),
-				Constantes.getAtributosConvenioModificatorio()[0] + contrato.getIdContrato()
-						+ Constantes.getAtributosConvenioModificatorio()[1] + convenio.getIdConvenioModificatorio()
-						+ resultado,
-				Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.CONVENIO_MODIFICATORIO.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.PROYECCION_CONVENIO_MODIFICATORIO.getIdSeccionPista(),
+
+
+		// Constantes.getAtributosConvenioModificatorio()[0] + contrato.getIdContrato()
+
+
+		// + Constantes.getAtributosConvenioModificatorio()[1] + convenio.getIdConvenioModificatorio()
+
+
+		// + resultado,
+
+
+		// Optional.empty());
 
 		if (casoNegocio.isPresent()) {
 			return obtenerLayoutGenerico(convenio.getIdContrato(), fechaInicio, fechaTermino,

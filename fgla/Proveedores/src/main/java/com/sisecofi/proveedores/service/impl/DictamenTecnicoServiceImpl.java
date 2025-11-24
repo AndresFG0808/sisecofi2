@@ -118,9 +118,15 @@ public DictamenTecnicoResponseDto crearDictamenTecnico(DictamenTecnicoDto dictam
 
     log.info(PISTA_GEN, builder.toString());
 
-    pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-            TipoSeccionPista.PROVEEDOR_DICTAMEN_TECNICO.getIdSeccionPista(), builder.toString(),
-            Optional.empty());
+
+
+    // pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+
+    // TipoSeccionPista.PROVEEDOR_DICTAMEN_TECNICO.getIdSeccionPista(), builder.toString(),
+
+
+    // Optional.empty());
 
     return responseDto;
 }
@@ -187,9 +193,15 @@ public DictamenTecnicoResponseDto crearDictamenTecnico(DictamenTecnicoDto dictam
 
         log.info(PISTA_GEN, builder.toString());
 
-        pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-                TipoSeccionPista.PROVEEDOR_DICTAMEN_TECNICO.getIdSeccionPista(), builder.toString(),
-                Optional.empty());
+
+
+        // pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+
+        // TipoSeccionPista.PROVEEDOR_DICTAMEN_TECNICO.getIdSeccionPista(), builder.toString(),
+
+
+        // Optional.empty());
 
         return responseDto;
 
@@ -236,9 +248,15 @@ public DictamenTecnicoResponseDto crearDictamenTecnico(DictamenTecnicoDto dictam
 
         log.info(PISTA_GEN, builder.toString());
 
-        pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
-                TipoSeccionPista.PROVEEDOR_DICTAMEN_TECNICO.getIdSeccionPista(), builder.toString(),
-                Optional.empty());
+
+
+        // pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
+
+
+        // TipoSeccionPista.PROVEEDOR_DICTAMEN_TECNICO.getIdSeccionPista(), builder.toString(),
+
+
+        // Optional.empty());
     }
 
     @SuppressWarnings("unused")
@@ -288,9 +306,15 @@ public DictamenTecnicoResponseDto crearDictamenTecnico(DictamenTecnicoDto dictam
         StringBuilder builder = new StringBuilder();
         builder.append("Id Proveedor ").append(idProveedor);
 
-        pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-                TipoSeccionPista.PROVEEDOR_DICTAMEN_TECNICO.getIdSeccionPista(),
-                builder.toString(), Optional.empty());
+
+
+        // pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+        // TipoSeccionPista.PROVEEDOR_DICTAMEN_TECNICO.getIdSeccionPista(),
+
+
+        // builder.toString(), Optional.empty());
 
         return responseDto;
 

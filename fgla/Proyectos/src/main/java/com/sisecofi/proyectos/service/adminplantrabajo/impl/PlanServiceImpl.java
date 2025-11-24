@@ -282,11 +282,16 @@ public class PlanServiceImpl implements PlanService {
 
 		StringBuilder builder = new StringBuilder();
 		builder.append("Id proyecto: ").append(idProyecto).append(" - Plan de trabajo - Cálculos masivos");
-		pistaService.guardarPista(ModuloPista.PROYECTOS.getId(),
-				TipoMovPista.INSERTA_REGISTRO.getId(),
-				TipoSeccionPista.PROYECTO_DATOS_PLAN_TRABAJO.getIdSeccionPista(),
-				builder.toString(),
-				Optional.empty());
+
+		// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(),
+
+		// TipoMovPista.INSERTA_REGISTRO.getId(),
+
+		// TipoSeccionPista.PROYECTO_DATOS_PLAN_TRABAJO.getIdSeccionPista(),
+
+		// builder.toString(),
+
+		// Optional.empty());
 
 	}
 

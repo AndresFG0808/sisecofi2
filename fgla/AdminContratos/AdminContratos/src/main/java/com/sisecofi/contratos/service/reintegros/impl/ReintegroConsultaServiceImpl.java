@@ -162,8 +162,12 @@ public class ReintegroConsultaServiceImpl implements ReintegroConsultaService {
 					.append(REGISTRO_CONSULTA_FECHA_REINTEGRO).append(nuevoReintegro.getFechaReintegro()).append(" |");
 			log.info(PISTA_GEN, builder.toString());
 
-			pistaService.guardarPista(ModuloPista.REINTEGRO.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-					TipoSeccionPista.REINTEGROS.getIdSeccionPista(), builder.toString(), Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.REINTEGRO.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.REINTEGROS.getIdSeccionPista(), builder.toString(), Optional.empty());
 
 		}
 
@@ -223,8 +227,12 @@ public class ReintegroConsultaServiceImpl implements ReintegroConsultaService {
 					.append(REGISTRO_CONSULTA_FECHA_REINTEGRO).append(reintegroExiste.getFechaReintegro()).append(" |");
 			log.info(PISTA_GEN, builder.toString());
 
-			pistaService.guardarPista(ModuloPista.REINTEGRO.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-					TipoSeccionPista.REINTEGROS.getIdSeccionPista(), builder.toString(), Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.REINTEGRO.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.REINTEGROS.getIdSeccionPista(), builder.toString(), Optional.empty());
 
 		}
 
@@ -289,8 +297,12 @@ public class ReintegroConsultaServiceImpl implements ReintegroConsultaService {
 					.append(reintegro.getFechaReintegro()).append(" |");
 			log.info(PISTA_GEN, builder.toString());
 
-			pistaService.guardarPista(ModuloPista.REINTEGRO.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
-					TipoSeccionPista.REINTEGROS.getIdSeccionPista(), builder.toString(), Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.REINTEGRO.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.REINTEGROS.getIdSeccionPista(), builder.toString(), Optional.empty());
 
 		}
 	}
@@ -341,8 +353,12 @@ public class ReintegroConsultaServiceImpl implements ReintegroConsultaService {
 				.append(REGISTRO_CONSULTA_TOTAL).append(total).append(" | ").append(REGISTRO_CONSULTA_FECHA_REINTEGRO)
 				.append(fechaReintegro).append(" | ");
 
-		pistaService.guardarPista(ModuloPista.REINTEGRO.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-				TipoSeccionPista.REINTEGROS.getIdSeccionPista(), builder.toString(), Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.REINTEGRO.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.REINTEGROS.getIdSeccionPista(), builder.toString(), Optional.empty());
 	}
 
 	private ReintegrosConsultaDto mapeaarReintegrosConsultaDto(ReintegrosAsociadosModel reintegrosModel) {

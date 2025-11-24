@@ -85,11 +85,21 @@ public class CargaPlantilladroServiceImpl implements CargaPlantilladorService {
         StringBuilder builder = new StringBuilder();
         builder.append("Plan Tipo: ").append(plantillaExcel.getNombrePlantilla());
 
-        pistaService.guardarPista(ModuloPista.PROYECTOS.getId(),
-                TipoMovPista.IMPRIME_REGISTRO.getId(),
-                TipoSeccionPista.PROYECTO_DATOS_PLAN_TRABAJO.getIdSeccionPista(),
-                builder.toString(),
-                Optional.empty());
+
+
+        // pistaService.guardarPista(ModuloPista.PROYECTOS.getId(),
+
+
+        // TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+
+        // TipoSeccionPista.PROYECTO_DATOS_PLAN_TRABAJO.getIdSeccionPista(),
+
+
+        // builder.toString(),
+
+
+        // Optional.empty());
 
         return plantillaExcel;
 

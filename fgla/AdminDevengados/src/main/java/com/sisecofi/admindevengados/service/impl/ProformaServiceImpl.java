@@ -201,11 +201,16 @@ public class ProformaServiceImpl implements ProformaService {
 				descuentosRepository.saveAll(descuentosModelList);
 
 				if (!listDescuento.isEmpty()) {
-					pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-							TipoSeccionPista.DICTAMEN_DEDUCCIONES_DESCUENTOS.getIdSeccionPista(),
-							listDescuento.get(0).getIdDictamen() + "|" + "regisrotabla" + "|"
-									+ listDescuento.get(0).getNombreDocumento(),
-							Optional.empty());
+
+					// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+					// TipoSeccionPista.DICTAMEN_DEDUCCIONES_DESCUENTOS.getIdSeccionPista(),
+
+					// listDescuento.get(0).getIdDictamen() + "|" + "regisrotabla" + "|"
+
+					// + listDescuento.get(0).getNombreDocumento(),
+
+					// Optional.empty());
 				}
 			} catch (Exception e) {
 				throw new CatalogoException(ErroresEnum.ERROR_AL_GUARDAR, e);
@@ -225,9 +230,12 @@ public class ProformaServiceImpl implements ProformaService {
 		try {
 			// Lee documento almacenado en en la BD y lo prepara para su descarga FA19 VER
 			String nombreDoc = "";
-			pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
-					TipoSeccionPista.DICTAMEN_DEDUCCIONES_DESCUENTOS.getIdSeccionPista(),
-					dictamenId.getIdDictamen() + "|" + nombreDoc, Optional.empty());
+
+			// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+			// TipoSeccionPista.DICTAMEN_DEDUCCIONES_DESCUENTOS.getIdSeccionPista(),
+
+			// dictamenId.getIdDictamen() + "|" + nombreDoc, Optional.empty());
 		} catch (Exception e) {
 			throw new CatalogoException(ErroresEnum.ERROR_GUARDAR_PISTA, e);
 		}
@@ -239,9 +247,12 @@ public class ProformaServiceImpl implements ProformaService {
 			// GUARDA EN EL CAMPO FACTURAS RECIBIDAS
 			// RNA247 se debe guardar en alguna seccion ULTIMA MODIFICION + NOMBRE EMPLEADO
 			// SAT + FECHA Y HORA
-			pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-					TipoSeccionPista.DICTAMEN_SOLICITUD_FACTURA.getIdSeccionPista(),
-					dictamenId.getIdDictamen() + "|" + "recepción de facturas", Optional.empty());
+
+			// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+			// TipoSeccionPista.DICTAMEN_SOLICITUD_FACTURA.getIdSeccionPista(),
+
+			// dictamenId.getIdDictamen() + "|" + "recepción de facturas", Optional.empty());
 		} catch (Exception e) {
 			throw new CatalogoException(ErroresEnum.ERROR_GUARDAR_PISTA, e);
 		}
@@ -308,8 +319,12 @@ public class ProformaServiceImpl implements ProformaService {
 				.append("Número de oficio de solictud de factura: ").append(model.getNoOficioSolicitud()).append(" | ")
 				.append("Documento cargado: ").append(nombreArchivo);
 
-		pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-				TipoSeccionPista.DICTAMEN_SOLICITUD_FACTURA.getIdSeccionPista(), builder.toString(), Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.DICTAMEN_SOLICITUD_FACTURA.getIdSeccionPista(), builder.toString(), Optional.empty());
 
 		return this.solicitudFacturaHelper.mapToResponse(this.solicitudFacturaRepository.save(model));
 	}
@@ -374,8 +389,12 @@ public class ProformaServiceImpl implements ProformaService {
 			builder.append("Documento cargado: ").append(request.documento().getOriginalFilename());
 		}
 
-		pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.DICTAMEN_SOLICITUD_FACTURA.getIdSeccionPista(), builder.toString(), Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.DICTAMEN_SOLICITUD_FACTURA.getIdSeccionPista(), builder.toString(), Optional.empty());
 
 		return this.solicitudFacturaHelper.mapToResponse(model);
 	}
@@ -386,11 +405,16 @@ public class ProformaServiceImpl implements ProformaService {
 			// Cambia el estatus del dictamen a PROFORMA
 			// RNA247 se debe guardar en alguna seccion ULTIMA MODIFICION + NOMBRE EMPLEADO
 			// SAT + FECHA Y HORA
-			pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-					TipoSeccionPista.DICTAMEN_DATOS_GENERALES.getIdSeccionPista(), // se tiene que crear la seccion
-																					// Deducciones, descuentos y
-																					// penalizaciones
-					dictamenId.getIdDictamen() + "|" + "estatusProforma", Optional.empty());
+
+			// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+			// TipoSeccionPista.DICTAMEN_DATOS_GENERALES.getIdSeccionPista(), // se tiene que crear la seccion
+
+			// // Deducciones, descuentos y
+
+			// // penalizaciones
+
+			// dictamenId.getIdDictamen() + "|" + "estatusProforma", Optional.empty());
 		} catch (Exception e) {
 			throw new CatalogoException(ErroresEnum.ERROR_GUARDAR_PISTA, e);
 		}
@@ -401,9 +425,12 @@ public class ProformaServiceImpl implements ProformaService {
 			// FA04 RECHAZAR DICTAMEN
 			// Guarda en Dictamen cambio de estatus a inicial y
 			// DescripcionDictamen|Justificacion
-			pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-					TipoSeccionPista.DICTAMEN_DEDUCCIONES_DESCUENTOS.getIdSeccionPista(),
-					dictamenId.getIdDictamen() + "|" + "Inicial", Optional.empty());
+
+			// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+			// TipoSeccionPista.DICTAMEN_DEDUCCIONES_DESCUENTOS.getIdSeccionPista(),
+
+			// dictamenId.getIdDictamen() + "|" + "Inicial", Optional.empty());
 		} catch (Exception e) {
 			throw new CatalogoException(ErroresEnum.ERROR_GUARDAR_PISTA, e);
 		}

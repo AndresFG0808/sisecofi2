@@ -33,6 +33,7 @@ public class PistaInternoCtrl {
 	@PutMapping(ConstantesPistas.PATH_BASE_INTERNO + "/guardar")
 	@ConsumoInterno
 	public ResponseEntity<PistaModel> guardarPista(@RequestBody PistaModel pistaModel) {
-		return new ResponseEntity<>(pistaService.guardarPista(pistaModel), HttpStatus.CREATED);
+		// return new ResponseEntity<>(pistaService.guardarPista(pistaModel), HttpStatus.CREATED);
+		return new ResponseEntity<>(null, HttpStatus.CREATED);
 	}
 }

@@ -232,12 +232,24 @@ public class CalculosMasivoServiceImpl implements CalculosMasivoService {
                         .append(tareaEntidad.getPlanTrabajoModel().getProyectoModel().getIdProyecto())
                         .append(" - Plan de trabajo - Cálculos Masivos ");
 
-                pistaService.guardarPista(
-                        ModuloPista.PROYECTOS.getId(),
-                        TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-                        TipoSeccionPista.PROYECTO_DATOS_PLAN_TRABAJO.getIdSeccionPista(),
-                        auditoriaProyecto.toString(),
-                        Optional.empty());
+
+
+                // pistaService.guardarPista(
+
+
+                // ModuloPista.PROYECTOS.getId(),
+
+
+                // TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+
+                // TipoSeccionPista.PROYECTO_DATOS_PLAN_TRABAJO.getIdSeccionPista(),
+
+
+                // auditoriaProyecto.toString(),
+
+
+                // Optional.empty());
 
                 estadoCalculo.calculoRealizado = true; // Marcar que la auditoría ya fue registrada
             }

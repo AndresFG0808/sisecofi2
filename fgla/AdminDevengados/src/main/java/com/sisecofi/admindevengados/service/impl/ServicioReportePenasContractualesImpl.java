@@ -47,10 +47,18 @@ public class ServicioReportePenasContractualesImpl implements ServicioReportePen
 			    .map(PenaContractualExcelDto::toString)
 			    .collect(Collectors.joining("|"));
 		
-			pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
-					TipoSeccionPista.DICTAMEN_PENAS_CONTRACTUALES.getIdSeccionPista(),
-					Constantes.getAtributosPenasContractualesExportar()[0] + penasSeleccionadas.get(0).getDictamenId() + "|"
-							+ Constantes.getAtributosPenasContractualesExportar()[1] + idsPenas.toString()+ "|" + resultado, Optional.empty());
+
+		
+			// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+		
+			// TipoSeccionPista.DICTAMEN_PENAS_CONTRACTUALES.getIdSeccionPista(),
+
+		
+			// Constantes.getAtributosPenasContractualesExportar()[0] + penasSeleccionadas.get(0).getDictamenId() + "|"
+
+		
+			// + Constantes.getAtributosPenasContractualesExportar()[1] + idsPenas.toString()+ "|" + resultado, Optional.empty());
 
 		return Base64.getEncoder().encodeToString(reporte);
 	}

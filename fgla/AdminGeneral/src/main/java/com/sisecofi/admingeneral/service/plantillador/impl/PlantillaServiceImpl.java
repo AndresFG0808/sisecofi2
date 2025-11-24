@@ -317,10 +317,18 @@ public class PlantillaServiceImpl implements PlantillaService {
 
 		}
 
-		pistaService.guardarPista(ModuloPista.PLANTILLAS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.PLANTILLAS.getIdSeccionPista(),
-				Constantes.getDescargarPlantillaFase()[1] + nombrePlantilla + Constantes.getDescargarPlantillaFase()[4],
-				Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.PLANTILLAS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.PLANTILLAS.getIdSeccionPista(),
+
+
+		// Constantes.getDescargarPlantillaFase()[1] + nombrePlantilla + Constantes.getDescargarPlantillaFase()[4],
+
+
+		// Optional.empty());
 		return dto;
 	}
 	
@@ -569,12 +577,24 @@ public class PlantillaServiceImpl implements PlantillaService {
 			crearHojasProforma(nuevaProforma, p);
 		}
 
-		pistaService.guardarPista(ModuloPista.PLANTILLAS.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-				TipoSeccionPista.PLANTILLAS.getIdSeccionPista(),
-				Constantes.getDescargarPlantillaFase()[1] + nuevaProforma.getNombre()
-						+ Constantes.getDescargarPlantillaFase()[5] + nuevaProforma.isStatus()
-						+ nuevaProforma.toString(),
-				Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.PLANTILLAS.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.PLANTILLAS.getIdSeccionPista(),
+
+
+		// Constantes.getDescargarPlantillaFase()[1] + nuevaProforma.getNombre()
+
+
+		// + Constantes.getDescargarPlantillaFase()[5] + nuevaProforma.isStatus()
+
+
+		// + nuevaProforma.toString(),
+
+
+		// Optional.empty());
 	}
 
 	private SubPlantilladorModel obtenerSubPlantilladorExistente(PlantilladorDto p) {
@@ -608,11 +628,21 @@ public class PlantillaServiceImpl implements PlantillaService {
 				guardarContenidoPlantilla(plantilla, c.get().getIdTipoPlantillador());
 			}
 
-			pistaService.guardarPista(ModuloPista.PLANTILLAS.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-					TipoSeccionPista.PLANTILLAS.getIdSeccionPista(),
-					Constantes.getDescargarPlantillaFase()[1] + plantilla.getNombre()
-							+ Constantes.getDescargarPlantillaFase()[5] + plantilla.isStatus() + plantilla.toString(),
-					Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.PLANTILLAS.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.PLANTILLAS.getIdSeccionPista(),
+
+
+			// Constantes.getDescargarPlantillaFase()[1] + plantilla.getNombre()
+
+
+			// + Constantes.getDescargarPlantillaFase()[5] + plantilla.isStatus() + plantilla.toString(),
+
+
+			// Optional.empty());
 		}
 	}
 
@@ -668,12 +698,24 @@ public class PlantillaServiceImpl implements PlantillaService {
 		
 		subPlantilladorRespository.save(subPlantillador);
 		
-		pistaService.guardarPista(ModuloPista.PLANTILLAS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.PLANTILLAS.getIdSeccionPista(),
-				Constantes.getDescargarPlantillaFase()[1] + subPlantillador.getNombre()
-						+ Constantes.getDescargarPlantillaFase()[5] + subPlantillador.isStatus()
-						+ subPlantillador.toString(),
-				Optional.empty());
+
+		
+		// pistaService.guardarPista(ModuloPista.PLANTILLAS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+		
+		// TipoSeccionPista.PLANTILLAS.getIdSeccionPista(),
+
+		
+		// Constantes.getDescargarPlantillaFase()[1] + subPlantillador.getNombre()
+
+		
+		// + Constantes.getDescargarPlantillaFase()[5] + subPlantillador.isStatus()
+
+		
+		// + subPlantillador.toString(),
+
+		
+		// Optional.empty());
 	}
 
 	private void crearNuevoSubPlantillador(SubPlantilladorModel subPlantillador, PlantilladorDto p) {
@@ -686,12 +728,24 @@ public class PlantillaServiceImpl implements PlantillaService {
 			subPlantilladorRespository.save(subPlantillador);
 			crearHojasProforma(subPlantillador, p);
 
-			pistaService.guardarPista(ModuloPista.PLANTILLAS.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-					TipoSeccionPista.PLANTILLAS.getIdSeccionPista(),
-					Constantes.getDescargarPlantillaFase()[1] + subPlantillador.getNombre()
-							+ Constantes.getDescargarPlantillaFase()[5] + subPlantillador.isStatus()
-							+ subPlantillador.toString(),
-					Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.PLANTILLAS.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.PLANTILLAS.getIdSeccionPista(),
+
+
+			// Constantes.getDescargarPlantillaFase()[1] + subPlantillador.getNombre()
+
+
+			// + Constantes.getDescargarPlantillaFase()[5] + subPlantillador.isStatus()
+
+
+			// + subPlantillador.toString(),
+
+
+			// Optional.empty());
 		}
 	}
 
@@ -705,12 +759,24 @@ public class PlantillaServiceImpl implements PlantillaService {
 				plantilla.setStatus(p.isEstatus());
 				plantillaRespository.save(plantilla);
 
-				pistaService.guardarPista(ModuloPista.PLANTILLAS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-						TipoSeccionPista.PLANTILLAS.getIdSeccionPista(),
-						Constantes.getDescargarPlantillaFase()[1] + plantilla.getNombre()
-								+ Constantes.getDescargarPlantillaFase()[5] + plantilla.isStatus()
-								+ plantilla.toString(),
-						Optional.empty());
+
+
+				// pistaService.guardarPista(ModuloPista.PLANTILLAS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+
+				// TipoSeccionPista.PLANTILLAS.getIdSeccionPista(),
+
+
+				// Constantes.getDescargarPlantillaFase()[1] + plantilla.getNombre()
+
+
+				// + Constantes.getDescargarPlantillaFase()[5] + plantilla.isStatus()
+
+
+				// + plantilla.toString(),
+
+
+				// Optional.empty());
 			}
 	}
 

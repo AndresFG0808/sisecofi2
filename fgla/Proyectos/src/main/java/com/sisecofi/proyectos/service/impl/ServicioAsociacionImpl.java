@@ -92,14 +92,30 @@ public class ServicioAsociacionImpl implements ServicioAsociacion {
 	        throw new ProyectoException(ErroresEnum.PLANTILLA_YA_ASOCIADA);
 	    }
 	   
-	    pistaService.guardarPista(
-	            ModuloPista.PROYECTOS.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-	            TipoSeccionPista.PROYECTO_ASOCIAR_FASE.getIdSeccionPista(),
-	            String.format("%s%s|%s%d|%s%s",
-	                    Constantes.getAtributosAsociacion()[0], asociacion.getIdAsociacion(),
-	                    Constantes.getAtributosAsociacion()[1], idProyecto,
-	                    Constantes.getAtributosAsociacion()[2], plantillaDto.getNombre()),
-	            Optional.empty());
+
+	   
+	    // pistaService.guardarPista(
+
+	   
+	    // ModuloPista.PROYECTOS.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+	   
+	    // TipoSeccionPista.PROYECTO_ASOCIAR_FASE.getIdSeccionPista(),
+
+	   
+	    // String.format("%s%s|%s%d|%s%s",
+
+	   
+	    // Constantes.getAtributosAsociacion()[0], asociacion.getIdAsociacion(),
+
+	   
+	    // Constantes.getAtributosAsociacion()[1], idProyecto,
+
+	   
+	    // Constantes.getAtributosAsociacion()[2], plantillaDto.getNombre()),
+
+	   
+	    // Optional.empty());
 
 	    return true;
 	}
@@ -232,12 +248,24 @@ public class ServicioAsociacionImpl implements ServicioAsociacion {
 
 		servicioProyecto.actualizarUltimaModificacion(asociacion.getIdProyecto());
 		
-		pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.PROYECTO_ASOCIAR_FASE.getIdSeccionPista(),
-				Constantes.getAtributosAsociacion()[0] + asociacion.getIdAsociacion() + "|"
-						+ Constantes.getAtributosAsociacion()[1] + asociacion.getIdProyecto() + "|"
-						+ Constantes.getAtributosAsociacion()[2] + plantillaDto.getPlantillaVigenteModel().getNombre(),
-				Optional.empty());
+
+		
+		// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+		
+		// TipoSeccionPista.PROYECTO_ASOCIAR_FASE.getIdSeccionPista(),
+
+		
+		// Constantes.getAtributosAsociacion()[0] + asociacion.getIdAsociacion() + "|"
+
+		
+		// + Constantes.getAtributosAsociacion()[1] + asociacion.getIdProyecto() + "|"
+
+		
+		// + Constantes.getAtributosAsociacion()[2] + plantillaDto.getPlantillaVigenteModel().getNombre(),
+
+		
+		// Optional.empty());
 		return true;
 	}
 
@@ -276,12 +304,24 @@ public class ServicioAsociacionImpl implements ServicioAsociacion {
 		PlantillaDto plantillaDto = servicioPlantilla.obtenerPlantillaPorId(asociacionOptional.getIdPlantillaVigente());
 		servicioProyecto.actualizarUltimaModificacion(asociacionOptional.getIdProyecto());
 		
-		pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
-				TipoSeccionPista.PROYECTO_ASOCIAR_FASE.getIdSeccionPista(),
-				Constantes.getAtributosAsociacion()[0] + asociacionOptional.getIdAsociacion() + "|"
-						+ Constantes.getAtributosAsociacion()[1] + asociacionOptional.getIdProyecto() + "|"
-						+ Constantes.getAtributosAsociacion()[2] + plantillaDto.getPlantillaVigenteModel().getNombre(),
-				Optional.empty());
+
+		
+		// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
+
+		
+		// TipoSeccionPista.PROYECTO_ASOCIAR_FASE.getIdSeccionPista(),
+
+		
+		// Constantes.getAtributosAsociacion()[0] + asociacionOptional.getIdAsociacion() + "|"
+
+		
+		// + Constantes.getAtributosAsociacion()[1] + asociacionOptional.getIdProyecto() + "|"
+
+		
+		// + Constantes.getAtributosAsociacion()[2] + plantillaDto.getPlantillaVigenteModel().getNombre(),
+
+		
+		// Optional.empty());
 		return true;
 	}
 
@@ -327,11 +367,21 @@ public class ServicioAsociacionImpl implements ServicioAsociacion {
 			lista.stream().forEach(consumer);
 			byte[] reporte = consumer.cerrarBytes();
 			
-			pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
-					TipoSeccionPista.PROYECTO_ASOCIAR_FASE.getIdSeccionPista(),
-					Constantes.getAtributosAsociacion()[1] + idProyecto + "|"
-							+ Constantes.getAtributosAsociacion()[2] + resultado,
-					Optional.empty());
+
+			
+			// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+			
+			// TipoSeccionPista.PROYECTO_ASOCIAR_FASE.getIdSeccionPista(),
+
+			
+			// Constantes.getAtributosAsociacion()[1] + idProyecto + "|"
+
+			
+			// + Constantes.getAtributosAsociacion()[2] + resultado,
+
+			
+			// Optional.empty());
 			
 			return Base64.getEncoder().encodeToString(reporte);
 		} catch (Exception e) {

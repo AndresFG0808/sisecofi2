@@ -182,16 +182,20 @@ public class ServicioFichaTecnicaImpl implements ServicioFichaTecnica {
 
 	private void eliminarLideresYalineaciones(FichaRequest fichaRequest, Long idProyecto) {
 	    if (fichaRequest.getLideresEliminados() != null)
-	        fichaRequest.getLideresEliminados().forEach(i ->
-	            pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
-	                    TipoSeccionPista.PROYECTO_DATOS_FICHA_TECNICA.getIdSeccionPista(),
-	                    Constantes.getAtributosProyecto()[0] + idProyecto, Optional.of(servicioHistorico.eliminarHistorico(i))));
+	        fichaRequest.getLideresEliminados().forEach(i -> {
+	            servicioHistorico.eliminarHistorico(i);
+	            // pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
+	            // 	TipoSeccionPista.PROYECTO_DATOS_FICHA_TECNICA.getIdSeccionPista(),
+	            // 	Constantes.getAtributosProyecto()[0] + idProyecto, Optional.of(servicioHistorico.eliminarHistorico(i)));
+	        });
 
 	    if (fichaRequest.getAlineacionesEliminadas() != null)
-	        fichaRequest.getAlineacionesEliminadas().forEach(i ->
-	            pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
-	                    TipoSeccionPista.PROYECTO_DATOS_FICHA_TECNICA.getIdSeccionPista(),
-	                    Constantes.getAtributosProyecto()[0] + idProyecto, Optional.of(servicioAlineacion.eliminarAlineacion(i))));
+	        fichaRequest.getAlineacionesEliminadas().forEach(i -> {
+	            servicioAlineacion.eliminarAlineacion(i);
+	            // pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
+	            // 	TipoSeccionPista.PROYECTO_DATOS_FICHA_TECNICA.getIdSeccionPista(),
+	            // 	Constantes.getAtributosProyecto()[0] + idProyecto, Optional.of(servicioAlineacion.eliminarAlineacion(i)));
+	        });
 	}
 
 
@@ -199,13 +203,19 @@ public class ServicioFichaTecnicaImpl implements ServicioFichaTecnica {
 
 	private void registrarPista(FichaTecnicaModel fichaModificada, Long idProyecto, boolean nuevo) {
 	    if (nuevo) {
-	    	pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-	                TipoSeccionPista.PROYECTO_DATOS_FICHA_TECNICA.getIdSeccionPista(),
-	                Constantes.getAtributosProyecto()[0] + idProyecto,Optional.of(fichaModificada));
+
+	    	// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+	    	// TipoSeccionPista.PROYECTO_DATOS_FICHA_TECNICA.getIdSeccionPista(),
+
+	    	// Constantes.getAtributosProyecto()[0] + idProyecto,Optional.of(fichaModificada));
 	    } else {
-	    	pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-	                TipoSeccionPista.PROYECTO_DATOS_FICHA_TECNICA.getIdSeccionPista(),
-	                Constantes.getAtributosProyecto()[0] + idProyecto,Optional.of(fichaModificada));
+
+	    	// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+	    	// TipoSeccionPista.PROYECTO_DATOS_FICHA_TECNICA.getIdSeccionPista(),
+
+	    	// Constantes.getAtributosProyecto()[0] + idProyecto,Optional.of(fichaModificada));
 	    }
 	}
 

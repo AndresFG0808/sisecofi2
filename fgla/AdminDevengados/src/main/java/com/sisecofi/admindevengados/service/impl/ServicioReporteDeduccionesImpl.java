@@ -48,10 +48,18 @@ public class ServicioReporteDeduccionesImpl implements ServicioReporteDeduccione
 			    .map(PenaContractualExcelDto::toString)
 			    .collect(Collectors.joining("|"));
 		
-			pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
-					TipoSeccionPista.DICTAMEN_DEDUCCIONES.getIdSeccionPista(),
-					Constantes.getAtributosDeduccionesExportar()[0] + penasSeleccionadas.get(0).getDictamenId() + "|"
-							+ Constantes.getAtributosDeduccionesExportar()[1] + idsDeducciones.toString() + "|" + resultado, Optional.empty());
+
+		
+			// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+		
+			// TipoSeccionPista.DICTAMEN_DEDUCCIONES.getIdSeccionPista(),
+
+		
+			// Constantes.getAtributosDeduccionesExportar()[0] + penasSeleccionadas.get(0).getDictamenId() + "|"
+
+		
+			// + Constantes.getAtributosDeduccionesExportar()[1] + idsDeducciones.toString() + "|" + resultado, Optional.empty());
 
 		return Base64.getEncoder().encodeToString(reporte);
 	}

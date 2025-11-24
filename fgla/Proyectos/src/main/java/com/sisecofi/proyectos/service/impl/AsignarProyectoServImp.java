@@ -94,9 +94,15 @@ public class AsignarProyectoServImp implements AsignarProService {
 			proyectoUsuarioDto.setUsuariosAsignados(
 					usuarioRepository.findUsuariosAsignados(dto.getIdProyecto()));
 	
-			pistaService.guardarPista(ModuloPista.ASIGNAR_PROYECTO.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-					TipoSeccionPista.ASIGNAR_PROYECTO_POR_PROYECTO.getIdSeccionPista(),
-					Constantes.getAtributosProyecto()[1] + optional.get().getNombreCorto(), Optional.empty());
+
+	
+			// pistaService.guardarPista(ModuloPista.ASIGNAR_PROYECTO.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+	
+			// TipoSeccionPista.ASIGNAR_PROYECTO_POR_PROYECTO.getIdSeccionPista(),
+
+	
+			// Constantes.getAtributosProyecto()[1] + optional.get().getNombreCorto(), Optional.empty());
 	
 			return Optional.of(proyectoUsuarioDto);
 		}
@@ -133,13 +139,20 @@ public boolean guardarUsuariosAsignados(ProyectoUsuarioDto dto) {
                            .collect(Collectors.joining(", "))); // Convertir lista a cadena
 
         log.info(PISTA_GEN, builder.toString());
-        pistaService.guardarPista(
-            ModuloPista.ASIGNAR_PROYECTO.getId(),
-            TipoMovPista.INSERTA_REGISTRO.getId(),
-            TipoSeccionPista.ASIGNAR_PROYECTO_POR_PROYECTO.getIdSeccionPista(),
-            builder.toString(),
-            Optional.empty()
-        );
+
+        // pistaService.guardarPista(
+
+        // ModuloPista.ASIGNAR_PROYECTO.getId(),
+
+        // TipoMovPista.INSERTA_REGISTRO.getId(),
+
+        // TipoSeccionPista.ASIGNAR_PROYECTO_POR_PROYECTO.getIdSeccionPista(),
+
+        // builder.toString(),
+
+        // Optional.empty()
+
+        // );
         return true;
     }
     return false;
@@ -191,13 +204,27 @@ public UsuarioProyectoDto buscarUsuarioProyecto(Usuario usuario) {
     builder.append("Usuario: " + usuario.getNombre());
     log.info(PISTA_GEN, builder.toString());
 
-    pistaService.guardarPista(
-        ModuloPista.ASIGNAR_PROYECTO.getId(),
-        TipoMovPista.CONSULTA_REGISTRO.getId(),
-        TipoSeccionPista.ASIGNAR_PROYECTO_POR_USUARIO.getIdSeccionPista(),
-        builder.toString(),
-        Optional.empty()
-    );
+
+
+    // pistaService.guardarPista(
+
+
+    // ModuloPista.ASIGNAR_PROYECTO.getId(),
+
+
+    // TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+    // TipoSeccionPista.ASIGNAR_PROYECTO_POR_USUARIO.getIdSeccionPista(),
+
+
+    // builder.toString(),
+
+
+    // Optional.empty()
+
+
+    // );
 
     return obj;
 }
@@ -230,13 +257,27 @@ public boolean guardarProyectoUsuario(UsuarioProyectoDto dto) {
                         .collect(Collectors.joining(", "))); 
         log.info(PISTA_GEN, builder.toString());
 
-        pistaService.guardarPista(
-            ModuloPista.ASIGNAR_PROYECTO.getId(),
-            TipoMovPista.INSERTA_REGISTRO.getId(),
-            TipoSeccionPista.ASIGNAR_PROYECTO_POR_USUARIO.getIdSeccionPista(),
-            builder.toString(),
-            Optional.empty()
-        );
+
+
+        // pistaService.guardarPista(
+
+
+        // ModuloPista.ASIGNAR_PROYECTO.getId(),
+
+
+        // TipoMovPista.INSERTA_REGISTRO.getId(),
+
+
+        // TipoSeccionPista.ASIGNAR_PROYECTO_POR_USUARIO.getIdSeccionPista(),
+
+
+        // builder.toString(),
+
+
+        // Optional.empty()
+
+
+        // );
     }
     return true;
 }
@@ -257,13 +298,20 @@ public byte[] exportarProyectosUsuarios(ProyectoNombreDto dto) {
              .map(p ->"Nombre corto del proyecto: "+ p.getProyectoModel().getNombreCorto())
              .collect(Collectors.joining("|")) 
     );
-    pistaService.guardarPista(
-        ModuloPista.ASIGNAR_PROYECTO.getId(),
-        TipoMovPista.IMPRIME_REGISTRO.getId(),
-        TipoSeccionPista.ASIGNAR_PROYECTO_POR_PROYECTO.getIdSeccionPista(),
-        builder.toString(),
-        Optional.empty()
-    );
+
+    // pistaService.guardarPista(
+
+    // ModuloPista.ASIGNAR_PROYECTO.getId(),
+
+    // TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+    // TipoSeccionPista.ASIGNAR_PROYECTO_POR_PROYECTO.getIdSeccionPista(),
+
+    // builder.toString(),
+
+    // Optional.empty()
+
+    // );
 
     return consumer.cerrarBytes();
 }

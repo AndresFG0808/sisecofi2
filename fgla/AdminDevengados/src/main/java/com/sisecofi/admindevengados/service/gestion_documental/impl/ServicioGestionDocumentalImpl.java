@@ -150,9 +150,15 @@ public class ServicioGestionDocumentalImpl implements ServicioGestionDocumental 
 				.map(archivo -> "|id: " + archivo.getId() + "|descripcion: " + archivo.getDescripcion())
 				.collect(Collectors.joining(" "));
 
-		pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-				TipoSeccionPista.DICTAMEN_GESTION_DOCUMENTAL.getIdSeccionPista(),
-				Constantes.getAtributosGenerales()[11] + dictamen.getIdDictamenVisual() + resultado, Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.DICTAMEN_GESTION_DOCUMENTAL.getIdSeccionPista(),
+
+
+		// Constantes.getAtributosGenerales()[11] + dictamen.getIdDictamenVisual() + resultado, Optional.empty());
 
 		return estructura;
 	}
@@ -161,9 +167,15 @@ public class ServicioGestionDocumentalImpl implements ServicioGestionDocumental 
 	public CarpetaCompartidaDto descargaSatCloud(DescargaSatCloudRequest descargaSatCloudRequest) {
 		String encodedUrl = obtenerEncodedUrl(descargaSatCloudRequest);
 
-		pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-				TipoSeccionPista.DICTAMEN_GESTION_DOCUMENTAL.getIdSeccionPista(),
-				Constantes.getAtributosGenerales()[11] + descargaSatCloudRequest.getIdDictamen(), Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.DICTAMEN_GESTION_DOCUMENTAL.getIdSeccionPista(),
+
+
+		// Constantes.getAtributosGenerales()[11] + descargaSatCloudRequest.getIdDictamen(), Optional.empty());
 
 		return descargarFolderSatCloud(encodedUrl);
 	}
@@ -172,8 +184,12 @@ public class ServicioGestionDocumentalImpl implements ServicioGestionDocumental 
 		try {
 			String contenido = nexusImpl.obtenerContenidoCarpeta(path);
 
-			pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
-					TipoSeccionPista.DICTAMEN_GESTION_DOCUMENTAL.getIdSeccionPista(), contenido, Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.DICTAMEN_GESTION_DOCUMENTAL.getIdSeccionPista(), contenido, Optional.empty());
 			return nexusImpl.crearCarpetaCompartida(path);
 		} catch (Exception e) {
 			throw new CatalogoException(ErroresEnum.ERROR_AL_DESCARGAR_ARCHIVO);
@@ -188,8 +204,12 @@ public class ServicioGestionDocumentalImpl implements ServicioGestionDocumental 
 
 			String contenido = nexusImpl.obtenerContenidoCarpeta(path);
 
-			pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
-					TipoSeccionPista.DICTAMEN_GESTION_DOCUMENTAL.getIdSeccionPista(), contenido, Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.DICTAMEN_GESTION_DOCUMENTAL.getIdSeccionPista(), contenido, Optional.empty());
 
 			return Base64.getEncoder().encodeToString(bytes);
 		} catch (Exception e) {
@@ -201,9 +221,15 @@ public class ServicioGestionDocumentalImpl implements ServicioGestionDocumental 
 	public String descargaMasiva(DescargaSatCloudRequest descargaSatCloudRequest) {
 		String encodedUrl = obtenerEncodedUrl(descargaSatCloudRequest);
 
-		pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-				TipoSeccionPista.DICTAMEN_GESTION_DOCUMENTAL.getIdSeccionPista(),
-				Constantes.getAtributosGenerales()[11] + descargaSatCloudRequest.getIdDictamen(), Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.DICTAMEN_GESTION_DOCUMENTAL.getIdSeccionPista(),
+
+
+		// Constantes.getAtributosGenerales()[11] + descargaSatCloudRequest.getIdDictamen(), Optional.empty());
 
 		return descargarFolder(encodedUrl);
 	}
@@ -242,9 +268,15 @@ public class ServicioGestionDocumentalImpl implements ServicioGestionDocumental 
 
 			papeleraServicoControl.enviarPapelera(eliminados);
 
-			pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
-					TipoSeccionPista.DICTAMEN_GESTION_DOCUMENTAL.getIdSeccionPista(),
-					Constantes.getAtributosGenerales()[11] + id + nombreArchivo, Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.DICTAMEN_GESTION_DOCUMENTAL.getIdSeccionPista(),
+
+
+			// Constantes.getAtributosGenerales()[11] + id + nombreArchivo, Optional.empty());
 		}
 		return true;
 	}
@@ -382,9 +414,12 @@ public class ServicioGestionDocumentalImpl implements ServicioGestionDocumental 
 			int lastSlashIndex = path.lastIndexOf("/");
 
 			String nombreArchivo = "|" + path.substring(lastSlashIndex + 1);
-			pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
-					TipoSeccionPista.DICTAMEN_GESTION_DOCUMENTAL.getIdSeccionPista(),
-					Constantes.getAtributosGenerales()[11] + idDictamen + nombreArchivo, Optional.empty());
+
+			// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+			// TipoSeccionPista.DICTAMEN_GESTION_DOCUMENTAL.getIdSeccionPista(),
+
+			// Constantes.getAtributosGenerales()[11] + idDictamen + nombreArchivo, Optional.empty());
 			return Base64.getEncoder().encodeToString(bytes);
 		} catch (Exception e) {
 			throw new CatalogoException(ErroresEnum.ERROR_AL_DESCARGAR_ARCHIVO, e);
@@ -422,10 +457,18 @@ public class ServicioGestionDocumentalImpl implements ServicioGestionDocumental 
 				nombreArchivo = "|" + path.substring(lastSlashIndex + 1);
 			}
 
-			pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), archivoDto.getTipoMov(),
-					TipoSeccionPista.DICTAMEN_GESTION_DOCUMENTAL.getIdSeccionPista(),
-					Constantes.getAtributosGenerales()[10] + archivoDto.getIdDictamen() + nombreArchivo,
-					Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), archivoDto.getTipoMov(),
+
+
+			// TipoSeccionPista.DICTAMEN_GESTION_DOCUMENTAL.getIdSeccionPista(),
+
+
+			// Constantes.getAtributosGenerales()[10] + archivoDto.getIdDictamen() + nombreArchivo,
+
+
+			// Optional.empty());
 
 			return null;
 		} catch (Exception e) {

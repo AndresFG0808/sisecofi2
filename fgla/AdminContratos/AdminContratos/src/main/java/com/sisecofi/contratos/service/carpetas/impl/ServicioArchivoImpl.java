@@ -187,13 +187,20 @@ public class ServicioArchivoImpl implements ServicioArchivo {
 	    String nombreArchivo = archivo.getRuta() != null
 	            ? "|" + archivo.getRuta().substring(archivo.getRuta().lastIndexOf(DELIMITADOR) + 1)
 	            : "";
-	    pistaService.guardarPista(
-	            ModuloPista.ADMIN_CONTRATOS.getId(),
-	            idMov,
-	            TipoSeccionPista.CONTRATOS_GESTION_DOCUMENTAL.getIdSeccionPista(),
-	            Constantes.getAtributosGenerales()[esContrato ? 0 : 1] + idContrato + nombreArchivo,
-	            Optional.empty()
-	    );
+
+	    // pistaService.guardarPista(
+
+	    // ModuloPista.ADMIN_CONTRATOS.getId(),
+
+	    // idMov,
+
+	    // TipoSeccionPista.CONTRATOS_GESTION_DOCUMENTAL.getIdSeccionPista(),
+
+	    // Constantes.getAtributosGenerales()[esContrato ? 0 : 1] + idContrato + nombreArchivo,
+
+	    // Optional.empty()
+
+	    // );
 	}
 
 	private static class DatosProyecto {
@@ -263,10 +270,18 @@ public class ServicioArchivoImpl implements ServicioArchivo {
 				nombreArchivo = "|" + path.substring(lastSlashIndex + 1);
 			}
 
-			pistaService.guardarPista(ModuloPista.REINTEGRO.getId(), idMov,
-					TipoSeccionPista.REINTEGRO_GESTION_DOCUMENTAL.getIdSeccionPista(),
-					Constantes.getAtributosGenerales()[2] + archivoDto.getIdReintegro() + nombreArchivo,
-					Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.REINTEGRO.getId(), idMov,
+
+
+			// TipoSeccionPista.REINTEGRO_GESTION_DOCUMENTAL.getIdSeccionPista(),
+
+
+			// Constantes.getAtributosGenerales()[2] + archivoDto.getIdReintegro() + nombreArchivo,
+
+
+			// Optional.empty());
 		} catch (Exception e) {
 			throw new ContratoException(ErroresEnum.ERROR_ARCHIVO_NO_CARGADO, e);
 		}
@@ -336,9 +351,15 @@ public class ServicioArchivoImpl implements ServicioArchivo {
 
 			String nombreArchivo = "|" + path.substring(lastSlashIndex + 1);
 
-			pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
-					TipoSeccionPista.CONTRATOS_GESTION_DOCUMENTAL.getIdSeccionPista(), "id: " + id + nombreArchivo,
-					Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.CONTRATOS_GESTION_DOCUMENTAL.getIdSeccionPista(), "id: " + id + nombreArchivo,
+
+
+			// Optional.empty());
 
 			return Base64.getEncoder().encodeToString(bytes);
 		} catch (Exception e) {
@@ -369,8 +390,12 @@ public class ServicioArchivoImpl implements ServicioArchivo {
 
 			String contenido = nexusImpl.obtenerContenidoCarpeta(path);
 
-			pistaService.guardarPista(modulo, TipoMovPista.IMPRIME_REGISTRO.getId(), seccion, contenido,
-					Optional.empty());
+
+
+			// pistaService.guardarPista(modulo, TipoMovPista.IMPRIME_REGISTRO.getId(), seccion, contenido,
+
+
+			// Optional.empty());
 
 			return Base64.getEncoder().encodeToString(bytes);
 		} catch (Exception e) {
@@ -384,8 +409,12 @@ public class ServicioArchivoImpl implements ServicioArchivo {
 
 			String contenido = nexusImpl.obtenerContenidoCarpeta(path);
 
-			pistaService.guardarPista(modulo, TipoMovPista.IMPRIME_REGISTRO.getId(), seccion, contenido,
-					Optional.empty());
+
+
+			// pistaService.guardarPista(modulo, TipoMovPista.IMPRIME_REGISTRO.getId(), seccion, contenido,
+
+
+			// Optional.empty());
 
 			return nexusImpl.crearCarpetaCompartida(path);
 		} catch (Exception e) {

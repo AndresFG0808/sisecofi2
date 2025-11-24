@@ -175,9 +175,15 @@ public class ServicioGestionDocumentalImpl implements ServicioGestionDocumental 
 				.map(archivo -> ID + archivo.getId() + DESCRIPCION + archivo.getDescripcion())
 				.collect(Collectors.joining(" "));
 
-		pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-				TipoSeccionPista.CONTRATOS_GESTION_DOCUMENTAL.getIdSeccionPista(),
-				Constantes.getAtributosGenerales()[0] + idContrato + resultado, Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.CONTRATOS_GESTION_DOCUMENTAL.getIdSeccionPista(),
+
+
+		// Constantes.getAtributosGenerales()[0] + idContrato + resultado, Optional.empty());
 
 		return estructura;
 	}
@@ -279,8 +285,12 @@ public class ServicioGestionDocumentalImpl implements ServicioGestionDocumental 
 	public CarpetaCompartidaDto descargaSatCloud(DescargaSatCloudRequest descargaSatCloudRequest) {
 		RutaConfiguracion config = obtenerRutaYConfiguracion(descargaSatCloudRequest);
 
-		pistaService.guardarPista(config.modulo, TipoMovPista.CONSULTA_REGISTRO.getId(), config.seccion,
-				Constantes.getAtributosGenerales()[config.indice] + config.id, Optional.empty());
+
+
+		// pistaService.guardarPista(config.modulo, TipoMovPista.CONSULTA_REGISTRO.getId(), config.seccion,
+
+
+		// Constantes.getAtributosGenerales()[config.indice] + config.id, Optional.empty());
 
 		return servicioArchivo.descargarFolderSatCloudGestion(config.rutaGeneral, config.id, config.modulo,
 				config.seccion);
@@ -291,8 +301,12 @@ public class ServicioGestionDocumentalImpl implements ServicioGestionDocumental 
 	public String descargaMasiva(DescargaSatCloudRequest descargaSatCloudRequest) {
 		RutaConfiguracion config = obtenerRutaYConfiguracion(descargaSatCloudRequest);
 
-		pistaService.guardarPista(config.modulo, TipoMovPista.CONSULTA_REGISTRO.getId(), config.seccion,
-				Constantes.getAtributosGenerales()[config.indice] + config.id, Optional.empty());
+
+
+		// pistaService.guardarPista(config.modulo, TipoMovPista.CONSULTA_REGISTRO.getId(), config.seccion,
+
+
+		// Constantes.getAtributosGenerales()[config.indice] + config.id, Optional.empty());
 
 		return servicioArchivo.descargarFolderGestion(config.rutaGeneral, config.id, config.modulo, config.seccion);
 	}
@@ -371,8 +385,10 @@ public class ServicioGestionDocumentalImpl implements ServicioGestionDocumental 
 		papeleraServicoControl.enviarPapelera(eliminadosact);
 
 		String nombreArchivo = extraerNombreArchivo(eliminado.getRuta());
-		pistaService.guardarPista(modulo, TipoMovPista.BORRA_REGISTRO.getId(), seccion,
-				Constantes.getAtributosGenerales()[indice] + id + nombreArchivo, Optional.empty());
+
+		// pistaService.guardarPista(modulo, TipoMovPista.BORRA_REGISTRO.getId(), seccion,
+
+		// Constantes.getAtributosGenerales()[indice] + id + nombreArchivo, Optional.empty());
 
 		return true;
 	}
@@ -644,9 +660,15 @@ public class ServicioGestionDocumentalImpl implements ServicioGestionDocumental 
 				.map(archivo -> ID + archivo.getId() + DESCRIPCION + archivo.getDescripcion())
 				.collect(Collectors.joining(" "));
 
-		pistaService.guardarPista(ModuloPista.CONVENIO_MODIFICATORIO.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-				TipoSeccionPista.CONVENIO_MODIFICATORIO_GESTION_DOCUMENTAL.getIdSeccionPista(),
-				Constantes.getAtributosGenerales()[1] + idConvenio + resultado, Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.CONVENIO_MODIFICATORIO.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.CONVENIO_MODIFICATORIO_GESTION_DOCUMENTAL.getIdSeccionPista(),
+
+
+		// Constantes.getAtributosGenerales()[1] + idConvenio + resultado, Optional.empty());
 
 		return estructura;
 	}
@@ -736,9 +758,15 @@ public class ServicioGestionDocumentalImpl implements ServicioGestionDocumental 
 				.map(archivo -> ID + archivo.getId() + DESCRIPCION + archivo.getDescripcion())
 				.collect(Collectors.joining(" "));
 
-		pistaService.guardarPista(ModuloPista.REINTEGRO.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-				TipoSeccionPista.REINTEGRO_GESTION_DOCUMENTAL.getIdSeccionPista(),
-				Constantes.getAtributosGenerales()[0] + idContrato + resultado, Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.REINTEGRO.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.REINTEGRO_GESTION_DOCUMENTAL.getIdSeccionPista(),
+
+
+		// Constantes.getAtributosGenerales()[0] + idContrato + resultado, Optional.empty());
 
 		return estructura;
 	}

@@ -128,8 +128,10 @@ public class UsuariosServiceImpl implements UsuariosService {
 
 	@Override
 	public boolean guardarPista() {
-		pistaService.guardarPista(ModuloPista.ACCESO_SISTEMA.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-				TipoSeccionPista.ACCESO_SISTEMA.getIdSeccionPista(), "Menú principal", Optional.empty());
+
+		// pistaService.guardarPista(ModuloPista.ACCESO_SISTEMA.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+		// TipoSeccionPista.ACCESO_SISTEMA.getIdSeccionPista(), "Menú principal", Optional.empty());
 		return true;
 	}
 

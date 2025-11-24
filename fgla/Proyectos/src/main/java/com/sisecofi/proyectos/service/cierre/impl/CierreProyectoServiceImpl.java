@@ -126,11 +126,21 @@ public class CierreProyectoServiceImpl implements CierreProyectoService {
 			byte[] bytes = obj.readAllBytes();
 			obj.close();
 
-			pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
-					TipoSeccionPista.VERIFICACION_RCP.getIdSeccionPista(),
-					Constantes.getAtributosCierre()[0] + nombreCorto + "|" + Constantes.getAtributosCierre()[1]
-							+ documentoSeleccionado + "|" + Constantes.getAtributosCierre()[2] + fase,
-					Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.VERIFICACION_RCP.getIdSeccionPista(),
+
+
+			// Constantes.getAtributosCierre()[0] + nombreCorto + "|" + Constantes.getAtributosCierre()[1]
+
+
+			// + documentoSeleccionado + "|" + Constantes.getAtributosCierre()[2] + fase,
+
+
+			// Optional.empty());
 
 			return Base64.getEncoder().encodeToString(bytes);
 		} catch (Exception e) {
@@ -190,11 +200,21 @@ public class CierreProyectoServiceImpl implements CierreProyectoService {
 		servicioProyecto.actualizarUltimaModificacion(cierre.getIdProyecto());
 		CierreModel cierreNuevo = cierreRepository.save(cierre);
 
-		pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.VERIFICACION_RCP.getIdSeccionPista(),
-				Constantes.getAtributosCierreCancelar()[0] + cierreNuevo.getProyectoModel().getNombreCorto() + "|"
-						+ Constantes.getAtributosCierreCancelar()[1] + cierreNuevo.getCatEstatusRcp().getNombre() + "|",
-				Optional.of(cierreNuevo));
+
+
+		// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.VERIFICACION_RCP.getIdSeccionPista(),
+
+
+		// Constantes.getAtributosCierreCancelar()[0] + cierreNuevo.getProyectoModel().getNombreCorto() + "|"
+
+
+		// + Constantes.getAtributosCierreCancelar()[1] + cierreNuevo.getCatEstatusRcp().getNombre() + "|",
+
+
+		// Optional.of(cierreNuevo));
 		return true;
 	}
 
@@ -400,13 +420,27 @@ public class CierreProyectoServiceImpl implements CierreProyectoService {
 		CierreModel cierre = cierreRepository.save(cierreModel);
 		servicioProyecto.actualizarUltimaModificacion(cierre.getIdProyecto());
 
-		pistaService.guardarPista(ModuloPista.PROYECTOS.getId(),
-				esRegistro ? TipoMovPista.INSERTA_REGISTRO.getId() : TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.VERIFICACION_RCP.getIdSeccionPista(),
-				Constantes.getAtributosCierreGuardado()[0] + proyecto.getNombreCorto() + "|"
-						+ Constantes.getAtributosCierreGuardado()[1] + usuario.getNombre() + "|"
-						+ Constantes.getAtributosCierreGuardado()[2] + cierreModel.getFechaEntrega() + "|",
-				Optional.of(cierre));
+
+
+		// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(),
+
+
+		// esRegistro ? TipoMovPista.INSERTA_REGISTRO.getId() : TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.VERIFICACION_RCP.getIdSeccionPista(),
+
+
+		// Constantes.getAtributosCierreGuardado()[0] + proyecto.getNombreCorto() + "|"
+
+
+		// + Constantes.getAtributosCierreGuardado()[1] + usuario.getNombre() + "|"
+
+
+		// + Constantes.getAtributosCierreGuardado()[2] + cierreModel.getFechaEntrega() + "|",
+
+
+		// Optional.of(cierre));
 
 		return cierre;
 	}
@@ -436,13 +470,20 @@ public class CierreProyectoServiceImpl implements CierreProyectoService {
 		CierreModel cierre = cierreRepository.save(cierreExistente);
 		servicioProyecto.actualizarUltimaModificacion(cierre.getIdProyecto());
 		boolean esRegistro = cierreModel.getIdCierre() != null;
-		pistaService.guardarPista(ModuloPista.PROYECTOS.getId(),
-				esRegistro ? TipoMovPista.INSERTA_REGISTRO.getId() : TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.VERIFICACION_RCP.getIdSeccionPista(),
-				Constantes.getAtributosCierreGuardado()[0] + cierreExistente.getProyectoModel().getNombreCorto() + "|"
-						+ Constantes.getAtributosCierreGuardado()[1] + cierreExistente.getUsuario().getNombre() + "|"
-						+ Constantes.getAtributosCierreGuardado()[2] + cierreExistente.getFechaEntrega() + "|",
-				Optional.of(cierre));
+
+		// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(),
+
+		// esRegistro ? TipoMovPista.INSERTA_REGISTRO.getId() : TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+		// TipoSeccionPista.VERIFICACION_RCP.getIdSeccionPista(),
+
+		// Constantes.getAtributosCierreGuardado()[0] + cierreExistente.getProyectoModel().getNombreCorto() + "|"
+
+		// + Constantes.getAtributosCierreGuardado()[1] + cierreExistente.getUsuario().getNombre() + "|"
+
+		// + Constantes.getAtributosCierreGuardado()[2] + cierreExistente.getFechaEntrega() + "|",
+
+		// Optional.of(cierre));
 
 		return cierre;
 	}
@@ -627,11 +668,16 @@ public class CierreProyectoServiceImpl implements CierreProyectoService {
 		cierre.setIdEstatusRcp(Long.parseLong("" + lista.get(0).getPrimaryKey()));
 		CierreModel cierreNuevo = cierreRepository.save(cierre);
 		servicioProyecto.actualizarUltimaModificacion(cierre.getIdProyecto());
-		pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.VERIFICACION_RCP.getIdSeccionPista(),
-				Constantes.getAtributosCierreCancelar()[0] + cierreNuevo.getProyectoModel().getNombreCorto()
-						+ Constantes.getAtributosCierreCancelar()[1] + cierreNuevo.getCatEstatusRcp().getNombre() + "|",
-				Optional.of(cierre));
+
+		// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+		// TipoSeccionPista.VERIFICACION_RCP.getIdSeccionPista(),
+
+		// Constantes.getAtributosCierreCancelar()[0] + cierreNuevo.getProyectoModel().getNombreCorto()
+
+		// + Constantes.getAtributosCierreCancelar()[1] + cierreNuevo.getCatEstatusRcp().getNombre() + "|",
+
+		// Optional.of(cierre));
 
 		return cierreNuevo;
 
@@ -668,11 +714,16 @@ public class CierreProyectoServiceImpl implements CierreProyectoService {
 			cierre.setIdEstatusRcp(Long.parseLong("" + lista.get(0).getPrimaryKey()));
 			cierreRepository.save(cierre);
 			servicioProyecto.actualizarUltimaModificacion(cierre.getIdProyecto());
-			pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-					TipoSeccionPista.VERIFICACION_RCP.getIdSeccionPista(),
-					Constantes.getAtributosCierreCancelar()[0] + cierre.getProyectoModel().getNombreCorto()
-							+ Constantes.getAtributosCierreCancelar()[1] + cierre.getCatEstatusRcp().getNombre() + "|",
-					Optional.of(cierre));
+
+			// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+			// TipoSeccionPista.VERIFICACION_RCP.getIdSeccionPista(),
+
+			// Constantes.getAtributosCierreCancelar()[0] + cierre.getProyectoModel().getNombreCorto()
+
+			// + Constantes.getAtributosCierreCancelar()[1] + cierre.getCatEstatusRcp().getNombre() + "|",
+
+			// Optional.of(cierre));
 		} else {
 			throw new ProyectoException(ErroresEnum.CATALOGO_NO_ENCONTRADO);
 		}
@@ -699,11 +750,21 @@ public class CierreProyectoServiceImpl implements CierreProyectoService {
 			log.error("Error:");
 		}
 
-		pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
-				TipoSeccionPista.VERIFICACION_RCP.getIdSeccionPista(),
-				Constantes.getAtributosCierreSatCloud()[0] + descargaSatCloudRequest.getIdProyecto()
-						+ Constantes.getAtributosCierreSatCloud()[1] + contenido + "|",
-				Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.VERIFICACION_RCP.getIdSeccionPista(),
+
+
+		// Constantes.getAtributosCierreSatCloud()[0] + descargaSatCloudRequest.getIdProyecto()
+
+
+		// + Constantes.getAtributosCierreSatCloud()[1] + contenido + "|",
+
+
+		// Optional.empty());
 
 		return resultado;
 	}
@@ -725,11 +786,16 @@ public class CierreProyectoServiceImpl implements CierreProyectoService {
 			log.error("Error:");
 		}
 		resultado = servicioArchivo.descargarFolderSatCloud(ruta);
-		pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
-				TipoSeccionPista.VERIFICACION_RCP.getIdSeccionPista(),
-				Constantes.getAtributosCierreSatCloud()[0] + descargaSatCloudRequest.getIdProyecto()
-						+ Constantes.getAtributosCierreSatCloud()[1] + contenido + "|",
-				Optional.empty());
+
+		// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+		// TipoSeccionPista.VERIFICACION_RCP.getIdSeccionPista(),
+
+		// Constantes.getAtributosCierreSatCloud()[0] + descargaSatCloudRequest.getIdProyecto()
+
+		// + Constantes.getAtributosCierreSatCloud()[1] + contenido + "|",
+
+		// Optional.empty());
 
 		return resultado;
 	}
@@ -760,11 +826,16 @@ public class CierreProyectoServiceImpl implements CierreProyectoService {
 		cierre.setIdEstatusRcp(Long.parseLong("" + lista.get(0).getPrimaryKey()));
 		cierreRepository.save(cierre);
 		servicioProyecto.actualizarUltimaModificacion(cierre.getIdProyecto());
-		pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.VERIFICACION_RCP.getIdSeccionPista(),
-				Constantes.getAtributosCierreCancelar()[0] + cierre.getProyectoModel().getNombreCorto()
-						+ Constantes.getAtributosCierreCancelar()[1] + cierre.getCatEstatusRcp().getNombre() + "|",
-				Optional.of(cierre));
+
+		// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+		// TipoSeccionPista.VERIFICACION_RCP.getIdSeccionPista(),
+
+		// Constantes.getAtributosCierreCancelar()[0] + cierre.getProyectoModel().getNombreCorto()
+
+		// + Constantes.getAtributosCierreCancelar()[1] + cierre.getCatEstatusRcp().getNombre() + "|",
+
+		// Optional.of(cierre));
 		return true;
 	}
 
@@ -779,11 +850,16 @@ public class CierreProyectoServiceImpl implements CierreProyectoService {
 		cierre.setIdEstatusRcp(Long.parseLong("" + lista.get(0).getPrimaryKey()));
 		cierreRepository.save(cierre);
 		servicioProyecto.actualizarUltimaModificacion(cierre.getIdProyecto());
-		pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.VERIFICACION_RCP.getIdSeccionPista(),
-				Constantes.getAtributosCierreCancelar()[0] + cierre.getProyectoModel().getNombreCorto()
-						+ Constantes.getAtributosCierreCancelar()[1] + cierre.getCatEstatusRcp().getNombre() + "|",
-				Optional.of(cierre));
+
+		// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+		// TipoSeccionPista.VERIFICACION_RCP.getIdSeccionPista(),
+
+		// Constantes.getAtributosCierreCancelar()[0] + cierre.getProyectoModel().getNombreCorto()
+
+		// + Constantes.getAtributosCierreCancelar()[1] + cierre.getCatEstatusRcp().getNombre() + "|",
+
+		// Optional.of(cierre));
 		return true;
 	}
 
@@ -847,12 +923,24 @@ public class CierreProyectoServiceImpl implements CierreProyectoService {
 			PlantilladorModel plantillador = plantilladorMicriservicio
 					.obtenerPlantilladorPorId(data.getIdContenidoPlantillador());
 
-			pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
-					TipoSeccionPista.VERIFICACION_RCP.getIdSeccionPista(),
-					Constantes.getPistaGenerarPlantilla()[0] + cierre.getProyectoModel().getNombreCorto() + "|"
-							+ Constantes.getPistaGenerarPlantilla()[1] + plantillador.getNombre() + "|"
-							+ Constantes.getPistaGenerarPlantilla()[2],
-					Optional.of(cierre));
+
+
+			// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.VERIFICACION_RCP.getIdSeccionPista(),
+
+
+			// Constantes.getPistaGenerarPlantilla()[0] + cierre.getProyectoModel().getNombreCorto() + "|"
+
+
+			// + Constantes.getPistaGenerarPlantilla()[1] + plantillador.getNombre() + "|"
+
+
+			// + Constantes.getPistaGenerarPlantilla()[2],
+
+
+			// Optional.of(cierre));
 		}
 
 		return htmlExcelListDto;
@@ -861,10 +949,14 @@ public class CierreProyectoServiceImpl implements CierreProyectoService {
 	@Override
 	public Boolean pistaVerPdf(String nombreCortoProyecto, String entregable, Boolean estatus) {
 		if (Boolean.TRUE.equals(estatus)) {
-			pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-					TipoSeccionPista.VERIFICACION_RCP.getIdSeccionPista(), Constantes.getAtributosVerPdf()[0]
-							+ nombreCortoProyecto  + "|" + Constantes.getAtributosVerPdf()[1] + entregable + "|",
-					Optional.empty());
+
+			// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+			// TipoSeccionPista.VERIFICACION_RCP.getIdSeccionPista(), Constantes.getAtributosVerPdf()[0]
+
+			// + nombreCortoProyecto  + "|" + Constantes.getAtributosVerPdf()[1] + entregable + "|",
+
+			// Optional.empty());
 			return true;
 		}
 		return false;
@@ -876,12 +968,24 @@ public class CierreProyectoServiceImpl implements CierreProyectoService {
 		CierreModel cierre = cierreRepository.findByIdProyecto(idProyecto)
 				.orElseThrow(() -> new ProyectoException(ErroresEnum.CIERRE_NOT_FOUND));
 
-		pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
-				TipoSeccionPista.VERIFICACION_RCP.getIdSeccionPista(),
-				Constantes.getPistaGenerarPlantilla()[0] + nombreCortoProyecto + "|"
-						+ Constantes.getPistaGenerarPlantilla()[1] + tipoPlantilla + "|"
-						+ Constantes.getPistaGenerarPlantilla()[2],
-				Optional.of(cierre));
+
+
+		// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.VERIFICACION_RCP.getIdSeccionPista(),
+
+
+		// Constantes.getPistaGenerarPlantilla()[0] + nombreCortoProyecto + "|"
+
+
+		// + Constantes.getPistaGenerarPlantilla()[1] + tipoPlantilla + "|"
+
+
+		// + Constantes.getPistaGenerarPlantilla()[2],
+
+
+		// Optional.of(cierre));
 
 		return true;
 	}

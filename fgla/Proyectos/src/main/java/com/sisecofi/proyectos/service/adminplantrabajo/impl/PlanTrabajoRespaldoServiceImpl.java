@@ -66,11 +66,21 @@ public class PlanTrabajoRespaldoServiceImpl implements PlanTrabajoRespaldoServic
 
         builder.append("Id Proyecto: ").append(idProyecto).append("");
 
-         pistaService.guardarPista(ModuloPista.PROYECTOS.getId(),
-                 TipoMovPista.CONSULTA_REGISTRO.getId(),
-                 TipoSeccionPista.PROYECTO_DATOS_PLAN_TRABAJO.getIdSeccionPista(),
-                 builder.toString(),
-                 Optional.empty());
+
+
+         // pistaService.guardarPista(ModuloPista.PROYECTOS.getId(),
+
+
+         // TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+         // TipoSeccionPista.PROYECTO_DATOS_PLAN_TRABAJO.getIdSeccionPista(),
+
+
+         // builder.toString(),
+
+
+         // Optional.empty());
 
         return jerarquia(tareaDto); // Devuelve solo la lista de tareas
     }
@@ -247,12 +257,18 @@ public class PlanTrabajoRespaldoServiceImpl implements PlanTrabajoRespaldoServic
 
         StringBuilder builder = new StringBuilder();
         builder.append("Id proyecto: ").append(idProyecto).append(" - Plan de trabajo - Cálculos masivos");
-        pistaService.guardarPista(
-                ModuloPista.PROYECTOS.getId(),
-                TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-                TipoSeccionPista.PROYECTO_DATOS_PLAN_TRABAJO.getIdSeccionPista(),
-                builder.toString(),
-                Optional.empty());
+
+        // pistaService.guardarPista(
+
+        // ModuloPista.PROYECTOS.getId(),
+
+        // TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+        // TipoSeccionPista.PROYECTO_DATOS_PLAN_TRABAJO.getIdSeccionPista(),
+
+        // builder.toString(),
+
+        // Optional.empty());
 
         return construirJerarquiaTareasOriginal(tareasOriginales);
 
@@ -724,12 +740,18 @@ public class PlanTrabajoRespaldoServiceImpl implements PlanTrabajoRespaldoServic
                 auditoriaProyecto.append("Id de proyecto: ")
                         .append(tareaEntidad.getPlanTrabajoModel().getProyectoModel().getIdProyecto())
                         .append(" - Plan de trabajo - Cálculos masivos");
-                pistaService.guardarPista(
-                        ModuloPista.PROYECTOS.getId(),
-                        TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-                        TipoSeccionPista.PROYECTO_DATOS_PLAN_TRABAJO.getIdSeccionPista(),
-                        auditoriaProyecto.toString(),
-                        Optional.empty());
+
+                // pistaService.guardarPista(
+
+                // ModuloPista.PROYECTOS.getId(),
+
+                // TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+                // TipoSeccionPista.PROYECTO_DATOS_PLAN_TRABAJO.getIdSeccionPista(),
+
+                // auditoriaProyecto.toString(),
+
+                // Optional.empty());
 
                 auditoriaEstado.registrada = true; // Marcar que la auditoría ya fue
 

@@ -118,9 +118,15 @@ log.info("si hay asociaciones: {}",asociasionComitePlantillaModel != null);
 				
 			}
 
-			pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-					TipoSeccionPista.PROYECTO_DATOS_INFORMACION_COMITE.getIdSeccionPista(),
-					TipoMovPista.CONSULTA_REGISTRO.getClave(), Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.PROYECTO_DATOS_INFORMACION_COMITE.getIdSeccionPista(),
+
+
+			// TipoMovPista.CONSULTA_REGISTRO.getClave(), Optional.empty());
 
 			return responseComite;
 
@@ -201,9 +207,12 @@ log.info("si hay asociaciones: {}",asociasionComitePlantillaModel != null);
 			servicioProyecto.actualizarUltimaModificacion(comiteProyectoGuardado.getIdProyecto());
 
 			String movimineto = pistasInformacionComiteConsumer.movimientoContratoModel(comiteProyectoModel);
-			pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-					TipoSeccionPista.PROYECTO_DATOS_INFORMACION_COMITE.getIdSeccionPista(), movimineto,
-					Optional.empty());
+
+			// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+			// TipoSeccionPista.PROYECTO_DATOS_INFORMACION_COMITE.getIdSeccionPista(), movimineto,
+
+			// Optional.empty());
 
 			return comiteProyectoGuardado;
 		} catch (Exception e) {
@@ -276,9 +285,12 @@ log.info("si hay asociaciones: {}",asociasionComitePlantillaModel != null);
 			servicioProyecto.actualizarUltimaModificacion(comiteProyectoDesdeDb.getIdProyecto());
 
 			String movimineto = pistasInformacionComiteConsumer.movimientoContratoModel(comiteProyectoDesdeDb);
-			pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-					TipoSeccionPista.PROYECTO_DATOS_INFORMACION_COMITE.getIdSeccionPista(), movimineto,
-					Optional.empty());
+
+			// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+			// TipoSeccionPista.PROYECTO_DATOS_INFORMACION_COMITE.getIdSeccionPista(), movimineto,
+
+			// Optional.empty());
 
 			return informacionComiteResponse;
 		} catch (Exception e) {
@@ -315,9 +327,12 @@ log.info("si hay asociaciones: {}",asociasionComitePlantillaModel != null);
 				comiteRepository.save(comiteProyecto);
 
 				String movimiento = pistasInformacionComiteConsumer.movimientoContratoModel(comiteProyecto);
-				pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
-						TipoSeccionPista.PROYECTO_DATOS_INFORMACION_COMITE.getIdSeccionPista(), movimiento,
-						Optional.empty());
+
+				// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
+
+				// TipoSeccionPista.PROYECTO_DATOS_INFORMACION_COMITE.getIdSeccionPista(), movimiento,
+
+				// Optional.empty());
 
 				return Constantes.COMITE_ELIMINADO;
 			}

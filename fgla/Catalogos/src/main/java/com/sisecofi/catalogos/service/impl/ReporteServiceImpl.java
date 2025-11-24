@@ -92,9 +92,15 @@ public class ReporteServiceImpl implements ReporteService {
 					.append(ESTADO).append(admon.isEstatus() ? ACTIVO : INACTIVO).append(" | ")
 					.append(ADMINISTRADOR).append(admon.obtenerAdministrador()).append("|"));
 
-			pistaService.guardarPista(ModuloPista.ADMIN_CATALOGOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
-					TipoSeccionPista.CATALOGOS_COMPLEMENTARIOS.getIdSeccionPista(), registros.toString(),
-					Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.ADMIN_CATALOGOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.CATALOGOS_COMPLEMENTARIOS.getIdSeccionPista(), registros.toString(),
+
+
+			// Optional.empty());
 
 			return catConsumer.cerrarBytes();
 		}
@@ -121,9 +127,15 @@ public class ReporteServiceImpl implements ReporteService {
 					.append(ESTADO).append(admon.isEstatus() ? ACTIVO : INACTIVO).append(" | ")
 					.append(ADMINISTRADOR).append(admon.obtenerAdministrador()).append("|"));
 
-			pistaService.guardarPista(ModuloPista.ADMIN_CATALOGOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
-					TipoSeccionPista.CATALOGOS_COMPLEMENTARIOS.getIdSeccionPista(), registros.toString(),
-					Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.ADMIN_CATALOGOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.CATALOGOS_COMPLEMENTARIOS.getIdSeccionPista(), registros.toString(),
+
+
+			// Optional.empty());
 			
 			return catConsumer.cerrarBytes();
 		}
@@ -162,9 +174,15 @@ public class ReporteServiceImpl implements ReporteService {
 					.append(FECHA_MODIFICACION).append(admon.getFechaModificacion()).append(" | ")
 					.append(ESTADO).append(admon.isEstatus() ? ACTIVO : INACTIVO).append(" | "));
 
-			pistaService.guardarPista(ModuloPista.ADMIN_CATALOGOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
-					TipoSeccionPista.CATALOGOS_COMPLEMENTARIOS.getIdSeccionPista(), registros.toString(),
-					Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.ADMIN_CATALOGOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.CATALOGOS_COMPLEMENTARIOS.getIdSeccionPista(), registros.toString(),
+
+
+			// Optional.empty());
 			
 			return catConsumer.cerrarBytes();
 		}
@@ -190,9 +208,15 @@ public class ReporteServiceImpl implements ReporteService {
 					.append(FECHA_MODIFICACION).append(admon.getFechaModificacion()).append(" | ")
 					.append(ESTADO).append(admon.isEstatus() ? ACTIVO : INACTIVO).append(" | "));
 
-			pistaService.guardarPista(ModuloPista.ADMIN_CATALOGOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
-					TipoSeccionPista.CATALOGOS_COMPLEMENTARIOS.getIdSeccionPista(), registros.toString(),
-					Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.ADMIN_CATALOGOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.CATALOGOS_COMPLEMENTARIOS.getIdSeccionPista(), registros.toString(),
+
+
+			// Optional.empty());
 			
 			return catConsumer.cerrarBytes();
 		}
@@ -219,9 +243,15 @@ public class ReporteServiceImpl implements ReporteService {
 					.append(FECHA_MODIFICACION).append(admon.getFechaModificacion()).append(" | ")
 					.append(ESTADO).append(admon.isEstatus() ? ACTIVO : INACTIVO).append(" | "));
 
-			pistaService.guardarPista(ModuloPista.ADMIN_CATALOGOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
-					TipoSeccionPista.CATALOGOS_COMPLEMENTARIOS.getIdSeccionPista(), registros.toString(),
-					Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.ADMIN_CATALOGOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.CATALOGOS_COMPLEMENTARIOS.getIdSeccionPista(), registros.toString(),
+
+
+			// Optional.empty());
 
 			return catConsumer.cerrarBytes();
 		}

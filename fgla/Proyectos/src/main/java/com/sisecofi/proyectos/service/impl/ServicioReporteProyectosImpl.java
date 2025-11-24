@@ -30,8 +30,10 @@ public class ServicioReporteProyectosImpl implements ServicioReporteProyectos {
 			reporteProyectosConsumer.inializar("Proyectos registrados");
 			reporteProyectosConsumer.agregarCabeceras(Constantes.TITULOS_REPORTE_PROYECTOS);
 			lista.stream().forEach(reporteProyectosConsumer);
-			pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
-					TipoSeccionPista.PROYECTO_BUSQUEDA.getIdSeccionPista(), servicioProyectoImpl.obtenerCriterios(proyecto),Optional.empty());
+
+			// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+			// TipoSeccionPista.PROYECTO_BUSQUEDA.getIdSeccionPista(), servicioProyectoImpl.obtenerCriterios(proyecto),Optional.empty());
 			return reporteProyectosConsumer.cerrarBytes();
 	}
 }

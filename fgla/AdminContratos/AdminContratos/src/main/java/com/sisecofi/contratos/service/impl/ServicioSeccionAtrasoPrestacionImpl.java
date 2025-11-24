@@ -42,9 +42,15 @@ public class ServicioSeccionAtrasoPrestacionImpl implements ServicioSeccionAtras
 
                 this.contratoService.actualizarUltimaMod(atrasoPresentacion.getIdContrato());
 
-                pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-                        TipoSeccionPista.ASIGNAR_PROYECTO_POR_PROYECTO.getIdSeccionPista(),
-                        TipoMovPista.INSERTA_REGISTRO.getClave(), Optional.empty());
+
+
+                // pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+                // TipoSeccionPista.ASIGNAR_PROYECTO_POR_PROYECTO.getIdSeccionPista(),
+
+
+                // TipoMovPista.INSERTA_REGISTRO.getClave(), Optional.empty());
             }
             return "OK";
         }catch (Exception e){
@@ -68,9 +74,15 @@ public class ServicioSeccionAtrasoPrestacionImpl implements ServicioSeccionAtras
                 this.contratoService.actualizarUltimaMod(atrasoPresentacionModel.getIdContrato());
             }
 
-            pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-                    TipoSeccionPista.ASIGNAR_PROYECTO_POR_PROYECTO.getIdSeccionPista(),
-                    TipoMovPista.ACTUALIZA_REGISTRO.getClave(), Optional.empty());
+
+
+            // pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+            // TipoSeccionPista.ASIGNAR_PROYECTO_POR_PROYECTO.getIdSeccionPista(),
+
+
+            // TipoMovPista.ACTUALIZA_REGISTRO.getClave(), Optional.empty());
 
             return "OK";
         }catch (Exception e){
@@ -89,9 +101,12 @@ public class ServicioSeccionAtrasoPrestacionImpl implements ServicioSeccionAtras
 
                 this.contratoService.actualizarUltimaMod(atrasoPresentacionModel.getIdContrato());
             }
-            pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-                    TipoSeccionPista.ASIGNAR_PROYECTO_POR_PROYECTO.getIdSeccionPista(),
-                    TipoMovPista.BORRA_REGISTRO.getClave(), Optional.empty());
+
+            // pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+            // TipoSeccionPista.ASIGNAR_PROYECTO_POR_PROYECTO.getIdSeccionPista(),
+
+            // TipoMovPista.BORRA_REGISTRO.getClave(), Optional.empty());
             return "OK";
         }catch (Exception e){
             throw new ContratoException(ErroresEnum.ERROR_AL_GUARDAR);
@@ -104,9 +119,12 @@ public class ServicioSeccionAtrasoPrestacionImpl implements ServicioSeccionAtras
                 .orElseThrow(() ->  new ContratoException(ErroresEnum.ERROR_REGISTROS_NO_ENCONTRADO));
 
         try {
-            pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-                    TipoSeccionPista.ASIGNAR_PROYECTO_POR_PROYECTO.getIdSeccionPista(),
-                    TipoMovPista.CONSULTA_REGISTRO.getClave(), Optional.empty());
+
+            // pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+            // TipoSeccionPista.ASIGNAR_PROYECTO_POR_PROYECTO.getIdSeccionPista(),
+
+            // TipoMovPista.CONSULTA_REGISTRO.getClave(), Optional.empty());
 
             return atrasoPresentacionModels;
         }catch (Exception e){

@@ -136,11 +136,16 @@ public class PenasContractualesServiceImpl implements PenasContractualesService 
 				.collect(Collectors.joining(","));
 
 		for (PenasContractualesModel penasContractualesModel : listaPenas) {
-			pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-					TipoSeccionPista.DICTAMEN_PENAS_CONTRACTUALES.getIdSeccionPista(),
-					Constantes.getAtributosContractuales()[0] + listaPenas.get(0).getIdDictamen() + "|"
-							+ Constantes.getAtributosContractuales()[1] + ids + "|",
-					Optional.of(penasContractualesModel));
+
+			// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+			// TipoSeccionPista.DICTAMEN_PENAS_CONTRACTUALES.getIdSeccionPista(),
+
+			// Constantes.getAtributosContractuales()[0] + listaPenas.get(0).getIdDictamen() + "|"
+
+			// + Constantes.getAtributosContractuales()[1] + ids + "|",
+
+			// Optional.of(penasContractualesModel));
 		}
 	}
 
@@ -167,11 +172,16 @@ public class PenasContractualesServiceImpl implements PenasContractualesService 
 		String ids = penasGuardadas.stream().map(PenasContractualesModel::getIdPenaContractual).map(String::valueOf)
 				.collect(Collectors.joining(","));
 		for (PenasContractualesModel penasContractualesModel : penasGuardadas) {
-			pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-					TipoSeccionPista.DICTAMEN_PENAS_CONTRACTUALES.getIdSeccionPista(),
-					Constantes.getAtributosContractuales()[0] + penasContractualesModel.getIdDictamen() + "|"
-							+ Constantes.getAtributosContractuales()[1] + ids + "|",
-					Optional.of(penasContractualesModel));
+
+			// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+			// TipoSeccionPista.DICTAMEN_PENAS_CONTRACTUALES.getIdSeccionPista(),
+
+			// Constantes.getAtributosContractuales()[0] + penasContractualesModel.getIdDictamen() + "|"
+
+			// + Constantes.getAtributosContractuales()[1] + ids + "|",
+
+			// Optional.of(penasContractualesModel));
 		}
 		dictamenService.actualizarResumenConsolidado(dictamen.getIdDictamen());
 

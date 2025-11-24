@@ -58,12 +58,24 @@ public class ReporteServiceImpl implements ReporteService {
 			carpetaPlantillaConsumer.agregarCabeceras(cabeceras);
 			carpetaPlantillaConsumer.accept(carpetas);
 
-			pistaService.guardarPista(ModuloPista.MATRIZ_DOCUMENTAL.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
-					TipoSeccionPista.MATRIZ_DOCUMENTAL.getIdSeccionPista(),
-					Constantes.getDescargarPlantillaFase()[0] + plan.get().getIdPlantillaVigente() + "|"
-							+ Constantes.getDescargarPlantillaFase()[1] + plan.get().getNombre() + ".xlsx" + "|"
-							+ Constantes.getDescargarPlantillaFase()[3] + plan.get().getCatFaseProyecto().getNombre(),
-					Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.MATRIZ_DOCUMENTAL.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.MATRIZ_DOCUMENTAL.getIdSeccionPista(),
+
+
+			// Constantes.getDescargarPlantillaFase()[0] + plan.get().getIdPlantillaVigente() + "|"
+
+
+			// + Constantes.getDescargarPlantillaFase()[1] + plan.get().getNombre() + ".xlsx" + "|"
+
+
+			// + Constantes.getDescargarPlantillaFase()[3] + plan.get().getCatFaseProyecto().getNombre(),
+
+
+			// Optional.empty());
 			return carpetaPlantillaConsumer.cerrarBytes();
 		}
 
@@ -92,13 +104,20 @@ public class ReporteServiceImpl implements ReporteService {
 	        if (inputStream == null) {
 	            throw new PlantillaException(ErroresAdminPlantillaEnum.ERROR_AL_GENERAR_REPORTE);
 	        }
-	        pistaService.guardarPista(
-	            ModuloPista.MATRIZ_DOCUMENTAL.getId(),
-	            TipoMovPista.IMPRIME_REGISTRO.getId(),
-	            TipoSeccionPista.MATRIZ_DOCUMENTAL.getIdSeccionPista(),
-	            Constantes.getDescargarPlantillaFase()[2],
-	            Optional.empty()
-	        );
+
+	        // pistaService.guardarPista(
+
+	        // ModuloPista.MATRIZ_DOCUMENTAL.getId(),
+
+	        // TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+	        // TipoSeccionPista.MATRIZ_DOCUMENTAL.getIdSeccionPista(),
+
+	        // Constantes.getDescargarPlantillaFase()[2],
+
+	        // Optional.empty()
+
+	        // );
 	        return inputStream.readAllBytes();
 	    } catch (IOException e) {
 	        throw new PlantillaException(ErroresAdminPlantillaEnum.ERROR_AL_GENERAR_REPORTE);

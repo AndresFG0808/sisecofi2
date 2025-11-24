@@ -39,11 +39,21 @@ public class ReportePlanTrabajoServiceImpl implements ReportePlanTrabajoService 
 
         builder.append("Id Proyecto: ").append(idProyecto).append(" - Plan de trabajo - Carga masiva");
 
-        pistaService.guardarPista(ModuloPista.PROYECTOS.getId(),
-                TipoMovPista.IMPRIME_REGISTRO.getId(),
-                TipoSeccionPista.PROYECTO_DATOS_PLAN_TRABAJO.getIdSeccionPista(),
-                builder.toString(),
-                Optional.empty());
+
+
+        // pistaService.guardarPista(ModuloPista.PROYECTOS.getId(),
+
+
+        // TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+
+        // TipoSeccionPista.PROYECTO_DATOS_PLAN_TRABAJO.getIdSeccionPista(),
+
+
+        // builder.toString(),
+
+
+        // Optional.empty());
 
         return reportePlanTrabajoConsumer.cerrarBytes();
 

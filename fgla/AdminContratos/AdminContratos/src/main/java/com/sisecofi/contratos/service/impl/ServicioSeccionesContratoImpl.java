@@ -61,9 +61,15 @@ public class ServicioSeccionesContratoImpl implements ServicioSeccionesContrato 
 		try {
 			List<VigenciaMontosModel> vigenciaMontosModelList = vigenciaMontosRepository.findByEstatusTrue();
 
-			pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-					TipoSeccionPista.CONTRATOS_VIGENCIA_MONTOS.getIdSeccionPista(), Constantes.CONSULTA_VIGENCIA_MONTOS,
-					Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.CONTRATOS_VIGENCIA_MONTOS.getIdSeccionPista(), Constantes.CONSULTA_VIGENCIA_MONTOS,
+
+
+			// Optional.empty());
 
 			return vigenciaMontosModelList.stream().map(vigenciaMontosModel -> {
 				CatIva iva = catalogoMicroservicio.obtenerInformacionCatalogoIdReference(
@@ -148,8 +154,10 @@ public class ServicioSeccionesContratoImpl implements ServicioSeccionesContrato 
 
 			String movimiento = contratosPistasConsumer.movimientoVigenciaMontos(vigenciaMontosModel);
 			this.contratoService.actualizarUltimaMod(idContrato);
-			pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-					TipoSeccionPista.CONTRATOS_VIGENCIA_MONTOS.getIdSeccionPista(), movimiento, Optional.empty());
+
+			// pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+			// TipoSeccionPista.CONTRATOS_VIGENCIA_MONTOS.getIdSeccionPista(), movimiento, Optional.empty());
 
 			return vigenciaMontosModel;
 
@@ -166,8 +174,10 @@ public class ServicioSeccionesContratoImpl implements ServicioSeccionesContrato 
 
 			String movimiento = contratosPistasConsumer.movimientoVigenciaMontos(vigenciaMontosModel);
 			this.contratoService.actualizarUltimaMod(vigenciaMontosModel.getIdContrato());
-			pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-					TipoSeccionPista.CONTRATOS_VIGENCIA_MONTOS.getIdSeccionPista(), movimiento, Optional.empty());
+
+			// pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+			// TipoSeccionPista.CONTRATOS_VIGENCIA_MONTOS.getIdSeccionPista(), movimiento, Optional.empty());
 			return "OK";
 		} catch (Exception e) {
 			throw new ContratoException(ErroresEnum.ERROR_AL_CONSULTAR);
@@ -189,8 +199,10 @@ public class ServicioSeccionesContratoImpl implements ServicioSeccionesContrato 
 
 			String movimiento = contratosPistasConsumer.movimientoVigenciaMontos(vigenciaMontosModel);
 			this.contratoService.actualizarUltimaMod(eliminarVigenciaMontosDto.getIdContrato());
-			pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
-					TipoSeccionPista.CONTRATOS_VIGENCIA_MONTOS.getIdSeccionPista(), movimiento, Optional.empty());
+
+			// pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
+
+			// TipoSeccionPista.CONTRATOS_VIGENCIA_MONTOS.getIdSeccionPista(), movimiento, Optional.empty());
 
 			return "OK";
 		} catch (Exception e) {
@@ -218,9 +230,15 @@ public class ServicioSeccionesContratoImpl implements ServicioSeccionesContrato 
 
 				actualizarUltimaModificacionContrato(idContrato);
 
-				pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
-						TipoSeccionPista.CONTRATOS_GRUPOS.getIdSeccionPista(), "Id contrato: " + idContrato + "|",
-						Optional.empty());
+
+
+				// pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
+
+
+				// TipoSeccionPista.CONTRATOS_GRUPOS.getIdSeccionPista(), "Id contrato: " + idContrato + "|",
+
+
+				// Optional.empty());
 			}
 
 			if (!gruposConServicios.isEmpty()) {
@@ -256,8 +274,10 @@ public class ServicioSeccionesContratoImpl implements ServicioSeccionesContrato 
 
 				String movimiento = contratosPistasConsumer.movimientoGruposServicio(grupoServiciosModel);
 				this.contratoService.actualizarUltimaMod(idContrato);
-				pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-						TipoSeccionPista.CONTRATOS_GRUPOS.getIdSeccionPista(), movimiento, Optional.empty());
+
+				// pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+				// TipoSeccionPista.CONTRATOS_GRUPOS.getIdSeccionPista(), movimiento, Optional.empty());
 			}
 			return "OK";
 
@@ -346,9 +366,15 @@ public class ServicioSeccionesContratoImpl implements ServicioSeccionesContrato 
 
 		try {
 
-			pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-					TipoSeccionPista.CONTRATOS_REGISTRO_SERVICIOS.getIdSeccionPista(),
-					"Id contrato: " + idContratoUm.toString() + "|", Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.CONTRATOS_REGISTRO_SERVICIOS.getIdSeccionPista(),
+
+
+			// "Id contrato: " + idContratoUm.toString() + "|", Optional.empty());
 
 			return "OK";
 
@@ -429,8 +455,10 @@ public class ServicioSeccionesContratoImpl implements ServicioSeccionesContrato 
 
 			String movimiento = contratosPistasConsumer.movimientoGruposServicioIds(idContrato, idServicioContrato);
 			this.contratoService.actualizarUltimaMod(idContrato);
-			pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
-					TipoSeccionPista.CONTRATOS_REGISTRO_SERVICIOS.getIdSeccionPista(), movimiento, Optional.empty());
+
+			// pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
+
+			// TipoSeccionPista.CONTRATOS_REGISTRO_SERVICIOS.getIdSeccionPista(), movimiento, Optional.empty());
 
 			return "OK";
 		} catch (Exception e) {
@@ -493,8 +521,10 @@ public class ServicioSeccionesContratoImpl implements ServicioSeccionesContrato 
 			String movimiento = contratosPistasConsumer.movimientoServicioContrato(idContratoMovimiento,
 					idsServicioContrato);
 			this.contratoService.actualizarUltimaMod(idContratoMovimiento);
-			pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-					TipoSeccionPista.CONTRATOS_REGISTRO_SERVICIOS.getIdSeccionPista(), movimiento, Optional.empty());
+
+			// pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+			// TipoSeccionPista.CONTRATOS_REGISTRO_SERVICIOS.getIdSeccionPista(), movimiento, Optional.empty());
 
 			return "OK";
 		} catch (Exception e) {
@@ -536,9 +566,12 @@ public class ServicioSeccionesContratoImpl implements ServicioSeccionesContrato 
 		if (!montoTotal.equals(montoMaximo)) {
 			return Constantes.SUMA_INVALIDA;
 		}
-		pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-				TipoSeccionPista.CONTRATOS_REGISTRO_SERVICIOS.getIdSeccionPista(),
-				TipoMovPista.CONSULTA_REGISTRO.getClave(), Optional.empty());
+
+		// pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+		// TipoSeccionPista.CONTRATOS_REGISTRO_SERVICIOS.getIdSeccionPista(),
+
+		// TipoMovPista.CONSULTA_REGISTRO.getClave(), Optional.empty());
 
 		return Constantes.SUMA_VALIDA;
 	}
@@ -590,8 +623,10 @@ public class ServicioSeccionesContratoImpl implements ServicioSeccionesContrato 
 			actualizarUltimaModificacionContrato(idContratoMov);
 			String movimiento = contratosPistasConsumer.movimientoGruposServicioIds(idContratoMov, idsGrupoServicio);
 			this.contratoService.actualizarUltimaMod(idContratoMov);
-			pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-					TipoSeccionPista.CONTRATOS_GRUPOS.getIdSeccionPista(), movimiento, Optional.empty());
+
+			// pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+			// TipoSeccionPista.CONTRATOS_GRUPOS.getIdSeccionPista(), movimiento, Optional.empty());
 
 			return "OK";
 		} catch (Exception e) {

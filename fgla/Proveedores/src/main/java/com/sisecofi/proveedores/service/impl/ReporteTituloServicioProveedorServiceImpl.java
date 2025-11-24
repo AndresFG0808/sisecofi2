@@ -57,11 +57,21 @@ public class ReporteTituloServicioProveedorServiceImpl implements ReporteTituloS
             builder.append("Id Proveedor: ").append(proveedor.getIdProveedor()).append(" | ")
                     .append("Nombre Proveedor: ").append(proveedor.getNombreProveedor());
 
-            pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(),
-                    TipoMovPista.IMPRIME_REGISTRO.getId(),
-                    TipoSeccionPista.PROVEEDOR_TITULO_SERVICIO.getIdSeccionPista(),
-                    builder.toString(),
-                    Optional.empty());
+
+
+            // pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(),
+
+
+            // TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+
+            // TipoSeccionPista.PROVEEDOR_TITULO_SERVICIO.getIdSeccionPista(),
+
+
+            // builder.toString(),
+
+
+            // Optional.empty());
         } else {
             throw new CatalogoException(ErroresEnum.ERROR_AL_GUARDAR_LA_PISTA);
         }

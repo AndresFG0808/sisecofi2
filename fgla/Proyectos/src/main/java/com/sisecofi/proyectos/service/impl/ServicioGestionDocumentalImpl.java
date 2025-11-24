@@ -154,9 +154,15 @@ public class ServicioGestionDocumentalImpl implements ServicioGestionDocumental 
 	            .map(archivo -> "|id: " + archivo.getId() + "|descripcion: " + archivo.getDescripcion())
 	            .collect(Collectors.joining(" "));
 
-	    pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-	            TipoSeccionPista.PROYECTO_DATOS_GESTION_DOCUMENTAL.getIdSeccionPista(),
-	            Constantes.getAtributosProyecto()[0] + idProyecto + resultado, Optional.empty());
+
+
+	    // pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+	    // TipoSeccionPista.PROYECTO_DATOS_GESTION_DOCUMENTAL.getIdSeccionPista(),
+
+
+	    // Constantes.getAtributosProyecto()[0] + idProyecto + resultado, Optional.empty());
 
 	    return estructura;
 	    }catch (Exception e) {
@@ -224,9 +230,12 @@ public class ServicioGestionDocumentalImpl implements ServicioGestionDocumental 
 					+ "/FASES";
 			
 		}
-		pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-                TipoSeccionPista.PROYECTO_DATOS_GESTION_DOCUMENTAL.getIdSeccionPista(),
-                Constantes.getAtributosProyecto()[0] + descargaSatCloudRequest.getIdProyecto(),Optional.empty());
+
+		// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+		// TipoSeccionPista.PROYECTO_DATOS_GESTION_DOCUMENTAL.getIdSeccionPista(),
+
+		// Constantes.getAtributosProyecto()[0] + descargaSatCloudRequest.getIdProyecto(),Optional.empty());
 		
 		return servicioArchivo.descargarFolderSatCloud(rutaGeneral);	
 
@@ -280,9 +289,15 @@ public class ServicioGestionDocumentalImpl implements ServicioGestionDocumental 
 			servicioProyecto.actualizarUltimaModificacion(id);
 		}
 		
-		pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
-                TipoSeccionPista.PROYECTO_DATOS_GESTION_DOCUMENTAL.getIdSeccionPista(),
-                Constantes.getAtributosProyecto()[0] + id + nombreArchivo,Optional.empty());
+
+		
+		// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
+
+		
+		// TipoSeccionPista.PROYECTO_DATOS_GESTION_DOCUMENTAL.getIdSeccionPista(),
+
+		
+		// Constantes.getAtributosProyecto()[0] + id + nombreArchivo,Optional.empty());
 		return true;
 	}
 

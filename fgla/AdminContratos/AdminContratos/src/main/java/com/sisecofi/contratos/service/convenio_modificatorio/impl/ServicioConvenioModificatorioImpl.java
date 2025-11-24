@@ -160,10 +160,18 @@ public class ServicioConvenioModificatorioImpl implements ServicioConvenioModifi
 		String movimiento = Constantes.getAtributosConvenioModificatorio()[0] + convenio.getIdContrato() + " | "
 				+ Constantes.getAtributosConvenioModificatorio()[1] + convenio.getIdConvenioModificatorio();
 
-		pistaService.guardarPista(ModuloPista.CONVENIO_MODIFICATORIO.getId(),
-				esCreacion ? TipoMovPista.INSERTA_REGISTRO.getId() : TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.REGISTRO_CONVENIO_MODIFICATORIO.getIdSeccionPista(), movimiento + convenio.toString(),
-				Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.CONVENIO_MODIFICATORIO.getId(),
+
+
+		// esCreacion ? TipoMovPista.INSERTA_REGISTRO.getId() : TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.REGISTRO_CONVENIO_MODIFICATORIO.getIdSeccionPista(), movimiento + convenio.toString(),
+
+
+		// Optional.empty());
 
 		return convenio;
 	}
@@ -427,12 +435,24 @@ public class ServicioConvenioModificatorioImpl implements ServicioConvenioModifi
 
 		String resultadoFinal = resultado.toString();
 
-		pistaService.guardarPista(ModuloPista.CONVENIO_MODIFICATORIO.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-				TipoSeccionPista.REGISTRO_SERVICIOS_CONVENIO_MODIFICATORIO.getIdSeccionPista(),
-				Constantes.getAtributosConvenioModificatorio()[0] + contrato.getIdContrato()
-						+ Constantes.getAtributosConvenioModificatorio()[1] + convenio.getIdConvenioModificatorio()
-						+ resultadoFinal,
-				Optional.of(convenio));
+
+
+		// pistaService.guardarPista(ModuloPista.CONVENIO_MODIFICATORIO.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.REGISTRO_SERVICIOS_CONVENIO_MODIFICATORIO.getIdSeccionPista(),
+
+
+		// Constantes.getAtributosConvenioModificatorio()[0] + contrato.getIdContrato()
+
+
+		// + Constantes.getAtributosConvenioModificatorio()[1] + convenio.getIdConvenioModificatorio()
+
+
+		// + resultadoFinal,
+
+
+		// Optional.of(convenio));
 	}
 
 
@@ -568,14 +588,22 @@ public class ServicioConvenioModificatorioImpl implements ServicioConvenioModifi
 			Set<ServicioConvenioModel> listaOrdenada = new LinkedHashSet<>(listaTemporal);
 
 			for (ServicioConvenioModel sv : listaOrdenada) {
-				pistaService.guardarPista(ModuloPista.CONVENIO_MODIFICATORIO.getId(),
-						TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-						TipoSeccionPista.REGISTRO_SERVICIOS_CONVENIO_MODIFICATORIO.getIdSeccionPista(),
-						Constantes.getAtributosRegistroConvenioModificatorio()[0] + convenio.getIdContrato() + "|"
-								+ Constantes.getAtributosRegistroConvenioModificatorio()[1] + idConvenio + "|"
-								+ Constantes.getAtributosRegistroConvenioModificatorio()[2]
-								+ sv.getIdServicioConvenio(),
-						Optional.of(sv));
+
+				// pistaService.guardarPista(ModuloPista.CONVENIO_MODIFICATORIO.getId(),
+
+				// TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+				// TipoSeccionPista.REGISTRO_SERVICIOS_CONVENIO_MODIFICATORIO.getIdSeccionPista(),
+
+				// Constantes.getAtributosRegistroConvenioModificatorio()[0] + convenio.getIdContrato() + "|"
+
+				// + Constantes.getAtributosRegistroConvenioModificatorio()[1] + idConvenio + "|"
+
+				// + Constantes.getAtributosRegistroConvenioModificatorio()[2]
+
+				// + sv.getIdServicioConvenio(),
+
+				// Optional.of(sv));
 			}
 
 			dto.setServicios(listaOrdenada);
@@ -674,13 +702,27 @@ public class ServicioConvenioModificatorioImpl implements ServicioConvenioModifi
 
 			String resultadoFinal = resultado.toString();
 
-			pistaService.guardarPista(ModuloPista.CONVENIO_MODIFICATORIO.getId(),
-					TipoMovPista.CONSULTA_REGISTRO.getId(),
-					TipoSeccionPista.REGISTRO_SERVICIOS_CONVENIO_MODIFICATORIO.getIdSeccionPista(),
-					Constantes.getAtributosConvenioModificatorio()[0] + contrato.getIdContrato()
-							+ Constantes.getAtributosConvenioModificatorio()[1] + convenio.getIdConvenioModificatorio()
-							+ resultadoFinal,
-					Optional.of(convenio));
+
+
+			// pistaService.guardarPista(ModuloPista.CONVENIO_MODIFICATORIO.getId(),
+
+
+			// TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.REGISTRO_SERVICIOS_CONVENIO_MODIFICATORIO.getIdSeccionPista(),
+
+
+			// Constantes.getAtributosConvenioModificatorio()[0] + contrato.getIdContrato()
+
+
+			// + Constantes.getAtributosConvenioModificatorio()[1] + convenio.getIdConvenioModificatorio()
+
+
+			// + resultadoFinal,
+
+
+			// Optional.of(convenio));
 
 			return Base64.getEncoder().encodeToString(reporte);
 		} catch (Exception e) {

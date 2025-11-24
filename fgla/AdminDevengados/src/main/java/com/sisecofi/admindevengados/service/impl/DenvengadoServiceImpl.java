@@ -115,8 +115,10 @@ public class DenvengadoServiceImpl implements DevengadoService {
 		if (request.getTipoConsumo().equals(Constantes.OPCION_SELECT_ESTIMADO)) {
 			seccion = TipoSeccionPista.ADMINISTRAR_DEVENGADOS_ESTIMACION.getIdSeccionPista();
 		}
-		pistaService.guardarPista(ModuloPista.ADMIN_DEVENGADOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(), seccion,
-				obtenerCriterios(request), Optional.empty());
+
+		// pistaService.guardarPista(ModuloPista.ADMIN_DEVENGADOS.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(), seccion,
+
+		// obtenerCriterios(request), Optional.empty());
 		return buscar(request);
 	}
 
@@ -228,8 +230,12 @@ public class DenvengadoServiceImpl implements DevengadoService {
 			seccion = TipoSeccionPista.ADMINISTRAR_DEVENGADOS_ESTIMACION.getIdSeccionPista();
 		}
 
-		pistaService.guardarPista(ModuloPista.ADMIN_DEVENGADOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(), seccion,
-				idsConcatenados, Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.ADMIN_DEVENGADOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(), seccion,
+
+
+		// idsConcatenados, Optional.empty());
 		return response;
 	}
 

@@ -148,9 +148,15 @@ public class DeduccionesDescuentosPenalizacionesServiceImpl implements Deduccion
 					.append(ddpGuardado.getTipoDescuento().getNombre()).append(" | ");
 			log.info(PISTA_GEN, builder.toString());
 
-			pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-					TipoSeccionPista.DICTAMEN_DEDUCCIONES_DESCUENTOS.getIdSeccionPista(), builder.toString(),
-					Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.DICTAMEN_DEDUCCIONES_DESCUENTOS.getIdSeccionPista(), builder.toString(),
+
+
+			// Optional.empty());
 
 		}
 
@@ -189,9 +195,15 @@ public class DeduccionesDescuentosPenalizacionesServiceImpl implements Deduccion
 					.append(" | ");
 			log.info(PISTA_GEN, builder.toString());
 
-			pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-					TipoSeccionPista.DICTAMEN_DEDUCCIONES_DESCUENTOS.getIdSeccionPista(), builder.toString(),
-					Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.DICTAMEN_DEDUCCIONES_DESCUENTOS.getIdSeccionPista(), builder.toString(),
+
+
+			// Optional.empty());
 
 		}
 
@@ -237,9 +249,15 @@ public class DeduccionesDescuentosPenalizacionesServiceImpl implements Deduccion
 					.append(dModel.getTipoDescuento().getNombre()).append(" | ");
 			log.info(PISTA_GEN, builder.toString());
 
-			pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
-					TipoSeccionPista.DICTAMEN_DEDUCCIONES_DESCUENTOS.getIdSeccionPista(), builder.toString(),
-					Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.DICTAMEN_DEDUCCIONES_DESCUENTOS.getIdSeccionPista(), builder.toString(),
+
+
+			// Optional.empty());
 
 		}
 
@@ -389,13 +407,19 @@ public class DeduccionesDescuentosPenalizacionesServiceImpl implements Deduccion
 
 		// Registrar la pista de auditoría de acuerdo al estado de carga
 		if (esPrimeraCarga) {
-			pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-					TipoSeccionPista.DICTAMEN_DEDUCCIONES_DESCUENTOS.getIdSeccionPista(), builder.toString(),
-					Optional.empty());
+
+			// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+			// TipoSeccionPista.DICTAMEN_DEDUCCIONES_DESCUENTOS.getIdSeccionPista(), builder.toString(),
+
+			// Optional.empty());
 		} else {
-			pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-					TipoSeccionPista.DICTAMEN_DEDUCCIONES_DESCUENTOS.getIdSeccionPista(), builder.toString(),
-					Optional.empty());
+
+			// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+			// TipoSeccionPista.DICTAMEN_DEDUCCIONES_DESCUENTOS.getIdSeccionPista(), builder.toString(),
+
+			// Optional.empty());
 		}
 
 		return archivo;
@@ -429,9 +453,12 @@ public class DeduccionesDescuentosPenalizacionesServiceImpl implements Deduccion
 			StringBuilder builder = new StringBuilder();
 
 			builder.append(DICTAMEN_ID).append(dictamenId).append(" | ");
-			pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
-					TipoSeccionPista.DICTAMEN_DEDUCCIONES_DESCUENTOS.getIdSeccionPista(), builder.toString(),
-					Optional.empty());
+
+			// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+			// TipoSeccionPista.DICTAMEN_DEDUCCIONES_DESCUENTOS.getIdSeccionPista(), builder.toString(),
+
+			// Optional.empty());
 		} catch (Exception e) {
 			throw new CatalogoException(ErroresEnum.ERROR_GUARDAR_PISTA, e);
 		}
@@ -453,9 +480,15 @@ public class DeduccionesDescuentosPenalizacionesServiceImpl implements Deduccion
 				.append(archivo.getNombre()).append(" ");
 		log.info(PISTA_GEN, builder.toString());
 
-		pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-				TipoSeccionPista.DICTAMEN_DEDUCCIONES_DESCUENTOS.getIdSeccionPista(), builder.toString(),
-				Optional.empty()); 
+
+
+		// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.DICTAMEN_DEDUCCIONES_DESCUENTOS.getIdSeccionPista(), builder.toString(),
+
+
+		// Optional.empty()); 
 
 		return new ArchivoDto(ruta, nombre, archivo.getArchivoBase().isObligatorio() );
 	}
@@ -560,9 +593,15 @@ public class DeduccionesDescuentosPenalizacionesServiceImpl implements Deduccion
 		builder.append(DICTAMEN_ID).append(dictamen.getIdDictamen()).append(" | ").append("Estatus dictamen: ")
 				.append(nombreEstatus);
 
-		pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.DICTAMEN_DEDUCCIONES_DESCUENTOS.getIdSeccionPista(), builder.toString(),
-				Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.DICTAMEN_DEDUCCIONES_DESCUENTOS.getIdSeccionPista(), builder.toString(),
+
+
+		// Optional.empty());
 
 		return true;
 	}
@@ -617,8 +656,12 @@ public class DeduccionesDescuentosPenalizacionesServiceImpl implements Deduccion
 		builder.append(ID_DICTAMEN).append(dictamen.getIdDictamen()).append(" | ").append("Estatus dictamen: ")
 				.append(nombreEstatus);
 
-		pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.DICTAMEN_DATOS_GENERALES.getIdSeccionPista(), builder.toString(), Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.DICTAMEN_DATOS_GENERALES.getIdSeccionPista(), builder.toString(), Optional.empty());
 
 		return true;
 	}
@@ -678,8 +721,12 @@ public class DeduccionesDescuentosPenalizacionesServiceImpl implements Deduccion
 		builder.append("Id proforma: ").append(idTipoSubPlantillador).append(" | ").append(DICTAMEN_ID)
 				.append(idDictamen);
 
-		pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
-				TipoSeccionPista.DICTAMEN_SOLICITUD_FACTURA.getIdSeccionPista(), builder.toString(), Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.DICTAMEN_SOLICITUD_FACTURA.getIdSeccionPista(), builder.toString(), Optional.empty());
 
 	}
 

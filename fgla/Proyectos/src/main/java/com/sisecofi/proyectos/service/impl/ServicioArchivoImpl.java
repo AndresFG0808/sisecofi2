@@ -104,10 +104,18 @@ public class ServicioArchivoImpl implements ServicioArchivo {
 
 			cargarArchivoConInformacion(file, path);
 
-			pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-					TipoSeccionPista.PROYECTO_DATOS_GENERALES.getIdSeccionPista(),
-					Constantes.ID_PROYECTO + idProyecto.toString() + "|" + "id comite proyecto: " + idComite,
-					Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.PROYECTO_DATOS_GENERALES.getIdSeccionPista(),
+
+
+			// Constantes.ID_PROYECTO + idProyecto.toString() + "|" + "id comite proyecto: " + idComite,
+
+
+			// Optional.empty());
 
 			return file.getOriginalFilename();
 
@@ -194,9 +202,15 @@ public class ServicioArchivoImpl implements ServicioArchivo {
 			servicioProyecto.actualizarUltimaModificacion(idProyecto);
 		}
 
-		pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), idMov,
-				TipoSeccionPista.PROYECTO_DATOS_GESTION_DOCUMENTAL.getIdSeccionPista(),
-				Constantes.getAtributosProyecto()[0] + archivoDto.getIdProyecto() + nombreArchivo, Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), idMov,
+
+
+		// TipoSeccionPista.PROYECTO_DATOS_GESTION_DOCUMENTAL.getIdSeccionPista(),
+
+
+		// Constantes.getAtributosProyecto()[0] + archivoDto.getIdProyecto() + nombreArchivo, Optional.empty());
 	}
 
 	void guardarArchivo(Archivo archivo, Long idProyecto, Integer idFase) {
@@ -269,10 +283,18 @@ public class ServicioArchivoImpl implements ServicioArchivo {
 							idComiteProyecto);
 				}
 
-				pistaService.guardarPista(ModuloPista.INFORMACION_COMITES.getId(),
-						TipoMovPista.INSERTA_REGISTRO.getId(),
-						TipoSeccionPista.INFORMACION_COMITES_GESTION_DOCUMENTAL.getIdSeccionPista(),
-						Constantes.getAtributosProyecto()[0] + idProyecto + nombreArchivo, Optional.empty());
+
+
+				// pistaService.guardarPista(ModuloPista.INFORMACION_COMITES.getId(),
+
+
+				// TipoMovPista.INSERTA_REGISTRO.getId(),
+
+
+				// TipoSeccionPista.INFORMACION_COMITES_GESTION_DOCUMENTAL.getIdSeccionPista(),
+
+
+				// Constantes.getAtributosProyecto()[0] + idProyecto + nombreArchivo, Optional.empty());
 			}
 			return "Ok";
 
@@ -332,10 +354,14 @@ public class ServicioArchivoImpl implements ServicioArchivo {
 			} else {
 				actualizarInfoArchivo(archivoPlantillaComiteModel, idArchivoPlantillaComite, justificacion, noAplica,
 						null, null, null);
-				pistaService.guardarPista(ModuloPista.INFORMACION_COMITES.getId(),
-						TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-						TipoSeccionPista.PROYECTO_DATOS_INFORMACION_COMITE.getIdSeccionPista(),
-						"Id proyecto: " + idProyecto + "|", Optional.empty());
+
+				// pistaService.guardarPista(ModuloPista.INFORMACION_COMITES.getId(),
+
+				// TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+				// TipoSeccionPista.PROYECTO_DATOS_INFORMACION_COMITE.getIdSeccionPista(),
+
+				// "Id proyecto: " + idProyecto + "|", Optional.empty());
 			}
 		}
 		return "Ok";
@@ -383,10 +409,18 @@ public class ServicioArchivoImpl implements ServicioArchivo {
 			actualizarInfoArchivo(archivoPlantillaComiteModel, idArchivoPlantillaComite, justificacion,
 					noAplica, nombreArchivo, ruta, tamanoMB);
 
-			pistaService.guardarPista(ModuloPista.INFORMACION_COMITES.getId(),
-					TipoMovPista.INSERTA_REGISTRO.getId(),
-					TipoSeccionPista.INFORMACION_COMITES_GESTION_DOCUMENTAL.getIdSeccionPista(),
-					Constantes.getAtributosProyecto()[0] + idProyecto + nombreArchivo, Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.INFORMACION_COMITES.getId(),
+
+
+			// TipoMovPista.INSERTA_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.INFORMACION_COMITES_GESTION_DOCUMENTAL.getIdSeccionPista(),
+
+
+			// Constantes.getAtributosProyecto()[0] + idProyecto + nombreArchivo, Optional.empty());
 
 		} catch (Exception e) {
 			throw new ProyectoException(ErroresEnum.ERROR_AL_GUARDAR, e);
@@ -451,9 +485,15 @@ public class ServicioArchivoImpl implements ServicioArchivo {
 				int lastSlashIndex = path.lastIndexOf("/");
 				String nombreArchivo = "|" + path.substring(lastSlashIndex + 1);
 
-				pistaService.guardarPista(ModuloPista.INFORMACION_COMITES.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
-						TipoSeccionPista.PROYECTO_DATOS_GESTION_DOCUMENTAL.getIdSeccionPista(),
-						Constantes.ID_COMITE_PROYECTO + idComiteProyecto + nombreArchivo, Optional.empty());
+
+
+				// pistaService.guardarPista(ModuloPista.INFORMACION_COMITES.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
+
+
+				// TipoSeccionPista.PROYECTO_DATOS_GESTION_DOCUMENTAL.getIdSeccionPista(),
+
+
+				// Constantes.ID_COMITE_PROYECTO + idComiteProyecto + nombreArchivo, Optional.empty());
 
 			}
 			papeleraServicoControl.enviarPapelera(eliminadosact);
@@ -516,9 +556,15 @@ public class ServicioArchivoImpl implements ServicioArchivo {
 
 			String nombreArchivo = "|" + path.substring(lastSlashIndex + 1);
 
-			pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
-					TipoSeccionPista.PROYECTO_DATOS_INFORMACION_COMITE.getIdSeccionPista(),
-					"id de proyecto: " + idProyectoFormato + nombreArchivo, Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+
+			// TipoSeccionPista.PROYECTO_DATOS_INFORMACION_COMITE.getIdSeccionPista(),
+
+
+			// "id de proyecto: " + idProyectoFormato + nombreArchivo, Optional.empty());
 
 			return Base64.getEncoder().encodeToString(bytes);
 		} catch (Exception e) {
@@ -705,9 +751,12 @@ public class ServicioArchivoImpl implements ServicioArchivo {
 			log.info("Archivo eliminado");
 
 			if (Boolean.TRUE.equals(isDelete)) {
-				pistaService.guardarPista(ModuloPista.INFORMACION_COMITES.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
-						TipoSeccionPista.INFORMACION_COMITES_GESTION_DOCUMENTAL.getIdSeccionPista(),
-						TipoMovPista.BORRA_REGISTRO.getClave(), Optional.empty());
+
+				// pistaService.guardarPista(ModuloPista.INFORMACION_COMITES.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
+
+				// TipoSeccionPista.INFORMACION_COMITES_GESTION_DOCUMENTAL.getIdSeccionPista(),
+
+				// TipoMovPista.BORRA_REGISTRO.getClave(), Optional.empty());
 
 			}
 		}
@@ -1028,8 +1077,10 @@ public class ServicioArchivoImpl implements ServicioArchivo {
 			obj.close();
 
 			String contenido = nexusImpl.obtenerContenidoCarpeta(path);
-			pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
-					idSeccionPista, contenido, Optional.empty());
+
+			// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+			// idSeccionPista, contenido, Optional.empty());
 
 			return Base64.getEncoder().encodeToString(bytes);
 
@@ -1042,8 +1093,12 @@ public class ServicioArchivoImpl implements ServicioArchivo {
 		try {
 			String contenido = nexusImpl.obtenerContenidoCarpeta(path);
 
-			pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
-					idSeccionPista, contenido, Optional.empty());
+
+
+			// pistaService.guardarPista(ModuloPista.PROYECTOS.getId(), TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+
+			// idSeccionPista, contenido, Optional.empty());
 
 			return nexusImpl.crearCarpetaCompartida(path);
 

@@ -611,12 +611,18 @@ public class DictaminadoServiceImpl implements DictaminadoService {
 
 	private void guardarPista(DictaminadoModel dictaminado) {
 		boolean esCreacion = dictaminado.getIdDictaminado() == null;
-		pistaService.guardarPista(ModuloPista.DICTAMEN.getId(),
-				esCreacion ? TipoMovPista.INSERTA_REGISTRO.getId() : TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.DICTAMEN_REGISTRO_SERVICIOS.getIdSeccionPista(),
-				Constantes.getAtributosDictaminados()[0] + dictaminado.getIdDictamen()
-						+ Constantes.getAtributosDictaminados()[1] + dictaminado.getIdDictaminado() + "|",
-				Optional.of(dictaminado));
+
+		// pistaService.guardarPista(ModuloPista.DICTAMEN.getId(),
+
+		// esCreacion ? TipoMovPista.INSERTA_REGISTRO.getId() : TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+		// TipoSeccionPista.DICTAMEN_REGISTRO_SERVICIOS.getIdSeccionPista(),
+
+		// Constantes.getAtributosDictaminados()[0] + dictaminado.getIdDictamen()
+
+		// + Constantes.getAtributosDictaminados()[1] + dictaminado.getIdDictaminado() + "|",
+
+		// Optional.of(dictaminado));
 	}
 
 	@Override

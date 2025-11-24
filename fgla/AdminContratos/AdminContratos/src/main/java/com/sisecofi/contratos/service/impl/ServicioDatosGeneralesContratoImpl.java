@@ -99,8 +99,12 @@ public class ServicioDatosGeneralesContratoImpl implements ServicioDatosGenerale
 
 		this.contratoService.actualizarUltimaMod(idContrato);
 
-		pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-				TipoSeccionPista.CONTRATO_DATOS_GENERALES.getIdSeccionPista(), movimiento, Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.CONTRATO_DATOS_GENERALES.getIdSeccionPista(), movimiento, Optional.empty());
 
 		return datosGeneralesContratoModel;
 
@@ -208,8 +212,10 @@ public class ServicioDatosGeneralesContratoImpl implements ServicioDatosGenerale
 
 		String movimiento = contratosPistasConsumer.movimientoContratoModel(contratoModel);
 		this.contratoService.actualizarUltimaMod(idContrato);
-		pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-				TipoSeccionPista.CONTRATO_DATOS_GENERALES.getIdSeccionPista(), movimiento, Optional.empty());
+
+		// pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+		// TipoSeccionPista.CONTRATO_DATOS_GENERALES.getIdSeccionPista(), movimiento, Optional.empty());
 
 		return proveedorModels;
 	}
@@ -267,8 +273,10 @@ public class ServicioDatosGeneralesContratoImpl implements ServicioDatosGenerale
 
 			String movimiento = contratosPistasConsumer.movimientosContratosDatosGenerales(datosGeneralesContratoModel);
 			this.contratoService.actualizarUltimaMod(idContrato);
-			pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-					TipoSeccionPista.CONTRATO_DATOS_GENERALES.getIdSeccionPista(), movimiento, Optional.empty());
+
+			// pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+			// TipoSeccionPista.CONTRATO_DATOS_GENERALES.getIdSeccionPista(), movimiento, Optional.empty());
 
 			return datosGeneralesContratoModel;
 
@@ -321,9 +329,12 @@ public class ServicioDatosGeneralesContratoImpl implements ServicioDatosGenerale
 				String movimiento = contratosPistasConsumer
 						.movimientoParticipantesContrato(participantesAdministracion);
 				this.contratoService.actualizarUltimaMod(participantesAdministracion.getIdContrato());
-				pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-						TipoSeccionPista.CONTRATOS_DATOS_GENERALES_PARTICIPANTES.getIdSeccionPista(), movimiento,
-						Optional.empty());
+
+				// pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+				// TipoSeccionPista.CONTRATOS_DATOS_GENERALES_PARTICIPANTES.getIdSeccionPista(), movimiento,
+
+				// Optional.empty());
 
 				idContrato = participantesAdministracion.getIdContrato();
 			}
@@ -354,9 +365,12 @@ public class ServicioDatosGeneralesContratoImpl implements ServicioDatosGenerale
 
 				String movimiento = contratosPistasConsumer.movimientoParticipantesContrato(participante);
 				this.contratoService.actualizarUltimaMod(participante.getIdContrato());
-				pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-						TipoSeccionPista.CONTRATOS_DATOS_GENERALES_PARTICIPANTES.getIdSeccionPista(), movimiento,
-						Optional.empty());
+
+				// pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+				// TipoSeccionPista.CONTRATOS_DATOS_GENERALES_PARTICIPANTES.getIdSeccionPista(), movimiento,
+
+				// Optional.empty());
 			}
 			return "OK";
 		} catch (ContratoException e) {
@@ -392,8 +406,10 @@ public class ServicioDatosGeneralesContratoImpl implements ServicioDatosGenerale
 				String movimiento = contratosPistasConsumer
 						.movimientoParticipantesContrato(participantesAdministracion);
 				this.contratoService.actualizarUltimaMod(idContrato);
-				pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
-						TipoSeccionPista.CONTRATO_DATOS_GENERALES.getIdSeccionPista(), movimiento, Optional.empty());
+
+				// pistaService.guardarPista(ModuloPista.ADMIN_CONTRATOS.getId(), TipoMovPista.BORRA_REGISTRO.getId(),
+
+				// TipoSeccionPista.CONTRATO_DATOS_GENERALES.getIdSeccionPista(), movimiento, Optional.empty());
 			}
 
 			return "OK";

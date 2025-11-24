@@ -187,7 +187,9 @@ public class PapeleraServiceImpl implements PapeleraService {
 				throw new ReporteException(ErroresEnum.ERROR_SIN_RESULTADOS);
 			}
 			
-			pistaService.guardarPista(ModuloPista.SISTEMA.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(), TipoSeccionPista.PAPELERA_RECICLAJE.getIdSeccionPista(), busquedaPapeleraDto.criterios());
+
+			
+			// pistaService.guardarPista(ModuloPista.SISTEMA.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(), TipoSeccionPista.PAPELERA_RECICLAJE.getIdSeccionPista(), busquedaPapeleraDto.criterios());
 			return new PagePapelera(page);
 		} catch (ReporteException e) {
 			throw e;
@@ -269,7 +271,8 @@ public class PapeleraServiceImpl implements PapeleraService {
 	@Override
 	public boolean eliminarArchivosPapelera(List<PapeleraDto> archivosPapelera) {
 		for (PapeleraDto papelera : archivosPapelera) {
-			pistaService.guardarPista(ModuloPista.SISTEMA.getId(), TipoMovPista.BORRA_REGISTRO.getId(), TipoSeccionPista.PAPELERA_RECICLAJE.getIdSeccionPista(), "Id Proyecto: " + papelera.getIdProyecto() + "|" + "Nombre corto: " + papelera.getNombreCorto() + "|" + "Nombre del documento: " + papelera.getPlantilla());
+
+			// pistaService.guardarPista(ModuloPista.SISTEMA.getId(), TipoMovPista.BORRA_REGISTRO.getId(), TipoSeccionPista.PAPELERA_RECICLAJE.getIdSeccionPista(), "Id Proyecto: " + papelera.getIdProyecto() + "|" + "Nombre corto: " + papelera.getNombreCorto() + "|" + "Nombre del documento: " + papelera.getPlantilla());
 			servicioArchivo.eliminarArchivoSatCloud(papelera);
 		}
 		return true;
@@ -283,7 +286,9 @@ public class PapeleraServiceImpl implements PapeleraService {
 					.orElseThrow(() -> new PapeleraException(ErroresPapeleraEnum.ERROR_AL_CONSULTAR));
 			archivoPapeleraR.setTamano(papeleraModel.getTamano());
 			
-			pistaService.guardarPista(ModuloPista.SISTEMA.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(), TipoSeccionPista.PAPELERA_RECICLAJE.getIdSeccionPista(), "Id Proyecto: " + archivoPapeleraR.getIdProyecto() + "|" + "Nombre corto: " + archivoPapeleraR.getNombreCorto() + "|" + "Nombre del documento: " + archivoPapeleraR.getPlantilla());
+
+			
+			// pistaService.guardarPista(ModuloPista.SISTEMA.getId(), TipoMovPista.ACTUALIZA_REGISTRO.getId(), TipoSeccionPista.PAPELERA_RECICLAJE.getIdSeccionPista(), "Id Proyecto: " + archivoPapeleraR.getIdProyecto() + "|" + "Nombre corto: " + archivoPapeleraR.getNombreCorto() + "|" + "Nombre del documento: " + archivoPapeleraR.getPlantilla());
 			servicioArchivo.restaurarArchivoPapelera(archivoPapeleraR);
 			
 			
@@ -388,9 +393,12 @@ public class PapeleraServiceImpl implements PapeleraService {
 					"Control documental", archivoPapelera);
 
 			String mov = PistaUtil.cadenaPistasObjecto(busquedaPapeleraDto);
-			pistaService.guardarPista(ModuloPista.SISTEMA.getId(),
-					TipoMovPista.IMPRIME_REGISTRO.getId(),
-					TipoSeccionPista.PAPELERA_RECICLAJE.getIdSeccionPista(), mov);
+
+			// pistaService.guardarPista(ModuloPista.SISTEMA.getId(),
+
+			// TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+			// TipoSeccionPista.PAPELERA_RECICLAJE.getIdSeccionPista(), mov);
 
 			return archivo;
 		} catch (PistaException e) {
@@ -424,9 +432,12 @@ public class PapeleraServiceImpl implements PapeleraService {
 			byte[] bytes = UtilZip.createZip(nombre, archivosInputStream);
 
 			String s = PistaUtil.cadenaPistasObjecto(busquedaPapeleraDto);
-			pistaService.guardarPista(ModuloPista.SISTEMA.getId(),
-					TipoMovPista.IMPRIME_REGISTRO.getId(),
-					TipoSeccionPista.PAPELERA_RECICLAJE.getIdSeccionPista(), s);
+
+			// pistaService.guardarPista(ModuloPista.SISTEMA.getId(),
+
+			// TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+			// TipoSeccionPista.PAPELERA_RECICLAJE.getIdSeccionPista(), s);
 
 			return bytes;
 		} catch (PistaException | ReporteException e) {
@@ -448,9 +459,12 @@ public class PapeleraServiceImpl implements PapeleraService {
 			byte[] bytes = UtilZip.convertInputStreamToByteArray(archivo);
 			
 			String movimiento = PistaUtil.cadenaPistasObjecto(papeleraModel);
-			pistaService.guardarPista(ModuloPista.SISTEMA.getId(),
-					TipoMovPista.IMPRIME_REGISTRO.getId(),
-					TipoSeccionPista.PAPELERA_RECICLAJE.getIdSeccionPista(), movimiento);
+
+			// pistaService.guardarPista(ModuloPista.SISTEMA.getId(),
+
+			// TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+			// TipoSeccionPista.PAPELERA_RECICLAJE.getIdSeccionPista(), movimiento);
 
 			return bytes;
 		} catch (PistaException | ReporteException e) {
@@ -476,9 +490,12 @@ public class PapeleraServiceImpl implements PapeleraService {
 			}
 			
 			String s = PistaUtil.cadenaPistasObjecto(busquedaPapeleraDto);
-			pistaService.guardarPista(ModuloPista.SISTEMA.getId(),
-					TipoMovPista.IMPRIME_REGISTRO.getId(),
-					TipoSeccionPista.PAPELERA_RECICLAJE.getIdSeccionPista(), s);
+
+			// pistaService.guardarPista(ModuloPista.SISTEMA.getId(),
+
+			// TipoMovPista.IMPRIME_REGISTRO.getId(),
+
+			// TipoSeccionPista.PAPELERA_RECICLAJE.getIdSeccionPista(), s);
 
 			return nexusService.compartirSoloLectura(rutaArchivos);
 		} catch (PistaException e) {

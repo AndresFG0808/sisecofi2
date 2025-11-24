@@ -118,8 +118,12 @@ public class ProveedorServiceImpl implements ProveedorService {
 		log.info("giro empresarial", giroEmpresarialModel.getIdGiroEmpresarial());
 		log.info(PISTA_GEN, builder.toString());
 
-		pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
-				TipoSeccionPista.PROVEEDORES.getIdSeccionPista(), builder.toString(), Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.INSERTA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.PROVEEDORES.getIdSeccionPista(), builder.toString(), Optional.empty());
 
 		return proveedorModel;
 
@@ -153,9 +157,15 @@ public class ProveedorServiceImpl implements ProveedorService {
 			return dto;
 		}).toList();
 
-		pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-				TipoSeccionPista.PROVEEDOR_DATOS_GENERALES.getIdSeccionPista(),
-				TipoMovPista.CONSULTA_REGISTRO.getClave(), Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.PROVEEDOR_DATOS_GENERALES.getIdSeccionPista(),
+
+
+		// TipoMovPista.CONSULTA_REGISTRO.getClave(), Optional.empty());
 
 		return new PageImpl<>(proveedoresDto, pageable, proveedoresPage.getTotalElements());
 	}
@@ -349,17 +359,22 @@ public class ProveedorServiceImpl implements ProveedorService {
 	private void guardarPistaConsulta(Long id) {
 		StringBuilder builder = new StringBuilder();
 		builder.append(ID_PROVEEDOR).append(id);
-		pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-				TipoSeccionPista.PROVEEDOR_DETALLE.getIdSeccionPista(), builder.toString(), Optional.empty());
+
+		// pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+		// TipoSeccionPista.PROVEEDOR_DETALLE.getIdSeccionPista(), builder.toString(), Optional.empty());
 	}
 
 	@Override
 	public List<CatalogoProveedorDto> listarProveedores() {
 
 		// pistas auditoria -Consulta
-		pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-				TipoSeccionPista.PROVEEDOR_DATOS_GENERALES.getIdSeccionPista(),
-				TipoMovPista.CONSULTA_REGISTRO.getClave(), Optional.empty());
+
+		// pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+		// TipoSeccionPista.PROVEEDOR_DATOS_GENERALES.getIdSeccionPista(),
+
+		// TipoMovPista.CONSULTA_REGISTRO.getClave(), Optional.empty());
 
 		List<ProveedorModel> proveedores = proveedorRepository.findAllByOrderByIdProveedorAsc();
 		return proveedores.stream().map(proveedor -> modelMapper.map(proveedor, CatalogoProveedorDto.class))
@@ -371,9 +386,12 @@ public class ProveedorServiceImpl implements ProveedorService {
 	public List<CatalogoProveedorDto> listarProveedoresActivos() {
 
 		// pistas auditoria -Consulta
-		pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-				TipoSeccionPista.PROVEEDOR_DATOS_GENERALES.getIdSeccionPista(),
-				TipoMovPista.CONSULTA_REGISTRO.getClave(), Optional.empty());
+
+		// pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+		// TipoSeccionPista.PROVEEDOR_DATOS_GENERALES.getIdSeccionPista(),
+
+		// TipoMovPista.CONSULTA_REGISTRO.getClave(), Optional.empty());
 
 		List<ProveedorModel> proveedores = proveedorRepository.findByEstatusOrderByNombreProveedorAsc(true);
 		return proveedores.stream().map(proveedor -> modelMapper.map(proveedor, CatalogoProveedorDto.class))
@@ -446,10 +464,18 @@ public class ProveedorServiceImpl implements ProveedorService {
 		  .append(giroEmpresarialModel.getIdGiroEmpresarial());
 		  log.info(PISTA_GEN, builder.toString());
 		  
-		  pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(),
-		  TipoMovPista.ACTUALIZA_REGISTRO.getId(),
-		  TipoSeccionPista.PROVEEDORES.getIdSeccionPista(), builder.toString(),
-		  Optional.empty());
+
+		  
+		  // pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(),
+
+		  
+		  // TipoMovPista.ACTUALIZA_REGISTRO.getId(),
+
+		  
+		  // TipoSeccionPista.PROVEEDORES.getIdSeccionPista(), builder.toString(),
+
+		  
+		  // Optional.empty());
 		  
 		 
 
@@ -515,8 +541,12 @@ public class ProveedorServiceImpl implements ProveedorService {
 		builder.append("Giro de la empresa: ").append(giroDeLaEmpresa).append(" | ").append("Título de servicio: ")
 				.append(tituloDeServicio).append(" | ").append("Cumple dictamen: ").append(cumpleDictamen);
 
-		pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
-				TipoSeccionPista.PROVEEDOR_DATOS_GENERALES.getIdSeccionPista(), builder.toString(), Optional.empty());
+
+
+		// pistaService.guardarPista(ModuloPista.PROVEEDORES.getId(), TipoMovPista.CONSULTA_REGISTRO.getId(),
+
+
+		// TipoSeccionPista.PROVEEDOR_DATOS_GENERALES.getIdSeccionPista(), builder.toString(), Optional.empty());
 	}
 
 	// Se agregan principios de SOLID
